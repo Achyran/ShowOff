@@ -9,11 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f76217e5e879eeb40b2d517ca7eaa845, type: 3}
-  m_Name: RayAvoidence
+  m_Script: {fileID: 11500000, guid: 3155b11da35d5b14991da7394ecabc9d, type: 3}
+  m_Name: New Move To Transform
   m_EditorClassIdentifier: 
-  filter: {fileID: 0}
-  whatIsObstical:
-    serializedVersion: 2
-    m_Bits: 256
-  viewDist: 3
+  point:
+  - {x: 0, y: 0, z: 0}
+  - {x: 200, y: 0, z: 0}
+  - {x: 50, y: 150, z: 0}
+  - {x: 0, y: 20, z: 70}
+  strenght: 1
+  radius: 10

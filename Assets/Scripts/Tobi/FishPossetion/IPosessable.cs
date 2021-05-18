@@ -4,5 +4,7 @@ using UnityEngine;
 
 public interface IPosessable
 {
+    public float time { get; set; }
+    public bool isPosessed { get; set; }
     public void Move();
 }

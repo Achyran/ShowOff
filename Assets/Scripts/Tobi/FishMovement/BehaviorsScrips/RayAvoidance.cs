@@ -17,7 +17,7 @@ public class RayAvoidance : FilterdFlockBehavior
         Debug.DrawRay(agent.transform.position, agent.transform.forward * viewDist, Color.black);
         if(Physics.Raycast(agent.transform.position ,agent.transform.forward, viewDist, whatIsObstical))
         {
-            FindFreePath(agent);
+           return FindFreePath(agent);
         }
 
         return Vector3.zero;
@@ -29,18 +29,20 @@ public class RayAvoidance : FilterdFlockBehavior
         //Shit I Where can i go ?
         for (int i = 1 ; i < TestRaycast.plottedPoints.Count; i++)
         {
-            if (Physics.Raycast(agent.transform.position, TestRaycast.plottedPoints[i], viewDist, whatIsObstical))
+            Vector3 point = Quaternion.LookRotation(agent.transform.forward) * TestRaycast.plottedPoints[i] ; 
+            if (Physics.Raycast(agent.transform.position, point , viewDist, whatIsObstical))
             {
-                Debug.DrawRay(agent.transform.position, TestRaycast.plottedPoints[i] * viewDist, Color.red);
+                Debug.DrawRay(agent.transform.position, point * viewDist, Color.red);
             }
             else
             {
                 if (!foundAWay)
                 {
-                    Debug.DrawRay(agent.transform.position, TestRaycast.plottedPoints[i] * viewDist, Color.green);
+                    Debug.DrawRay(agent.transform.position, point * viewDist, Color.green);
                     foundAWay = true;
+                    return point;
                 }
-                else Debug.DrawRay(agent.transform.position, TestRaycast.plottedPoints[i] * viewDist, Color.blue);
+                else Debug.DrawRay(agent.transform.position, point * viewDist, Color.blue);
                     //return TestRaycast.plottedPoints[i];
                     //Debug.Log($"Found with Index {i} the poit was {TestRaycast.plottedPoints[i]}");
                     // break;
