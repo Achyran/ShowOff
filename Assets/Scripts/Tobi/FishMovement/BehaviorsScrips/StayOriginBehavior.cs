@@ -6,7 +6,7 @@ using UnityEngine;
 public class StayOriginBehavior : FlockBehavior
 {
     [SerializeField]
-    private Vector3 origin;
+    public Vector3 origin;
     [SerializeField]
     private float raidus;
 
