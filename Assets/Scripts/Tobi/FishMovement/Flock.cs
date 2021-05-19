@@ -12,7 +12,7 @@ public class Flock : MonoBehaviour
     private FlockBehavior flockBehavior;
 
     [SerializeField]
-    [Range(1,1000)]
+    [Range(1,3000)]
     private int startingCount = 250;
 
     [SerializeField]
