@@ -143,6 +143,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{d55c600b-8237-4876-8957-96253392ae81}">
+		<property name="volume">
+			<value>-13</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{d6ced421-46da-4f9d-b6ea-acc30c01d3a1}</destination>
 		</relationship>
@@ -167,6 +170,9 @@
 	<object class="MultiSound" id="{8943799e-b5c6-4d83-bcbe-6ef9333f69d1}">
 		<property name="length">
 			<value>2.9547619047619049</value>
+		</property>
+		<property name="startOffset">
+			<value>10.5</value>
 		</property>
 		<relationship name="sounds">
 			<destination>{a3d5c070-6cee-42ed-bb3a-d4b4829e9b82}</destination>
@@ -330,7 +336,7 @@
 			<value>0</value>
 		</property>
 		<property name="length">
-			<value>2.9547619047619049</value>
+			<value>2.4000000000000004</value>
 		</property>
 		<relationship name="timeline">
 			<destination>{bb111d2c-4475-4c0c-9b9c-bb193945fd68}</destination>
