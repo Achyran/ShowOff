@@ -6,13 +6,16 @@ public class Flock : MonoBehaviour
 {
     // Exposed Variables
     [SerializeField]
+    bool enableCPUClac;
+
+    [SerializeField]
     private FlockAgent prefab;
 
     [SerializeField]
     private FlockBehavior flockBehavior;
 
     [SerializeField]
-    [Range(1,3000)]
+    [Range(1,1000)]
     private int startingCount = 250;
 
     [SerializeField]
@@ -70,6 +73,7 @@ public class Flock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if(enableCPUClac)
         foreach(FlockAgent agent in agents)
         {
             List<Transform> ctx = GetNearbyObjects(agent);
@@ -82,6 +86,10 @@ public class Flock : MonoBehaviour
                 move = move.normalized * maxSpeed;
             }
             agent.Move(move);
+        }
+        else
+        {
+            //Implement GPU Solution
         }
     }
     //Returns a list of all neerby objects without the origanal agent

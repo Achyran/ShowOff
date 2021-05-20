@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class ComputeShaderTest : MonoBehaviour
 {
-
+    
     public ComputeShader computeShader;
     public RenderTexture renderTexture;
     // Start is called before the first frame update
