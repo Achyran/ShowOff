@@ -1022,6 +1022,7 @@
 			<destination>{47b89acf-f12d-4cac-8515-f4dbaddcf157}</destination>
 			<destination>{0186c104-c79b-41b1-95b7-01f234d0de95}</destination>
 			<destination>{e914640d-35f2-491f-b525-22481b8ff80b}</destination>
+			<destination>{a7b7d239-9c40-4e15-826f-33e22671c3de}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{e4c8f196-1c2f-4645-99d5-42741460bb71}" />
@@ -1287,6 +1288,11 @@
 		</property>
 		<property name="dryLevel">
 			<value>-2</value>
+		</property>
+	</object>
+	<object class="CompressorEffect" id="{a7b7d239-9c40-4e15-826f-33e22671c3de}">
+		<property name="threshold">
+			<value>-13</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{d5b89491-be65-4805-907d-7c949711d4cf}">

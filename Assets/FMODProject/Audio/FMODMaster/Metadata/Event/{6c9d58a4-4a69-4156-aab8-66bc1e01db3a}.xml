@@ -1123,6 +1123,7 @@
 			<destination>{5e4adcd0-3ad4-4640-b4f9-fd7d73e7a4ab}</destination>
 			<destination>{b966a1e0-ed89-4c04-b7b2-64d3c4172951}</destination>
 			<destination>{29885397-76ea-4702-bfef-98ec25d22097}</destination>
+			<destination>{6debe788-4a78-4e75-b5fa-9d2635307de2}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{99c00ea6-c0c6-490b-ae23-6ed1edda0de2}" />
@@ -1412,6 +1413,11 @@
 		</property>
 		<property name="wetLevel">
 			<value>3.5</value>
+		</property>
+	</object>
+	<object class="CompressorEffect" id="{6debe788-4a78-4e75-b5fa-9d2635307de2}">
+		<property name="threshold">
+			<value>-13</value>
 		</property>
 	</object>
 	<object class="AutomationPoint" id="{c2ec96ea-6ca1-46f5-a3ea-e5b3b2166792}">
