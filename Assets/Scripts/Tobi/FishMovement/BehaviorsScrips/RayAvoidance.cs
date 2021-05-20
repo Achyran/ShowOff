@@ -10,11 +10,13 @@ public class RayAvoidance : FilterdFlockBehavior
     private LayerMask whatIsObstical;
     [SerializeField]
     private float viewDist;
+    [SerializeField]
+    bool DrawRayDebugg;
 
     public override Vector3 CalculateMove(FlockAgent agent, List<Transform> ctx, Flock flock)
     {
         //Test if something Physical is infront
-        Debug.DrawRay(agent.transform.position, agent.transform.forward * viewDist, Color.black);
+        if(DrawRayDebugg)Debug.DrawRay(agent.transform.position, agent.transform.forward * viewDist, Color.black);
         if(Physics.Raycast(agent.transform.position ,agent.transform.forward, viewDist, whatIsObstical))
         {
            return FindFreePath(agent);
@@ -32,17 +34,17 @@ public class RayAvoidance : FilterdFlockBehavior
             Vector3 point = Quaternion.LookRotation(agent.transform.forward) * TestRaycast.plottedPoints[i] ; 
             if (Physics.Raycast(agent.transform.position, point , viewDist, whatIsObstical))
             {
-                Debug.DrawRay(agent.transform.position, point * viewDist, Color.red);
+               if(DrawRayDebugg) Debug.DrawRay(agent.transform.position, point * viewDist, Color.red);
             }
             else
             {
                 if (!foundAWay)
                 {
-                    Debug.DrawRay(agent.transform.position, point * viewDist, Color.green);
+                    if(DrawRayDebugg) Debug.DrawRay(agent.transform.position, point * viewDist, Color.green);
                     foundAWay = true;
                     return point;
                 }
-                else Debug.DrawRay(agent.transform.position, point * viewDist, Color.blue);
+                else if(DrawRayDebugg) Debug.DrawRay(agent.transform.position, point * viewDist, Color.blue);
                     //return TestRaycast.plottedPoints[i];
                     //Debug.Log($"Found with Index {i} the poit was {TestRaycast.plottedPoints[i]}");
                     // break;
