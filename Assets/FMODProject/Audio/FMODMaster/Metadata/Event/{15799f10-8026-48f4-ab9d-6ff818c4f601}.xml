@@ -75,6 +75,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{bf3ba8d4-7175-4484-ac82-03ac9f35be5b}">
+		<property name="volume">
+			<value>6.5</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{a06d2b4a-195c-4dcc-a021-e78504822423}</destination>
 		</relationship>
@@ -114,7 +117,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{9f2bd360-d9f5-4f49-bcc9-ed1d80ef55c3}">
 		<property name="volume">
-			<value>-2.5</value>
+			<value>1.5</value>
 		</property>
 		<property name="name">
 			<value>Audio 1</value>
@@ -295,7 +298,7 @@
 			<value>Range Max</value>
 		</property>
 		<property name="value">
-			<value>10000</value>
+			<value>8000</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,5.000000)(2.000000,10.000000)(3.000000,100.000000)(4.000000,1000.000000)(5.000000,10000.000000)}</value>
