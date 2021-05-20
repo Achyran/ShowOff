@@ -72,18 +72,23 @@ public class Flock : MonoBehaviour
         squareNeighborRadius = neighbourRaidus * neighbourRaidus;
         squareAvoidanceRadius = neighbourRaidus * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
 
+        SpawnFish();
+        
+    }
 
+    private void SpawnFish()
+    {
         //Instanciate all flock Agents
-        for(int i = 0; i <startingCount; i++)
+        for (int i = 0; i < startingCount; i++)
         {
             FlockAgent newAgent = Instantiate(
                 prefab,
-                Random.insideUnitSphere * startingCount * agentDensity,
+                transform.position + (Random.insideUnitSphere * startingCount * agentDensity),
                 Quaternion.Euler(Vector3.up * Random.Range(0f, 100f)),
                 transform);
             newAgent.name = $"Agent{i}";
             newAgent.Initialize(this);
-            agents.Add(newAgent);                
+            agents.Add(newAgent);
         }
     }
 
