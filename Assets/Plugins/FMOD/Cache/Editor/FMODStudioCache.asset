@@ -200,6 +200,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &-8437628190836770969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Character Movement/Sand
+  m_EditorClassIdentifier: 
+  Name: Sand
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-8420561138603688477
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -275,7 +295,7 @@ MonoBehaviour:
   Path: Assets/FMODProject/Audio/FMODMaster/Build/Desktop/Master.bank
   Name: Master
   StudioPath: bank:/Master
-  lastModified: 637571139840000000
+  lastModified: 637571250448119803
   LoadResult: 0
   FileSizes: []
   Exists: 1
@@ -1059,6 +1079,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 1
+--- !u!114 &-6206777286545770609
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Generic 80BPM/Progression
+  m_EditorClassIdentifier: 
+  Name: Progression
+  Min: 1
+  Max: 5
+  Default: 1
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &-5885507187921424993
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1517,11 +1557,11 @@ MonoBehaviour:
   Path: Assets/FMODProject/Audio/FMODMaster/Build/Desktop/Master.strings.bank
   Name: Master.strings
   StudioPath: bank:/Master.strings
-  lastModified: 637571139840000000
+  lastModified: 637571250448129774
   LoadResult: 0
   FileSizes:
   - Name: Desktop
-    Value: 1840
+    Value: 1806
   Exists: 1
 --- !u!114 &-4194755762794156492
 MonoBehaviour:
@@ -1934,6 +1974,26 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/Generic 80BPM/Health
+  m_EditorClassIdentifier: 
+  Name: Health
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &-3021590815699900516
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Adventure 120 BPM/Health
   m_EditorClassIdentifier: 
   Name: Health
   Min: 0
@@ -2383,10 +2443,10 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -4698300247606728920}
-  - {fileID: 1657437318194563824}
-  - {fileID: 2984325889841381551}
-  - {fileID: 8578300321647069694}
+  - {fileID: 6055836322821642855}
+  - {fileID: 5706561051879873987}
+  - {fileID: 1056919109836347572}
+  - {fileID: -8437628190836770969}
   MinDistance: 0
   MaxDistance: 0
   Length: 2954
@@ -2845,7 +2905,7 @@ MonoBehaviour:
   - {fileID: -8388231996318282627}
   StringsBanks:
   - {fileID: -4234427552045252338}
-  stringsBankWriteTime: 637571139840000000
+  stringsBankWriteTime: 637571250448129774
   cacheVersion: 6
 --- !u!114 &35362414459261200
 MonoBehaviour:
@@ -2863,6 +2923,26 @@ MonoBehaviour:
   Min: 1
   Max: 5
   Default: 1
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &154342648340012730
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Beautiful 90BPM/Health
+  m_EditorClassIdentifier: 
+  Name: Health
+  Min: 0
+  Max: 100
+  Default: 100
   ID:
     data1: 0
     data2: 0
@@ -2923,6 +3003,26 @@ MonoBehaviour:
   Min: 1
   Max: 5
   Default: 1
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &288366805650760656
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Dramatic 120BPM/Health
+  m_EditorClassIdentifier: 
+  Name: Health
+  Min: 0
+  Max: 100
+  Default: 100
   ID:
     data1: 0
     data2: 0
@@ -3003,6 +3103,26 @@ MonoBehaviour:
   Min: 0
   Max: 100
   Default: 100
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &1056919109836347572
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Character Movement/Wood
+  m_EditorClassIdentifier: 
+  Name: Wood
+  Min: 0
+  Max: 1
+  Default: 0
   ID:
     data1: 0
     data2: 0
@@ -3386,11 +3506,30 @@ MonoBehaviour:
   IsStream: 1
   Is3D: 0
   IsOneShot: 0
-  Parameters:
-  - {fileID: 5447636080598924308}
+  Parameters: []
   MinDistance: 0
   MaxDistance: 0
   Length: 48683
+--- !u!114 &2591940262702664820
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Beautiful 90BPM/Progression
+  m_EditorClassIdentifier: 
+  Name: Progression
+  Min: 1
+  Max: 5
+  Default: 1
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &2659649984705207925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3454,6 +3593,26 @@ MonoBehaviour:
   MinDistance: 0
   MaxDistance: 0
   Length: 30000
+--- !u!114 &2802663914878493906
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Bubbles/Bubbles
+  m_EditorClassIdentifier: 
+  Name: Bubbles
+  Min: 0
+  Max: 1
+  Default: 1
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &2812425151150901237
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3617,8 +3776,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 271446888946917982}
-  - {fileID: -7474942423082659091}
+  - {fileID: 6196609105226412056}
+  - {fileID: 288366805650760656}
   MinDistance: 0
   MaxDistance: 0
   Length: 167081
@@ -4088,8 +4247,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -4189888543281039489}
-  - {fileID: -5732613272800474252}
+  - {fileID: -3021590815699900516}
+  - {fileID: 6000542542936756383}
   MinDistance: 0
   MaxDistance: 0
   Length: 86098
@@ -4173,11 +4332,31 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -8403632488219772537}
-  - {fileID: -893710548737179629}
+  - {fileID: 154342648340012730}
+  - {fileID: 2591940262702664820}
   MinDistance: 0
   MaxDistance: 0
   Length: 335377
+--- !u!114 &5666333098499214888
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Generic 80BPM/Health
+  m_EditorClassIdentifier: 
+  Name: Health
+  Min: 0
+  Max: 100
+  Default: 100
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &5698577955814082764
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4198,6 +4377,26 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &5706561051879873987
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Character Movement/Stone
+  m_EditorClassIdentifier: 
+  Name: Stone
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &5794437515028488767
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4298,6 +4497,46 @@ MonoBehaviour:
     data1: 0
     data2: 0
   Exists: 0
+--- !u!114 &6000542542936756383
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Adventure 120 BPM/Progression
+  m_EditorClassIdentifier: 
+  Name: Progression
+  Min: 1
+  Max: 5
+  Default: 1
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &6055836322821642855
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Character Movement/Water
+  m_EditorClassIdentifier: 
+  Name: Water
+  Min: 0
+  Max: 1
+  Default: 0
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
 --- !u!114 &6176014931763097513
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4309,6 +4548,26 @@ MonoBehaviour:
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
   m_Name: parameter:/Beautiful 90BPM/Progression
+  m_EditorClassIdentifier: 
+  Name: Progression
+  Min: 1
+  Max: 5
+  Default: 1
+  ID:
+    data1: 0
+    data2: 0
+  Exists: 1
+--- !u!114 &6196609105226412056
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fecb8ef7f94ca804a8ab72049b86782e, type: 3}
+  m_Name: parameter:/Dramatic 120BPM/Progression
   m_EditorClassIdentifier: 
   Name: Progression
   Min: 1
@@ -4638,7 +4897,7 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: 1096018133970428765}
+  - {fileID: 2802663914878493906}
   MinDistance: 0
   MaxDistance: 0
   Length: 5000
@@ -5002,8 +5261,8 @@ MonoBehaviour:
   Is3D: 0
   IsOneShot: 0
   Parameters:
-  - {fileID: -5490566146156818317}
-  - {fileID: 336138413008818865}
+  - {fileID: -6206777286545770609}
+  - {fileID: 5666333098499214888}
   MinDistance: 0
   MaxDistance: 0
   Length: 129096

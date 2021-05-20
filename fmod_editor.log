@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 00000288897E42D8 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001EA5A5BAB58 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -16,162 +16,239 @@
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
-[LOG] Manager::receiveLiveUpdateBank           : Received live update bank path: fmod:///remote/C:/Users/Thomas/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-NVbggb/hotswap_51.bank
-[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'C:/Users/Thomas/AppData/Local/FMOD Studio/UnsavedProjects/Hotswap-NVbggb/hotswap_51.bank'
-[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
-[LOG] SoundI::release                          :  (00000287BAEF9808)
-[LOG] SoundI::release                          :     412766__ohnobones__underwater-hullcreaking (00000287799B9748)
-[LOG] SoundI::release                          :  (00000287BAEFD188)
-[LOG] SoundI::release                          :     water-underwater-distant-explosion-rumble_GyIPV5VO (00000287799B9F68)
-[LOG] SoundI::release                          :  (00000287BAEFAC28)
-[LOG] SoundI::release                          :     74908__mjudo12__freewilly (00000287799B8088)
-[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote/E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/412766__ohnobones__underwater-hullcreaking.mp3', mode=0x0200C202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/412766__ohnobones__underwater-hullcreaking.mp3'
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 3
-[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=2, frequency=44100, lengthbytes=261641, lengthpcm=360576, pcmblocksize=1152, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
-[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote/E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/529620__kostas17__massive-structure-bend.wav', mode=0x0200C202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/529620__kostas17__massive-structure-bend.wav'
-[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=2, frequency=48000, lengthbytes=3456856, lengthpcm=864214, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
-[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote/E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/water-underwater-distant-explosion-rumble_GyIPV5VO.wav', mode=0x0200C202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/water-underwater-distant-explosion-rumble_GyIPV5VO.wav'
-[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=3, channels=2, frequency=44100, lengthbytes=1034286, lengthpcm=172381, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
-[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote/E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/explosion-underwater_GJ9kkcEu.wav', mode=0x0200C202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/explosion-underwater_GJ9kkcEu.wav'
-[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=3, channels=2, frequency=44100, lengthbytes=4629582, lengthpcm=771597, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
-[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote/E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/186899__tritus__whale.wav', mode=0x0200C202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/186899__tritus__whale.wav'
-[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=3, channels=2, frequency=44100, lengthbytes=2774016, lengthpcm=462336, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
-[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote/E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/171945__rebekahday__lowwhalesong.wav', mode=0x0200C202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/171945__rebekahday__lowwhalesong.wav'
-[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=2, frequency=44100, lengthbytes=2825840, lengthpcm=706460, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
-[LOG] SystemI::createSoundInternal             : Create name='fmod:///remote/E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/74908__mjudo12__freewilly.mp3', mode=0x0200C202
-[LOG] SystemI::createSoundInternal             : exinfo->cbsize             = 224
-[LOG] SystemI::createSoundInternal             : exinfo->initialseekpostype = 1
-[LOG] ProfileRemoteFile::fileOpen              : Attemping to open remote file 'E:/Gitfolder2/ShowOff/Assets/FMODProject/Audio/FMODMaster/Assets/74908__mjudo12__freewilly.mp3'
-[LOG] SystemI::DSPCodecPoolRegister            : register codec pool for pool type 3
-[LOG] SystemI::createSoundInternal             : Sample 0/0: name='(null)', format=2, channels=2, frequency=44100, lengthbytes=68128, lengthpcm=375552, pcmblocksize=1152, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.000000.
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[WRN] SoundSourceInstrumentInstance::startChannelIfReady : Loading delay exceeded, sound may play at incorrect time
-[LOG] SoundI::release                          : 529620__kostas17__massive-structure-bend (00000287C7D18C48)
-[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (0000028774B89A58)
-[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (00000287C7D1D9E8)
-[LOG] SoundI::release                          : 171945__rebekahday__lowwhalesong (00000287BB4C7B08)
-[LOG] SoundI::release                          :     171945__rebekahday__lowwhalesong (0000028774B89D98)
-[LOG] SoundI::release                          :     171945__rebekahday__lowwhalesong (00000287BB4C8F48)
-[LOG] SoundI::release                          :  (00000287BAEF9F38)
-[LOG] SoundI::release                          :     Bubbles7 (00000287799B83C8)
-[LOG] SoundI::release                          :  (00000287BAEFAD98)
-[LOG] SoundI::release                          :     Bubbles8 (00000287799BB148)
-[LOG] SoundI::release                          :  (00000287BAEFA7D8)
-[LOG] SoundI::release                          :     Bubbles1 (00000287799BB7C8)
-[LOG] SoundI::release                          :  (00000287BAEFB078)
-[LOG] SoundI::release                          :     Bubbles2 (0000028774B8C638)
-[LOG] SoundI::release                          :  (00000287BAEFDE78)
-[LOG] SoundI::release                          :     Bubbles3 (00000287799B8708)
-[LOG] SoundI::release                          :  (00000287BAEFC048)
-[LOG] SoundI::release                          :     Bubbles4 (00000287799BB488)
-[LOG] SoundI::release                          :  (00000287BAEFA948)
-[LOG] SoundI::release                          :     Bubbles5 (00000287799BAAC8)
-[LOG] SoundI::release                          :  (00000287BAEFC8E8)
-[LOG] SoundI::release                          :     Bubbles6 (00000287799B88A8)
-[LOG] SoundI::release                          : 529620__kostas17__massive-structure-bend.wav (00000287C5DE9B58)
-[LOG] SoundI::release                          : water-underwater-distant-explosion-rumble_GyIPV5VO.wav (00000287C5DE9CF8)
-[LOG] SoundI::release                          : explosion-underwater_GJ9kkcEu.wav (00000287C5DEC3F8)
-[LOG] SoundI::release                          : 412766__ohnobones__underwater-hullcreaking.mp3 (00000287C5DE9198)
-[LOG] SoundI::release                          : 186899__tritus__whale.wav (00000287C5DEA858)
-[LOG] SoundI::release                          : 171945__rebekahday__lowwhalesong.wav (00000287C5DEA518)
-[LOG] SoundI::release                          :  (00000287BAEF90D8)
-[LOG] SoundI::release                          :     351408__newagesoup__gleam-glow-sfx-chime (0000028774B8B118)
-[LOG] SoundI::release                          :  (00000287BAEFD748)
-[LOG] SoundI::release                          :     558155__kratosc2__magical-glowing (0000028774B8BE18)
-[LOG] SoundI::release                          :  (00000287BAEFBED8)
-[LOG] SoundI::release                          :     241193__rastaman94__a-light-in-the-dark (00000287799BAFA8)
-[LOG] SoundI::release                          : 74908__mjudo12__freewilly.mp3 (00000287C5DEA9F8)
-[LOG] SoundI::release                          :  (00000287BAEF8B18)
-[LOG] SoundI::release                          :     Stone1 (0000028774B8B2B8)
-[LOG] SoundI::release                          :  (00000287BAEFB4C8)
-[LOG] SoundI::release                          :     Stone2 (0000028774B89BF8)
-[LOG] SoundI::release                          :  (00000287BAEFB358)
-[LOG] SoundI::release                          :     Stone3 (00000287799BA2A8)
-[LOG] SoundI::release                          :  (00000287BAEFCA58)
-[LOG] SoundI::release                          :     Stone4 (0000028774B8D4D8)
-[LOG] SoundI::release                          :  (00000287BAEFA668)
-[LOG] SoundI::release                          :     Stone5 (00000287799BB628)
-[LOG] SoundI::release                          :  (00000287BAEFA0A8)
-[LOG] SoundI::release                          :     Stone6 (00000287799B95A8)
-[LOG] SoundI::release                          :  (00000287BAEFCEA8)
-[LOG] SoundI::release                          :     Stone7 (00000287799B9268)
-[LOG] SoundI::release                          :  (00000287BAEFD5D8)
-[LOG] SoundI::release                          :     Stone8 (0000028774B8CCB8)
-[LOG] SoundI::release                          :  (00000287BAEFAF08)
-[LOG] SoundI::release                          :     Sand7 (00000287799BAE08)
-[LOG] SoundI::release                          :  (00000287BAEFA218)
-[LOG] SoundI::release                          :     Sand8 (00000287799B8D88)
-[LOG] SoundI::release                          :  (00000287BAEFD468)
-[LOG] SoundI::release                          :     Sand1 (00000287799B8A48)
-[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (00000287C7D1E768)
-[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000028774B8A418)
-[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (00000287C7D1C098)
-[LOG] SoundI::release                          : 258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (00000287C7D19ED8)
-[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (00000287BFB49558)
-[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (00000287C7D1D328)
-[LOG] SoundI::release                          :  (00000287BAEFB918)
-[LOG] SoundI::release                          :     Sand2 (00000287799BBB08)
-[LOG] SoundI::release                          :  (00000287BAEF9C58)
-[LOG] SoundI::release                          :     Sand3 (00000287799BBE48)
-[LOG] SoundI::release                          :  (00000287BAEFAAB8)
-[LOG] SoundI::release                          :     Sand4 (00000287799BA448)
-[LOG] SoundI::release                          :  (00000287BAEFA388)
-[LOG] SoundI::release                          :     Sand5 (00000287799B9408)
-[LOG] SoundI::release                          :  (00000287BAEFDD08)
-[LOG] SoundI::release                          :     Sand6 (00000287799B8BE8)
-[LOG] SoundI::release                          :  (00000287BAEFD8B8)
-[LOG] SoundI::release                          :     Movement4 (00000287799B9DC8)
-[LOG] SoundI::release                          :  (00000287BAEFCD38)
-[LOG] SoundI::release                          :     Movement5 (0000028774B8BFB8)
-[LOG] SoundI::release                          :  (00000287BAEFBBF8)
-[LOG] SoundI::release                          :     Movement1 (00000287799BA108)
-[LOG] SoundI::release                          :  (00000287BAEF9AE8)
-[LOG] SoundI::release                          :     Movement2 (00000287799BB2E8)
-[LOG] SoundI::release                          :  (00000287BAEFCBC8)
-[LOG] SoundI::release                          :     Movement3 (00000287799B8F28)
-[LOG] SoundI::release                          :  (00000287BAEFD2F8)
-[LOG] SoundI::release                          :     Wood1 (00000287799BAC68)
-[LOG] SoundI::release                          :  (00000287BAEF93B8)
-[LOG] SoundI::release                          :     Wood2 (00000287799BA5E8)
-[LOG] SoundI::release                          :  (00000287BAEF83E8)
-[LOG] SoundI::release                          :     Wood3 (0000028774B8A278)
-[LOG] SoundI::release                          :  (00000287BAEF8C88)
-[LOG] SoundI::release                          :     Wood4 (00000287799BA788)
-[LOG] SoundI::release                          :  (00000287BAEFDA28)
-[LOG] SoundI::release                          :     Wood5 (0000028774B89F38)
-[LOG] SoundI::release                          :  (00000287BAEFD018)
-[LOG] SoundI::release                          :     Wood6 (00000287799B9C28)
-[LOG] SoundI::release                          :  (00000287BAEF9DC8)
-[LOG] SoundI::release                          :     Wood7 (00000287799B98E8)
-[LOG] SoundI::release                          :  (00000287BAEFDB98)
-[LOG] SoundI::release                          :     Wood8 (00000287799B8228)
-[LOG] SoundI::release                          :  (00000287BAEF8DF8)
-[LOG] SoundI::release                          :     448460__psiboy123__underwater-white-noise (00000287799B90C8)
+[LOG] SoundI::release                          : 186899__tritus__whale (000001EA490DAC88)
+[LOG] SoundI::release                          :     186899__tritus__whale (000001EA04FD50B8)
+[LOG] SoundI::release                          :     186899__tritus__whale (000001E787E9EDF8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001EA490DAC88 : node = 000001EA5A6D0D90
+[LOG] SystemI::createSound                     : add node to async list : head = 000001EA4ED371F8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001EA490DAC88
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001EA5A6D0EA0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001EA490DAC88
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (000001EA490DA0B8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000001EA04FD5F58)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000001E787E9E738)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001E7800B1AE8 : node = 000001EA5A6CF990
+[LOG] SystemI::createSound                     : add node to async list : head = 000001EA4ED371F8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001E7800B1AE8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001EA5A6CFAA0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001E7800B1AE8
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (000001EA490DAC88)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000001EA04FD4558)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000001E787E9EDF8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001E7800B1788 : node = 000001EA5A6CFAD0
+[LOG] SystemI::createSound                     : add node to async list : head = 000001EA4ED371F8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001E7800B1788
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001EA5A6CFBE0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='171945__rebekahday__lowwhalesong', format=5, channels=2, frequency=48000, lengthbytes=174080, lengthpcm=768936, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.178802.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001E7800B1788
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001E7AEAA5B38 : node = 000001EA5A6CFC10
+[LOG] SystemI::createSound                     : add node to async list : head = 000001EA4ED371F8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001E7AEAA5B38
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001EA5A6CFD20
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='529620__kostas17__massive-structure-bend', format=5, channels=2, frequency=48000, lengthbytes=145184, lengthpcm=864214, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.517303.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001E7AEAA5B38
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001E7AEAA5478 : node = 000001EA5A6CF0D0
+[LOG] SystemI::createSound                     : add node to async list : head = 000001EA4ED371F8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001E7AEAA5478
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001EA5A6CF1E0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001E7AEAA5478
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (000001E7800B1AE8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000001EA04FD5F58)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000001E787E9E078)
+[LOG] SoundI::release                          : 258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (000001E7800B15D8)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (000001EA04FCE8B8)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (000001E787E9EA98)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001E7800B15D8 : node = 000001EA5A6D1150
+[LOG] SystemI::createSound                     : add node to async list : head = 000001EA4ED371F8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001E7800B15D8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001EA5A6D1260
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='explosion-underwater_GJ9kkcEu', format=5, channels=2, frequency=48000, lengthbytes=129568, lengthpcm=839833, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.465668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001E7800B15D8
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (000001E7AEAA5478)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000001EA04FD3ED8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000001E787E9E738)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000001E7AEAA5CE8 : node = 000001EA5A6D0B10
+[LOG] SystemI::createSound                     : add node to async list : head = 000001EA4ED371F8.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000001E7AEAA5CE8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 000001EA5A6D0C20
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000001E7AEAA5CE8
+[LOG] SoundI::release                          :  (000001E981C650E8)
+[LOG] SoundI::release                          :     Bubbles7 (000001EA04FD5DB8)
+[LOG] SoundI::release                          :  (000001E981C653C8)
+[LOG] SoundI::release                          :     Bubbles8 (000001EA04FD1978)
+[LOG] SoundI::release                          :  (000001E981C5E7F8)
+[LOG] SoundI::release                          :     Bubbles1 (000001EA04FCB998)
+[LOG] SoundI::release                          :  (000001E981C646D8)
+[LOG] SoundI::release                          :     Bubbles2 (000001EA04FD1E58)
+[LOG] SoundI::release                          :  (000001E981C604B8)
+[LOG] SoundI::release                          :     Bubbles3 (000001EA04FCE238)
+[LOG] SoundI::release                          :  (000001E981C5B718)
+[LOG] SoundI::release                          :     Bubbles4 (000001EA04FCA2D8)
+[LOG] SoundI::release                          :  (000001E981C5CB38)
+[LOG] SoundI::release                          :     Bubbles5 (000001EA04FD0458)
+[LOG] SoundI::release                          :  (000001E981C61488)
+[LOG] SoundI::release                          :     Bubbles6 (000001EA04FD1B18)
+[LOG] SoundI::release                          :  (000001E981C64B28)
+[LOG] SoundI::release                          :     412766__ohnobones__underwater-hullcreaking (000001EA04FD46F8)
+[LOG] SoundI::release                          :  (000001E981C63878)
+[LOG] SoundI::release                          :     water-underwater-distant-explosion-rumble_GyIPV5VO (000001EA04FD1498)
+[LOG] SoundI::release                          :  (000001E981C643F8)
+[LOG] SoundI::release                          :     351408__newagesoup__gleam-glow-sfx-chime (000001EA04FD6C58)
+[LOG] SoundI::release                          :  (000001E981C611A8)
+[LOG] SoundI::release                          :     558155__kratosc2__magical-glowing (000001EA04FD3B98)
+[LOG] SoundI::release                          :  (000001E981C615F8)
+[LOG] SoundI::release                          :     241193__rastaman94__a-light-in-the-dark (000001EA04FD5C18)
+[LOG] SoundI::release                          :  (000001E981C5E238)
+[LOG] SoundI::release                          :     74908__mjudo12__freewilly (000001EA04FD05F8)
+[LOG] SoundI::release                          :  (000001E981C60908)
+[LOG] SoundI::release                          :     448460__psiboy123__underwater-white-noise (000001EA04FD02B8)
+[LOG] SoundI::release                          : 171945__rebekahday__lowwhalesong (000001E7800B1788)
+[LOG] SoundI::release                          :     171945__rebekahday__lowwhalesong (000001EA04FD50B8)
+[LOG] SoundI::release                          :     171945__rebekahday__lowwhalesong (000001E787E9E3D8)
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (000001E7AEAA5CE8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000001EA04FD6AB8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000001E780FCE0D8)
+[LOG] SoundI::release                          : explosion-underwater_GJ9kkcEu (000001E7800B15D8)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (000001EA04FCE8B8)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (000001E787E9EDF8)
+[LOG] SoundI::release                          : 529620__kostas17__massive-structure-bend (000001E7AEAA5B38)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (000001EA04FD3378)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (000001E787E9E228)
+[LOG] SoundI::release                          :  (000001E981C65538)
+[LOG] SoundI::release                          :     Stone1 (000001EA04FD2198)
+[LOG] SoundI::release                          :  (000001E981C62458)
+[LOG] SoundI::release                          :     Stone2 (000001EA04FD4898)
+[LOG] SoundI::release                          :  (000001E981C5C6E8)
+[LOG] SoundI::release                          :     Stone3 (000001EA04FCAC98)
+[LOG] SoundI::release                          :  (000001E981C60EC8)
+[LOG] SoundI::release                          :     Stone4 (000001EA04FD6298)
+[LOG] SoundI::release                          :  (000001E981C63148)
+[LOG] SoundI::release                          :     Stone5 (000001EA04FD2818)
+[LOG] SoundI::release                          :  (000001E981C66508)
+[LOG] SoundI::release                          :     Stone6 (000001EA04FD6918)
+[LOG] SoundI::release                          :  (000001E981C625C8)
+[LOG] SoundI::release                          :     Stone7 (000001EA04FD0FB8)
+[LOG] SoundI::release                          :  (000001E981C64F78)
+[LOG] SoundI::release                          :     Stone8 (000001EA04FD29B8)
+[LOG] SoundI::release                          :  (000001E981C649B8)
+[LOG] SoundI::release                          :     Sand7 (000001EA04FD4BD8)
+[LOG] SoundI::release                          :  (000001E981C66398)
+[LOG] SoundI::release                          :     Sand8 (000001EA04FD17D8)
+[LOG] SoundI::release                          :  (000001E981C65AF8)
+[LOG] SoundI::release                          :     Sand1 (000001EA04FD4D78)
+[LOG] SoundI::release                          :  (000001E981C601D8)
+[LOG] SoundI::release                          :     Sand2 (000001EA04FCA958)
+[LOG] SoundI::release                          :  (000001E981C5B9F8)
+[LOG] SoundI::release                          :     Sand3 (000001EA04FCEF38)
+[LOG] SoundI::release                          :  (000001E981C65C68)
+[LOG] SoundI::release                          :     Sand4 (000001EA04FD0E18)
+[LOG] SoundI::release                          :  (000001E981C65988)
+[LOG] SoundI::release                          :     Sand5 (000001EA04FD2B58)
+[LOG] SoundI::release                          :  (000001E981C64C98)
+[LOG] SoundI::release                          :     Sand6 (000001EA04FD12F8)
+[LOG] SoundI::release                          :  (000001E981C65258)
+[LOG] SoundI::release                          :     Movement4 (000001EA04FD2678)
+[LOG] SoundI::release                          :  (000001E981C61768)
+[LOG] SoundI::release                          :     Movement5 (000001EA04FD4A38)
+[LOG] SoundI::release                          :  (000001E981C64288)
+[LOG] SoundI::release                          :     Movement1 (000001EA04FCC698)
+[LOG] SoundI::release                          :  (000001E981C5D0F8)
+[LOG] SoundI::release                          :     Movement2 (000001EA04FCC9D8)
+[LOG] SoundI::release                          :  (000001E981C66678)
+[LOG] SoundI::release                          :     Movement3 (000001EA04FD39F8)
+[LOG] SoundI::release                          :  (000001E981C5F208)
+[LOG] SoundI::release                          :     Wood1 (000001EA04FCC1B8)
+[LOG] SoundI::release                          :  (000001E981C5EC48)
+[LOG] SoundI::release                          :     Wood2 (000001EA04FCB7F8)
+[LOG] SoundI::release                          :  (000001E981C62CF8)
+[LOG] SoundI::release                          :     Wood3 (000001EA04FD1FF8)
+[LOG] SoundI::release                          :  (000001E981C64E08)
+[LOG] SoundI::release                          :     Wood4 (000001EA04FD3858)
+[LOG] SoundI::release                          :  (000001E981C60D58)
+[LOG] SoundI::release                          :     Wood5 (000001EA04FD5258)
+[LOG] SoundI::release                          :  (000001E981C5B888)
+[LOG] SoundI::release                          :     Wood6 (000001EA04FCB4B8)
+[LOG] SoundI::release                          :  (000001E981C5CE18)
+[LOG] SoundI::release                          :     Wood7 (000001EA04FCB658)
+[LOG] SoundI::release                          :  (000001E981C5EDB8)
+[LOG] SoundI::release                          :     Wood8 (000001EA04FCD1F8)
 [LOG] Thread::callback                         : FMOD Studio update thread finished.
 [LOG] Thread::callback                         : FMOD Studio bank load thread finished.
-[LOG] ProfileClient::markForDead               : Closing client connection
 [LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
-[LOG] FMOD_OS_Net_Read                         : Interrupted.[LOG] ProfileClient::recvThreadLoopFunction    : Socket disconnected
-[LOG] Thread::callback                         : FMOD profiler thread (recv) finished.
-[LOG] Thread::callback                         : FMOD profiler thread (send) finished.
 [LOG] Thread::callback                         : FMOD Studio sample load thread finished.
 [LOG] LiveUpdate::release                      : 
 [LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
