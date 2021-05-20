@@ -53,7 +53,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Active: 0
   settings:
-    passTag: Shader
+    passTag: GlobalParticles
     Event: 300
     filterSettings:
       RenderQueueType: 0
@@ -62,12 +62,12 @@ MonoBehaviour:
         m_Bits: 4294967295
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 76ab6dc840825be4b906ad77859e6e41, type: 2}
-    overrideMaterialPassIndex: 4
-    overrideDepthState: 0
+    overrideMaterialPassIndex: 0
+    overrideDepthState: 1
     depthCompareFunction: 4
     enableWrite: 1
     stencilSettings:
-      overrideStencilState: 0
+      overrideStencilState: 1
       stencilReference: 0
       stencilCompareFunction: 8
       passOperation: 0
