@@ -5,12 +5,19 @@
 #endif
 
 using UnityEngine;
+using Cinemachine;
 
 
 public class Player : MonoBehaviour
 {
 	public GameObject notepad;
-	public Camera playerCam;
+	public Camera mainCam;
+	public CinemachineVirtualCamera playerCam;
+	public CinemachineFreeLook objectCam;
+	public LayerMask playerLayer;
+	private bool playerFrozen = false;
+	private GameObject inspectingObject;
+	private OutlineScript lastOutline;
 
 	class CameraState
 	{
@@ -154,7 +161,7 @@ public class Player : MonoBehaviour
 			ToggleNotebook();
 		}
 
-		if (!notepad.activeInHierarchy)
+		if (!playerFrozen)
 		{
 
 			var mouseMovement = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y") * (invertY ? 1 : -1));
@@ -183,14 +190,63 @@ public class Player : MonoBehaviour
 
 			m_InterpolatingCameraState.UpdateTransform(transform);
 
+			/*
 			RaycastHit hit;
-			if (Physics.Raycast(playerCam.ScreenPointToRay(new Vector3(playerCam.pixelWidth / 2, playerCam.pixelHeight / 2)), out hit))
+			if (Physics.Raycast(mainCam.ScreenPointToRay(new Vector3(mainCam.pixelWidth / 2, mainCam.pixelHeight / 2)), out hit))
 			{
-				if(hit.transform.gameObject.tag == "Interactable" && Input.GetMouseButtonDown(0))
-					Destroy(hit.transform.gameObject);
+				if (hit.transform.gameObject.tag == "Interactable" && Input.GetMouseButtonDown(0))
+					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
+					CameraSwitch(hit.transform.GetChild(0).gameObject);
 			}
+			*/
+			RaycastHit hit;
+			if (Physics.Raycast(transform.position, transform.forward, out hit))
+			{
+				
+				if (hit.transform.gameObject.tag == "Interactable")
+				{
+					lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
+					lastOutline.outlineObject.gameObject.SetActive(true);
+
+					if(Input.GetMouseButtonDown(0))
+					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
+						CameraSwitch(hit.transform.GetChild(0).gameObject);
+
+				}
+				else if (lastOutline != null)
+					lastOutline.outlineObject.gameObject.SetActive(false);
+
+			}
+			else if (lastOutline != null)
+				lastOutline.outlineObject.gameObject.SetActive(false);
+
+
+
+		}
+		//Switching out of inspection mode
+		else if (inspectingObject != null && Input.GetMouseButtonDown(0))
+		{
+			CameraSwitch(inspectingObject);
 		}
 		
+	}
+
+	private void CameraSwitch(GameObject _object)
+	{
+		if (playerCam.gameObject.activeInHierarchy)
+		{
+			_object.gameObject.SetActive(true);
+			playerCam.gameObject.SetActive(false);
+			inspectingObject = _object;
+			playerFrozen = true;
+		}
+		else
+		{
+			_object.gameObject.SetActive(false);
+			playerCam.gameObject.SetActive(true);
+			inspectingObject = null;
+			playerFrozen = false;
+		}
 	}
 
 	private void ToggleNotebook()
@@ -200,6 +256,7 @@ public class Player : MonoBehaviour
 			notepad.SetActive(false);
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
+			playerFrozen = false;
 
 		}
 		else
@@ -207,6 +264,7 @@ public class Player : MonoBehaviour
 			notepad.SetActive(true);
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
+			playerFrozen = true;
 		}
 	}
 	private void SaveData()
