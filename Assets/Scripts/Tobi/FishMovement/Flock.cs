@@ -7,7 +7,8 @@ public class Flock : MonoBehaviour
     // Exposed Variables
     [Header("FlockSettings")]
     [SerializeField]
-    bool enableCPUClac;
+    [Tooltip("This switches the prosess to designated place")]
+    private CalcMode calcMode;
 
     [SerializeField]
     private FlockAgent prefab;
@@ -61,6 +62,8 @@ public class Flock : MonoBehaviour
     private float squareAvoidanceRadius;
     public float SquareAvoidanceRadius { get { return squareAvoidanceRadius; } }
 
+    private enum CalcMode {CPU,GPU,None};
+
     // Start is called before the first frame update
     void Start()
     {
@@ -97,23 +100,40 @@ public class Flock : MonoBehaviour
     {
         if (debuggRays) DrawDebuggPlottedRays();
 
-        if(enableCPUClac)
-        foreach(FlockAgent agent in agents)
+        switch (calcMode)
+        {
+            case CalcMode.CPU:
+                CalcCPU();
+                break;
+            case CalcMode.GPU:
+                CalcGPU();
+                break;
+            case CalcMode.None:
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void CalcGPU()
+    {
+        Debug.LogError("GPU Calculation is not implemeted yet", this);
+    }
+
+    private void CalcCPU()
+    {
+        foreach (FlockAgent agent in agents)
         {
             List<Transform> ctx = GetNearbyObjects(agent);
-            
+
 
             Vector3 move = flockBehavior.CalculateMove(agent, ctx, this);
             move *= dirveFactor;
-            if(move.sqrMagnitude > squareMaxSpeed)
+            if (move.sqrMagnitude > squareMaxSpeed)
             {
                 move = move.normalized * maxSpeed;
             }
             agent.Move(move);
-        }
-        else
-        {
-            //Implement GPU Solution
         }
     }
 
