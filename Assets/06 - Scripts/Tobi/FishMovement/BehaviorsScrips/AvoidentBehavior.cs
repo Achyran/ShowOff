@@ -17,7 +17,7 @@ public class AvoidentBehavior : FilterdFlockBehavior
         //Check if a filter exist, and if it does use it
         if(filter != null)
         {
-            int ctxindex = ctx.Count;
+            //int ctxindex = ctx.Count;
             ctx = filter.Filter(agent, ctx);
         }
         foreach (Transform t in ctx)
@@ -33,4 +33,3 @@ public class AvoidentBehavior : FilterdFlockBehavior
         return calcmove;
     }
 }
-
