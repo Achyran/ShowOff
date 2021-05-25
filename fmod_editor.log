@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 [LOG] System::create                           : Header version = 2.01.09. Current version = 2.01.09.
 [LOG] Manager::init                            : maxchannels = 256 studioflags = 00000006 flags 00000000 extradriverdata 0000000000000000.
 [LOG] SystemI::init                            : Initialize version=20109 (115889), maxchannels=256, flags=0x00020000
@@ -8,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 000001DAD79CF088 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 000001877B27ECA8 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -17,35 +16,110 @@
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
-=======
-[LOG] System::create                           : Header version = 2.01.09. Current version = 2.01.09.
-[LOG] Manager::init                            : maxchannels = 256 studioflags = 00000006 flags 00000000 extradriverdata 0000000000000000.
-[LOG] SystemI::init                            : Initialize version=20109 (115889), maxchannels=256, flags=0x00020000
-[LOG] SystemI::setOutputInternal               : Setting output to 'FMOD WASAPI Output'
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEX): wFormatTag=0xFFFE, nChannels=2, nSamplesPerSec=48000, nAvgBytesPerSec=384000, nBlockAlign=8, wBitsPerSample=32, cbSize=22.
-[LOG] OutputWASAPI::init                       : Mix Format (WAVEFORMATEXTENSIBLE): wValidBitsPerSample=32, dwChannelMask=0x00000003, SubFormat=00000003-0000-0010-8000-00AA00389B71.
-[LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
-[LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
-[LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 00000210EB83F2C8 isAsync 0 updatePeriod 0.02
-[LOG] AsyncManager::init                       : done
-[LOG] PlaybackSystem::init                     : 
-[LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
-[LOG] PlaybackSystem::init                     : done
-[LOG] Thread::initThread                       : Init FMOD Studio bank load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
-[LOG] Manager::init                            : done.
-[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
-[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
-[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
-[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
-[LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
-[LOG] PluginEffectModel::init                  : Missing DSP plugin 'Oculus Spatializer'
-[LOG] PostLoad::initPluginEffects              : Creating stub DSP plugin model and continuing.
-[LOG] PluginEffectModel::init                  : Missing DSP plugin 'Oculus Spatializer'
-[LOG] PostLoad::initPluginEffects              : Creating stub DSP plugin model and continuing.
-[LOG] PluginEffectModel::init                  : Missing DSP plugin 'Oculus Spatializer'
-[LOG] PostLoad::initPluginEffects              : Creating stub DSP plugin model and continuing.
-[LOG] PluginEffectModel::init                  : Missing DSP plugin 'Oculus Spatializer'
-[LOG] PostLoad::initPluginEffects              : Creating stub DSP plugin model and continuing.
-[LOG] PlaybackSystem::acquireMasterBus         : Setting master channel group format to 6
->>>>>>> ThomasRecovey
+[LOG] SoundI::release                          :  (000001870E821808)
+[LOG] SoundI::release                          :     Bubbles7 (00000186CCC73E28)
+[LOG] SoundI::release                          :  (000001870E8276E8)
+[LOG] SoundI::release                          :     Bubbles8 (00000186CCC71728)
+[LOG] SoundI::release                          :  (00000186CC88A848)
+[LOG] SoundI::release                          :     Bubbles1 (00000186CCC6FB88)
+[LOG] SoundI::release                          :  (000001870E825018)
+[LOG] SoundI::release                          :     Bubbles2 (00000186CC2A9908)
+[LOG] SoundI::release                          :  (00000186CC88CDA8)
+[LOG] SoundI::release                          :     Bubbles3 (00000186CCC718C8)
+[LOG] SoundI::release                          :  (00000186CC88C228)
+[LOG] SoundI::release                          :     Bubbles4 (00000186CCC6EE88)
+[LOG] SoundI::release                          :  (00000186CC889E38)
+[LOG] SoundI::release                          :     Bubbles5 (00000186CCC72C48)
+[LOG] SoundI::release                          :  (000001870E81E168)
+[LOG] SoundI::release                          :     Bubbles6 (00000186CCC747E8)
+[LOG] SoundI::release                          :  (000001870E826CD8)
+[LOG] SoundI::release                          :     412766__ohnobones__underwater-hullcreaking (00000186CCC6E4C8)
+[LOG] SoundI::release                          :  (000001870E81CEB8)
+[LOG] SoundI::release                          :     water-underwater-distant-explosion-rumble_GyIPV5VO (00000186CCC72AA8)
+[LOG] SoundI::release                          :  (000001870E8234C8)
+[LOG] SoundI::release                          :     351408__newagesoup__gleam-glow-sfx-chime (00000186CC2ABB28)
+[LOG] SoundI::release                          :  (000001870E829AD8)
+[LOG] SoundI::release                          :     558155__kratosc2__magical-glowing (00000186CC2AB4A8)
+[LOG] SoundI::release                          :  (000001870E827298)
+[LOG] SoundI::release                          :     241193__rastaman94__a-light-in-the-dark (00000186CCC713E8)
+[LOG] SoundI::release                          :  (00000186CC891F98)
+[LOG] SoundI::release                          :     74908__mjudo12__freewilly (00000186CCC72F88)
+[LOG] SoundI::release                          :  (00000186CC88CF18)
+[LOG] SoundI::release                          :     448460__psiboy123__underwater-white-noise (00000186CCC70A28)
+[LOG] SoundI::release                          : 186899__tritus__whale (00000184A2959E48)
+[LOG] SoundI::release                          :     186899__tritus__whale (00000186CC2AAAE8)
+[LOG] SoundI::release                          :     186899__tritus__whale (00000184A2957AD8)
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (00000184A2957778)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (00000186CC2AA2C8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (00000184A2959C98)
+[LOG] SoundI::release                          : 258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (00000184A295AF28)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (00000186CCC72428)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (00000184A295B438)
+[LOG] SoundI::release                          :  (000001870E8286B8)
+[LOG] SoundI::release                          :     Stone1 (00000186CC2AC008)
+[LOG] SoundI::release                          :  (000001870E825188)
+[LOG] SoundI::release                          :     Stone2 (00000186CC2A9428)
+[LOG] SoundI::release                          :  (00000186CC8899E8)
+[LOG] SoundI::release                          :     Stone3 (00000186CCC725C8)
+[LOG] SoundI::release                          :  (000001870E82A658)
+[LOG] SoundI::release                          :     Stone4 (00000186CC2AB168)
+[LOG] SoundI::release                          :  (000001870E822948)
+[LOG] SoundI::release                          :     Stone5 (00000186CC2AAE28)
+[LOG] SoundI::release                          :  (000001870E8213B8)
+[LOG] SoundI::release                          :     Stone6 (00000186CCC73948)
+[LOG] SoundI::release                          :  (000001870E821248)
+[LOG] SoundI::release                          :     Stone7 (00000186CCC71248)
+[LOG] SoundI::release                          :  (000001870E8252F8)
+[LOG] SoundI::release                          :     Stone8 (00000186CC2A8F48)
+[LOG] SoundI::release                          :  (000001870E81D758)
+[LOG] SoundI::release                          :     Sand7 (00000186CCC6F508)
+[LOG] SoundI::release                          :  (000001870E8265A8)
+[LOG] SoundI::release                          :     Sand8 (00000186CCC703A8)
+[LOG] SoundI::release                          :  (000001870E8237A8)
+[LOG] SoundI::release                          :     Sand1 (00000186CCC70F08)
+[LOG] SoundI::release                          :  (00000186CC889148)
+[LOG] SoundI::release                          :     Sand2 (00000186CCC70888)
+[LOG] SoundI::release                          :  (00000186CC889428)
+[LOG] SoundI::release                          :     Sand3 (00000186CCC72908)
+[LOG] SoundI::release                          :  (000001870E821C58)
+[LOG] SoundI::release                          :     Sand4 (00000186CCC74988)
+[LOG] SoundI::release                          :  (000001870E81D5E8)
+[LOG] SoundI::release                          :     Sand5 (00000186CCC74B28)
+[LOG] SoundI::release                          :  (000001870E826E48)
+[LOG] SoundI::release                          :     Sand6 (00000186CCC70208)
+[LOG] SoundI::release                          :  (000001870E820DF8)
+[LOG] SoundI::release                          :     Movement4 (00000186CCC74648)
+[LOG] SoundI::release                          :  (000001870E82C1A8)
+[LOG] SoundI::release                          :     Movement5 (00000186CC2AC688)
+[LOG] SoundI::release                          :  (000001870E820558)
+[LOG] SoundI::release                          :     Movement1 (00000186CCC70D68)
+[LOG] SoundI::release                          :  (00000186CC887A48)
+[LOG] SoundI::release                          :     Movement2 (00000186CCC73608)
+[LOG] SoundI::release                          :  (000001870E823358)
+[LOG] SoundI::release                          :     Movement3 (00000186CC2A8C08)
+[LOG] SoundI::release                          :  (000001870E8203E8)
+[LOG] SoundI::release                          :     Wood1 (00000186CCC70548)
+[LOG] SoundI::release                          :  (00000186CC8929A8)
+[LOG] SoundI::release                          :     Wood2 (00000186CCC737A8)
+[LOG] SoundI::release                          :  (000001870E82A208)
+[LOG] SoundI::release                          :     Wood3 (00000186CC2ABE68)
+[LOG] SoundI::release                          :  (000001870E821698)
+[LOG] SoundI::release                          :     Wood4 (00000186CCC73C88)
+[LOG] SoundI::release                          :  (000001870E823ED8)
+[LOG] SoundI::release                          :     Wood5 (00000186CC2AAFC8)
+[LOG] SoundI::release                          :  (00000186CC88C678)
+[LOG] SoundI::release                          :     Wood6 (00000186CCC74308)
+[LOG] SoundI::release                          :  (00000186CC88A6D8)
+[LOG] SoundI::release                          :     Wood7 (00000186CCC73AE8)
+[LOG] SoundI::release                          :  (000001870E81F138)
+[LOG] SoundI::release                          :     Wood8 (00000186CCC72768)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
