@@ -307,6 +307,7 @@ GameObject:
   m_Component:
   - component: {fileID: 201069010}
   - component: {fileID: 201069009}
+  - component: {fileID: 201069011}
   m_Layer: 0
   m_Name: testplat
   m_TagString: Untagged
@@ -379,6 +380,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: -90.195, y: 0, z: 0}
+--- !u!65 &201069011
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 201069008}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 5.1199994, y: 5.119999, z: 0.19999999}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &236832802
 GameObject:
   m_ObjectHideFlags: 0
@@ -1227,6 +1241,27 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 580118477}
   m_CullTransparentMesh: 1
+--- !u!1 &582814235 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1305707059286564609, guid: 37f7c3cd4601c054da252d1b4303af3e, type: 3}
+  m_PrefabInstance: {fileID: 1305707060799431132}
+  m_PrefabAsset: {fileID: 0}
+--- !u!54 &582814236
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 582814235}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0.05
+  m_UseGravity: 0
+  m_IsKinematic: 0
+  m_Interpolate: 0
+  m_Constraints: 0
+  m_CollisionDetection: 0
 --- !u!114 &593250392 stripped
 MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 5923967519250178323, guid: f5ae3abbd7c710849986455fa548ceb7, type: 3}
@@ -3343,6 +3378,10 @@ PrefabInstance:
     - target: {fileID: 1305707059286564610, guid: 37f7c3cd4601c054da252d1b4303af3e, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 1305707059286564611, guid: 37f7c3cd4601c054da252d1b4303af3e, type: 3}
+      propertyPath: speed
+      value: 13
       objectReference: {fileID: 0}
     - target: {fileID: 1305707059286564611, guid: 37f7c3cd4601c054da252d1b4303af3e, type: 3}
       propertyPath: mainCam

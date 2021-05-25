@@ -12,12 +12,12 @@ public class Player : MonoBehaviour
 {
 	public GameObject notepad;
 	public Camera mainCam;
-	public CinemachineVirtualCamera playerCam;
-	public CinemachineFreeLook objectCam;
+	public CinemachineFreeLook playerCam;
 	public LayerMask playerLayer;
 	private bool playerFrozen = false;
 	private GameObject inspectingObject;
 	private OutlineScript lastOutline;
+	private Rigidbody rigidBody;
 
 	class CameraState
 	{
@@ -94,12 +94,17 @@ public class Player : MonoBehaviour
 	public KeyCode DownKey = KeyCode.LeftControl;
 	public KeyCode UpKey = KeyCode.Space;
 
+	private void Start()
+	{
+		rigidBody = GetComponent<Rigidbody>();
+		Cursor.lockState = CursorLockMode.Locked;
+	}
 	void OnEnable()
 	{
 		m_TargetCameraState.SetFromTransform(transform);
 		m_InterpolatingCameraState.SetFromTransform(transform);
 
-		Cursor.lockState = CursorLockMode.Locked;
+		
 	}
 
 	Vector3 GetInputTranslationDirection()
@@ -107,27 +112,27 @@ public class Player : MonoBehaviour
 		Vector3 direction = new Vector3();
 		if (Input.GetKey(ForwardsKey))
 		{
-			direction += Vector3.forward;
+			direction += mainCam.transform.forward;
 		}
 		if (Input.GetKey(BackwardsKey))
 		{
-			direction += Vector3.back;
+			direction += mainCam.transform.forward * -1;
 		}
 		if (Input.GetKey(LeftKey))
 		{
-			direction += Vector3.left;
+			direction += mainCam.transform.right * -1;
 		}
 		if (Input.GetKey(RightKey))
 		{
-			direction += Vector3.right;
+			direction += mainCam.transform.right;
 		}
 		if (Input.GetKey(DownKey))
 		{
-			direction += Vector3.down;
+			direction += mainCam.transform.up * -1;
 		}
 		if (Input.GetKey(UpKey))
 		{
-			direction += Vector3.up;
+			direction += mainCam.transform.up;
 		}
 		return direction;
 	}
@@ -174,12 +179,16 @@ public class Player : MonoBehaviour
 			// Translation
 			translation = GetInputTranslationDirection() * Time.deltaTime;
 
-			translation *= Mathf.Pow(2.0f, speed);
+			translation *= speed;
 
+			rigidBody.AddForce(translation);
 
-
+			
 			m_TargetCameraState.Translate(translation);
 
+			rigidBody.angularVelocity = Vector3.zero;
+			
+			/*
 			// Framerate-independent interpolation
 			// Calculate the lerp amount, such that we get 99% of the way to our target in the specified time
 			var positionLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / positionLerpTime) * Time.deltaTime);
@@ -189,6 +198,7 @@ public class Player : MonoBehaviour
 			//Only make movements if notepad isn't up
 
 			m_InterpolatingCameraState.UpdateTransform(transform);
+			*/
 
 			/*
 			RaycastHit hit;
@@ -231,6 +241,10 @@ public class Player : MonoBehaviour
 		
 	}
 
+	public void FreezePlayer(bool val)
+	{
+		playerFrozen = val;
+	}
 	private void CameraSwitch(GameObject _object)
 	{
 		if (playerCam.gameObject.activeInHierarchy)
