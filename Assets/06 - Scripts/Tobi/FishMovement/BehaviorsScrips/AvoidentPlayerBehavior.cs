@@ -3,39 +3,30 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Flock/Behavior/AvoidentPlayer")]
-public class AvoidentPlayerBehavior : FilterdFlockBehavior
+public class AvoidentPlayerBehavior : FlockBehavior
 {
-
+    [SerializeField]
+    private bool debugg;
+    [SerializeField]
+    private float playerDist = 1.5f;
     public override Vector3 CalculateMove(FlockAgent agent, List<Transform> ctx, Flock flock)
     {
-        
-        
-
-
-
-
-        //Check for neghbors if = 0 no adjustions
-        if (ctx == null || ctx.Count == 0) return Vector3.zero;
-
-        //add all vecs and avarage
-        Vector3 calcmove = Vector3.zero;
-        int nAvoid = 0;
-        //Check if a filter exist, and if it does use it
-        if (filter != null)
+        //chec if player is null
+        if(flock.player == null)
         {
-            //int ctxindex = ctx.Count;
-            ctx = filter.Filter(agent, ctx);
+            if (debugg) Debug.LogError($"The Player is not set", flock);
+            return Vector3.zero;
         }
-        foreach (Transform t in ctx)
-        {
-            if (Vector3.SqrMagnitude(t.position - agent.transform.position) < flock.SquareAvoidanceRadius)
-            {
-                nAvoid++;
-                calcmove += agent.transform.position - t.position;
-            }
-        }
-        if (nAvoid > 0) calcmove /= nAvoid;
 
-        return calcmove;
+        //if The player is in range avoid him
+        if(Vector3.SqrMagnitude(flock.player.position - agent.transform.position) < playerDist * playerDist)
+        {
+            if (debugg) Debug.LogError($"Avoid Player");
+            return agent.transform.position - flock.player.position;
+        }
+
+        return Vector3.zero;
+
+        
     }
 }

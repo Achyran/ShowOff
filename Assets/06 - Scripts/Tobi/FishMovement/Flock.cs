@@ -5,7 +5,7 @@ using UnityEngine;
 public class Flock : MonoBehaviour
 {
     [HideInInspector]
-    public static GameObject player;
+    public Transform player;
 
     [SerializeField]
     private string playerTag = "Player";
@@ -101,7 +101,7 @@ public class Flock : MonoBehaviour
             }
             else
             {
-                player = players[0];
+                player = players[0].GetComponent<Transform>();
             }
         }
         else
