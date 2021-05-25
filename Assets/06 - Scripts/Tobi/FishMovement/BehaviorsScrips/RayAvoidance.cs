@@ -29,9 +29,9 @@ public class RayAvoidance : FilterdFlockBehavior
     {
         bool foundAWay = false;
         //Shit I Where can i go ?
-        for (int i = 1 ; i < TestRaycast.plottedPoints.Count; i++)
+        for (int i = 1 ; i < Flock.plottedPoints.Count; i++)
         {
-            Vector3 point = Quaternion.LookRotation(agent.transform.forward) * TestRaycast.plottedPoints[i] ; 
+            Vector3 point = Quaternion.LookRotation(agent.transform.forward) * Flock.plottedPoints[i] ; 
             if (Physics.Raycast(agent.transform.position, point , viewDist, whatIsObstical))
             {
                if(DrawRayDebugg) Debug.DrawRay(agent.transform.position, point * viewDist, Color.red);
