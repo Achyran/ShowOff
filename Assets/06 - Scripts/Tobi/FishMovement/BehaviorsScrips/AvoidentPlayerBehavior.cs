@@ -2,12 +2,18 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock/Behavior/Avoident")]
-public class AvoidentBehavior : FilterdFlockBehavior
+[CreateAssetMenu(menuName = "Flock/Behavior/AvoidentPlayer")]
+public class AvoidentPlayerBehavior : FilterdFlockBehavior
 {
 
     public override Vector3 CalculateMove(FlockAgent agent, List<Transform> ctx, Flock flock)
     {
+        
+        
+
+
+
+
         //Check for neghbors if = 0 no adjustions
         if (ctx == null || ctx.Count == 0) return Vector3.zero;
 
@@ -15,7 +21,7 @@ public class AvoidentBehavior : FilterdFlockBehavior
         Vector3 calcmove = Vector3.zero;
         int nAvoid = 0;
         //Check if a filter exist, and if it does use it
-        if(filter != null)
+        if (filter != null)
         {
             //int ctxindex = ctx.Count;
             ctx = filter.Filter(agent, ctx);
@@ -28,7 +34,7 @@ public class AvoidentBehavior : FilterdFlockBehavior
                 calcmove += agent.transform.position - t.position;
             }
         }
-        if(nAvoid > 0) calcmove /= nAvoid;
+        if (nAvoid > 0) calcmove /= nAvoid;
 
         return calcmove;
     }

@@ -19,19 +19,19 @@ public class RayAvoidance : FilterdFlockBehavior
         if(DrawRayDebugg)Debug.DrawRay(agent.transform.position, agent.transform.forward * viewDist, Color.black);
         if(Physics.Raycast(agent.transform.position ,agent.transform.forward, viewDist, whatIsObstical))
         {
-           return FindFreePath(agent);
+           return FindFreePath(agent,flock);
         }
 
         return Vector3.zero;
     }
 
-    private Vector3 FindFreePath( FlockAgent agent)
+    private Vector3 FindFreePath( FlockAgent agent, Flock flock)
     {
         bool foundAWay = false;
         //Shit I Where can i go ?
-        for (int i = 1 ; i < Flock.plottedPoints.Count; i++)
+        for (int i = 1 ; i < flock.plottedPoints.Count; i++)
         {
-            Vector3 point = Quaternion.LookRotation(agent.transform.forward) * Flock.plottedPoints[i] ; 
+            Vector3 point = Quaternion.LookRotation(agent.transform.forward) * flock.plottedPoints[i] ; 
             if (Physics.Raycast(agent.transform.position, point , viewDist, whatIsObstical))
             {
                if(DrawRayDebugg) Debug.DrawRay(agent.transform.position, point * viewDist, Color.red);

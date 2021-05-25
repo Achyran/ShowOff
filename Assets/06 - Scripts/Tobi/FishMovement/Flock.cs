@@ -4,6 +4,12 @@ using UnityEngine;
 
 public class Flock : MonoBehaviour
 {
+    [HideInInspector]
+    public static GameObject player;
+
+    [SerializeField]
+    private string playerTag = "Player";
+    
     // Exposed Variables
     [Header("FlockSettings")]
     [SerializeField]
@@ -49,7 +55,7 @@ public class Flock : MonoBehaviour
     [SerializeField]
     private bool debuggRays = false;
     [SerializeField]
-    public static List<Vector3> plottedPoints;
+    public List<Vector3> plottedPoints;
 
     private float dist = 1;
 
@@ -67,8 +73,7 @@ public class Flock : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        if (plottedPoints == null || plottedPoints.Count == 0) CalcRays();
-        else Debug.Log($"Rays were allready Calculated  Ray amount = { plottedPoints.Count}", this);
+        InitReverences();
 
         //Calculate MathHelpers
         squareMaxSpeed = maxSpeed * maxSpeed;
@@ -76,6 +81,33 @@ public class Flock : MonoBehaviour
         squareAvoidanceRadius = neighbourRaidus * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
 
         SpawnFish();
+
+    }
+
+    //Check if the neede static variabels are assinged / generated and assing / generate them
+    private void InitReverences()
+    {
+        if (plottedPoints == null || plottedPoints.Count == 0) CalcRays();
+        else Debug.Log($"Rays were allready Calculated  Ray amount = { plottedPoints.Count}", this);
+
+        if(player == null)
+        {
+            //get all objects taged as player
+            GameObject[] players = GameObject.FindGameObjectsWithTag(playerTag);
+            //Check if there are more or less than one object as player taged
+            if ( players == null || players.Length > 1 || players.Length == 0)
+            {
+                Debug.LogWarning($"Problem with identifying the player, pleas tag one object as player. \n Current Playercount : {players.Length}");
+            }
+            else
+            {
+                player = players[0];
+            }
+        }
+        else
+        {
+            Debug.Log("Player was already assinged", player);
+        }
 
     }
 
@@ -154,6 +186,7 @@ public class Flock : MonoBehaviour
         foreach (Collider c in ctxColliderd)
         {
             if (c != agent.AgentCollider) ctx.Add(c.transform);
+            //if (c.CompareTag("Player")) Debug.Log("Player added");
         }
         return ctx;
     }
