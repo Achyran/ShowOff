@@ -7,7 +7,7 @@
 [LOG] OutputWASAPI::init                       : Output buffer size: 4096 samples, latency: 0.00ms, period: 10.00ms, DSP buffer: 1024 * 4
 [LOG] Thread::initThread                       : Init FMOD stream thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFB, Stack Size: 98304, Semaphore: No, Sleep Time: 10, Looping: Yes.
 [LOG] Thread::initThread                       : Init FMOD mixer thread. Affinity: 0x8000000000000001, Priority: 0xFFFF7FFA, Stack Size: 81920, Semaphore: No, Sleep Time: 0, Looping: Yes.
-[LOG] AsyncManager::init                       : manager 00000124A5561A18 isAsync 0 updatePeriod 0.02
+[LOG] AsyncManager::init                       : manager 0000024A45F46E98 isAsync 0 updatePeriod 0.02
 [LOG] AsyncManager::init                       : done
 [LOG] PlaybackSystem::init                     : 
 [LOG] Thread::initThread                       : Init FMOD Studio sample load thread. Affinity: 0x8000000000000003, Priority: 0xFFFF7FFD, Stack Size: 98304, Semaphore: No, Sleep Time: 1, Looping: No.
@@ -16,3 +16,1131 @@
 [LOG] Manager::init                            : done.
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
 [LOG] Manager::readBank                        : fileversion = 135, compatVersion = 132 (oldest = 44, newest = 135)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7A4A78 : node = 0000024A3FDBB450
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7A4A78
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB560
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7A4A78
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7A7808)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D6159E8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AC5A8)
+[LOG] SoundI::release                          : 171945__rebekahday__lowwhalesong (0000024A3F7A94B8)
+[LOG] SoundI::release                          :     171945__rebekahday__lowwhalesong (000002497D615D28)
+[LOG] SoundI::release                          :     171945__rebekahday__lowwhalesong (0000024A3F7A9ED8)
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7A4A78)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D614E88)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7A72F8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7A4058 : node = 0000024A3FDBB1D0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7A4058
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB2E0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='explosion-underwater_GJ9kkcEu', format=5, channels=2, frequency=48000, lengthbytes=129568, lengthpcm=839833, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.465668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7A4058
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7A6A88 : node = 0000024A3FDBB6D0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7A6A88
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB7E0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7A6A88
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AFF08 : node = 0000024A3FDBB450
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AFF08
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB560
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com', format=5, channels=2, frequency=48000, lengthbytes=266944, lengthpcm=1507929, pcmblocksize=0, loopstart=0, loopend=1316570, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.493829.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AFF08
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AE5B8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AE5B8
+[LOG] SoundI::release                          : 258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7A6578)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (000002497D613B08)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7A7EC8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AAAA8 : node = 0000024A3FDBB590
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AAAA8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB6A0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='529620__kostas17__massive-structure-bend', format=5, channels=2, frequency=48000, lengthbytes=145184, lengthpcm=864214, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.517303.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AAAA8
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7A6728 : node = 0000024A3FDBB090
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7A6728
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB1A0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7A6728
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7A6A88)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D614E88)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7A72F8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7ACE18 : node = 0000024A3FDBB6D0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7ACE18
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB7E0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='186899__tritus__whale', format=5, channels=2, frequency=48000, lengthbytes=63520, lengthpcm=503222, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.957618.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7ACE18
+[LOG] SoundI::release                          : explosion-underwater_GJ9kkcEu (0000024A3F7A4058)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (000002497D6185C8)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (0000024A3F7A4A78)
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7A6728)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D617A68)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7A7EC8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7A7808 : node = 0000024A3FDBB090
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7A7808
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB1A0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7A7808
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7A9ED8 : node = 0000024A3FDBB1D0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7A9ED8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB2E0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com', format=5, channels=2, frequency=48000, lengthbytes=266944, lengthpcm=1507929, pcmblocksize=0, loopstart=0, loopend=1316570, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.493829.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7A9ED8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7ADB98
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7ADB98
+[LOG] SoundI::release                          : 258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7AFF08)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (000002497D6151C8)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7AE5B8)
+[LOG] SoundI::release                          : 529620__kostas17__massive-structure-bend (0000024A3F7AAAA8)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (000002497D613B08)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (0000024A3F7AD178)
+[LOG] SoundI::release                          : 186899__tritus__whale (0000024A3F7ACE18)
+[LOG] SoundI::release                          :     186899__tritus__whale (000002497D614E88)
+[LOG] SoundI::release                          :     186899__tritus__whale (0000024A3F7A9818)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7A9818 : node = 0000024A3FDBB590
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7A9818
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB6A0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7A9818
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AD328 : node = 0000024A3FDBB450
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AD328
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB560
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='explosion-underwater_GJ9kkcEu', format=5, channels=2, frequency=48000, lengthbytes=129568, lengthpcm=839833, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.465668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AD328
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7A7808)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D616548)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7A6578)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AF188 : node = 0000024A3FDBB6D0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AF188
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB7E0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='529620__kostas17__massive-structure-bend', format=5, channels=2, frequency=48000, lengthbytes=145184, lengthpcm=864214, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.517303.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AF188
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7A9818)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D616A28)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AFF08)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AAAA8 : node = 0000024A3FDBB590
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AAAA8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB6A0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AAAA8
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AAC58 : node = 0000024A3FDBB090
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AAC58
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A3FDBB1A0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AAC58
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7ACE18 : node = 0000024A29592CA0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7ACE18
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29592DB0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='explosion-underwater_GJ9kkcEu', format=5, channels=2, frequency=48000, lengthbytes=129568, lengthpcm=839833, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.465668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7ACE18
+[LOG] SoundI::release                          : explosion-underwater_GJ9kkcEu (0000024A3F7AD328)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (000002497D618768)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (0000024A3F7AEE28)
+[LOG] SoundI::release                          : 258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7A9ED8)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (000002497D617A68)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7ADB98)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AFBA8 : node = 0000024A295932E0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AFBA8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295933F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AFBA8
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AAAA8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D618F88)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AD838)
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AAC58)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D618DE8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AB828)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7ABB88 : node = 0000024A295936A0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7ABB88
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295937B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='171945__rebekahday__lowwhalesong', format=5, channels=2, frequency=48000, lengthbytes=174080, lengthpcm=768936, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.178802.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7ABB88
+[LOG] SoundI::release                          : 529620__kostas17__massive-structure-bend (0000024A3F7AF188)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (000002497D614E88)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (0000024A3F7AD9E8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AAC58 : node = 0000024A29593420
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AAC58
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593530
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AAC58
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AFBA8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D6197A8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AC758)
+[LOG] SoundI::release                          : explosion-underwater_GJ9kkcEu (0000024A3F7ACE18)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (000002497D615028)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (0000024A3F7ADEF8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AD838 : node = 0000024A29593060
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AD838
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593170
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AD838
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AEFD8 : node = 0000024A29593560
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AEFD8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593670
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com', format=5, channels=2, frequency=48000, lengthbytes=266944, lengthpcm=1507929, pcmblocksize=0, loopstart=0, loopend=1316570, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.493829.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AEFD8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AA598
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AA598
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AC5A8 : node = 0000024A29592A20
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AC5A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29592B30
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='529620__kostas17__massive-structure-bend', format=5, channels=2, frequency=48000, lengthbytes=145184, lengthpcm=864214, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.517303.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AC5A8
+[LOG] SoundI::release                          : 171945__rebekahday__lowwhalesong (0000024A3F7ABB88)
+[LOG] SoundI::release                          :     171945__rebekahday__lowwhalesong (000002497D6156A8)
+[LOG] SoundI::release                          :     171945__rebekahday__lowwhalesong (0000024A3F7AFF08)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7ACAB8 : node = 0000024A295932E0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7ACAB8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295933F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='186899__tritus__whale', format=5, channels=2, frequency=48000, lengthbytes=63520, lengthpcm=503222, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.957618.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7ACAB8
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AAC58)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D618288)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7A9D28)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7A9ED8 : node = 0000024A295928E0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7A9ED8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295929F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='explosion-underwater_GJ9kkcEu', format=5, channels=2, frequency=48000, lengthbytes=129568, lengthpcm=839833, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.465668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7A9ED8
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AC098 : node = 0000024A295936A0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AC098
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295937B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AC098
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AD838)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D619FC8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AAE08)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AE258 : node = 0000024A29592B60
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AE258
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29592C70
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AE258
+[LOG] SoundI::release                          : 186899__tritus__whale (0000024A3F7ACAB8)
+[LOG] SoundI::release                          :     186899__tritus__whale (000002497D619128)
+[LOG] SoundI::release                          :     186899__tritus__whale (0000024A3F7AD328)
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AC098)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D614E88)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7ACE18)
+[LOG] SoundI::release                          : 529620__kostas17__massive-structure-bend (0000024A3F7AC5A8)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (000002497D616A28)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (0000024A3F7AAFB8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7ADD48 : node = 0000024A29592F20
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7ADD48
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593030
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7ADD48
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AE258)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D6156A8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AE768)
+[LOG] SoundI::release                          : explosion-underwater_GJ9kkcEu (0000024A3F7A9ED8)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (000002497D618768)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (0000024A3F7AD9E8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AC5A8 : node = 0000024A29593420
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AC5A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593530
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AC5A8
+[LOG] SoundI::release                          : 258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7AEFD8)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (000002497D616548)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7AA598)
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7ADD48)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D615D28)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AC098)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7ACC68 : node = 0000024A29592CA0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7ACC68
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29592DB0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='explosion-underwater_GJ9kkcEu', format=5, channels=2, frequency=48000, lengthbytes=129568, lengthpcm=839833, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.465668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7ACC68
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AB168 : node = 0000024A29593560
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AB168
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593670
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AB168
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7ADB98 : node = 0000024A295928E0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7ADB98
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295929F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='186899__tritus__whale', format=5, channels=2, frequency=48000, lengthbytes=63520, lengthpcm=503222, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.957618.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7ADB98
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AC5A8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D616A28)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7ACAB8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7A9ED8 : node = 0000024A29592A20
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7A9ED8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29592B30
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com', format=5, channels=2, frequency=48000, lengthbytes=266944, lengthpcm=1507929, pcmblocksize=0, loopstart=0, loopend=1316570, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.493829.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7A9ED8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7A94B8
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7A94B8
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AD838 : node = 0000024A29592B60
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AD838
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29592C70
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AD838
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AB168)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D618908)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AA238)
+[LOG] SoundI::release                          : 186899__tritus__whale (0000024A3F7ADB98)
+[LOG] SoundI::release                          :     186899__tritus__whale (000002497D616F08)
+[LOG] SoundI::release                          :     186899__tritus__whale (0000024A3F7AF848)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AAAA8 : node = 0000024A295932E0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AAAA8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295933F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='529620__kostas17__massive-structure-bend', format=5, channels=2, frequency=48000, lengthbytes=145184, lengthpcm=864214, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.517303.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AAAA8
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AFBA8 : node = 0000024A29592DE0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AFBA8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29592EF0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='171945__rebekahday__lowwhalesong', format=5, channels=2, frequency=48000, lengthbytes=174080, lengthpcm=768936, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.178802.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AFBA8
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AE0A8 : node = 0000024A29592F20
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AE0A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593030
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AE0A8
+[LOG] SoundI::release                          : explosion-underwater_GJ9kkcEu (0000024A3F7ACC68)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (000002497D619E28)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (0000024A3F7AD178)
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AD838)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D616A28)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AD9E8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7ABB88 : node = 0000024A29593420
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7ABB88
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593530
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='explosion-underwater_GJ9kkcEu', format=5, channels=2, frequency=48000, lengthbytes=129568, lengthpcm=839833, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.465668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7ABB88
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7ACAB8 : node = 0000024A295936A0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7ACAB8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295937B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7ACAB8
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AE0A8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D616BC8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AD4D8)
+[LOG] SoundI::release                          : 171945__rebekahday__lowwhalesong (0000024A3F7AFBA8)
+[LOG] SoundI::release                          :     171945__rebekahday__lowwhalesong (000002497D615D28)
+[LOG] SoundI::release                          :     171945__rebekahday__lowwhalesong (0000024A3F7ADEF8)
+[LOG] SoundI::release                          : 529620__kostas17__massive-structure-bend (0000024A3F7AAAA8)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (000002497D6185C8)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (0000024A3F7AAC58)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AC758 : node = 0000024A29593060
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AC758
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593170
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='explosion-underwater_GJ9kkcEu', format=5, channels=2, frequency=48000, lengthbytes=129568, lengthpcm=839833, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.465668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AC758
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AAC58 : node = 0000024A295928E0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AAC58
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295929F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com', format=5, channels=2, frequency=48000, lengthbytes=266944, lengthpcm=1507929, pcmblocksize=0, loopstart=0, loopend=1316570, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.493829.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AAC58
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AE768
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AE768
+[LOG] SoundI::release                          : 258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7A9ED8)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (000002497D618C48)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7A94B8)
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7ACAB8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D616F08)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AEAC8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7A9818 : node = 0000024A29592A20
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7A9818
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29592B30
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='529620__kostas17__massive-structure-bend', format=5, channels=2, frequency=48000, lengthbytes=145184, lengthpcm=864214, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.517303.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7A9818
+[LOG] SoundI::release                          : explosion-underwater_GJ9kkcEu (0000024A3F7ABB88)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (000002497D614E88)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (0000024A3F7AEE28)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AB828 : node = 0000024A295932E0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AB828
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295933F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AB828
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7ABB88 : node = 0000024A295931A0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7ABB88
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295932B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7ABB88
+[LOG] SoundI::release                          : explosion-underwater_GJ9kkcEu (0000024A3F7AC758)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (000002497D616A28)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (0000024A3F7AAFB8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7ACAB8 : node = 0000024A29593420
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7ACAB8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593530
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='186899__tritus__whale', format=5, channels=2, frequency=48000, lengthbytes=63520, lengthpcm=503222, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.957618.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7ACAB8
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AB828)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D614E88)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AAAA8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AC098 : node = 0000024A295936A0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AC098
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295937B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AC098
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AE0A8 : node = 0000024A29592B60
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AE0A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29592C70
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com', format=5, channels=2, frequency=48000, lengthbytes=266944, lengthpcm=1507929, pcmblocksize=0, loopstart=0, loopend=1316570, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.493829.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AE0A8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AB318
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AB318
+[LOG] SoundI::release                          : 258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7AAC58)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (000002497D618288)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7AE768)
+[LOG] SoundI::release                          : 529620__kostas17__massive-structure-bend (0000024A3F7A9818)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (000002497D6185C8)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (0000024A3F7A9ED8)
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7ABB88)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D6192C8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AEE28)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7B31A8 : node = 0000024A295928E0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7B31A8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295929F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7B31A8
+[LOG] SoundI::release                          : 186899__tritus__whale (0000024A3F7ACAB8)
+[LOG] SoundI::release                          :     186899__tritus__whale (000002497D6151C8)
+[LOG] SoundI::release                          :     186899__tritus__whale (0000024A3F7ACE18)
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7AC098)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D616548)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7AAFB8)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A3F7AC098 : node = 0000024A29593560
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A3F7AC098
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593670
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='529620__kostas17__massive-structure-bend', format=5, channels=2, frequency=48000, lengthbytes=145184, lengthpcm=864214, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.517303.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A3F7AC098
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A8DF2FBF8 : node = 0000024A295932E0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A8DF2FBF8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295933F0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A8DF2FBF8
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A3F7B31A8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (000002497D619AE8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F7B3D78)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A8DF2F028 : node = 0000024A29593060
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A8DF2F028
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593170
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='explosion-underwater_GJ9kkcEu', format=5, channels=2, frequency=48000, lengthbytes=129568, lengthpcm=839833, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.465668.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A8DF2F028
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002497E08EFD8 : node = 0000024A29592CA0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002497E08EFD8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29592DB0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='171945__rebekahday__lowwhalesong', format=5, channels=2, frequency=48000, lengthbytes=174080, lengthpcm=768936, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.178802.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002497E08EFD8
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (0000024A8DF2FBF8)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A8DBD0878)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A3F796198)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002497E08EE28 : node = 0000024A29592DE0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002497E08EE28
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29592EF0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002497E08EE28
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 0000024A8DF2FBF8 : node = 0000024A295931A0
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A8DF2FBF8
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A295932B0
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com', format=5, channels=2, frequency=48000, lengthbytes=266944, lengthpcm=1507929, pcmblocksize=0, loopstart=0, loopend=1316570, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=0.493829.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A8DF2FBF8
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 0000024A8DE72258
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 0000024A8DE72258
+[LOG] SoundI::release                          : 258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7AE0A8)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (000002497D616A28)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A3F7AB318)
+[LOG] SoundI::release                          : 529620__kostas17__massive-structure-bend (0000024A3F7AC098)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (000002497D616BC8)
+[LOG] SoundI::release                          :     529620__kostas17__massive-structure-bend (0000024A3F7AFF08)
+[LOG] SystemI::createSound                     : filename = Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank : mode 02010082
+[LOG] SystemI::createSound                     : FMOD_NONBLOCKING specified.  Putting into queue to be opened asynchronously!
+[LOG] SystemI::createSound                     : setdata soundi = 000002497E08E768 : node = 0000024A29592F20
+[LOG] SystemI::createSound                     : add node to async list : head = 0000024A37D1DF78.  list count = 0
+[LOG] AsyncThread::threadFunc                  : Starting Asynchronous operation on sound 000002497E08E768
+[LOG] SystemI::createSoundInternal             :     Create name='Assets/FMODProject/Audio/FMODMaster/Build\Desktop/Master.bank', mode=0x02010082
+[LOG] SystemI::createSoundInternal             :     exinfo->cbsize             = 224
+[LOG] SystemI::createSoundInternal             :     exinfo->length             = 22550720
+[LOG] SystemI::createSoundInternal             :     exinfo->fileoffset         = 135168
+[LOG] SystemI::createSoundInternal             :     exinfo->numsubsounds       = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlist      = 0000024A29593030
+[LOG] SystemI::createSoundInternal             :     exinfo->inclusionlistnum   = 1
+[LOG] SystemI::createSoundInternal             :     exinfo->suggestedsoundtype = 5
+[LOG] SystemI::createSoundInternal             :     exinfo->initialseekpostype = 1
+[LOG] SystemI::createSoundInternal             :     Stream 0/1: name='187499__old-waveplay__sfx-eerie-glow', format=5, channels=2, frequency=48000, lengthbytes=88960, lengthpcm=499322, pcmblocksize=0, loopstart=0, loopend=0, mode=0x00000000, channelmask=0x00000000, channelorder=0, peakvolume=1.000278.
+[LOG] AsyncThread::threadFunc                  : Finished Asynchronous operation on sound 000002497E08E768
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (000002497E08EE28)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024976093478)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A8DE720A8)
+[LOG] SoundI::release                          : explosion-underwater_GJ9kkcEu (0000024A8DF2F028)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (00000249760937B8)
+[LOG] SoundI::release                          :     explosion-underwater_GJ9kkcEu (0000024A3A987F78)
+[LOG] SoundI::release                          :  (0000024A29B0DA38)
+[LOG] SoundI::release                          :     Bubbles7 (000002497D612AC8)
+[LOG] SoundI::release                          :  (0000024A29690568)
+[LOG] SoundI::release                          :     Bubbles8 (000002497D615508)
+[LOG] SoundI::release                          :  (0000024A29B0B088)
+[LOG] SoundI::release                          :     Bubbles1 (000002497D60E4E8)
+[LOG] SoundI::release                          :  (0000024A2968F9E8)
+[LOG] SoundI::release                          :     Bubbles2 (000002497D61A4A8)
+[LOG] SoundI::release                          :  (0000024A29B0B648)
+[LOG] SoundI::release                          :     Bubbles3 (000002497D6137C8)
+[LOG] SoundI::release                          :  (0000024A29B0C4A8)
+[LOG] SoundI::release                          :     Bubbles4 (000002497D60F388)
+[LOG] SoundI::release                          :  (0000024A29B0AC38)
+[LOG] SoundI::release                          :     Bubbles5 (000002497D613488)
+[LOG] SoundI::release                          :  (0000024A29B0C618)
+[LOG] SoundI::release                          :     Bubbles6 (000002497D611408)
+[LOG] SoundI::release                          :  (0000024A2968FCC8)
+[LOG] SoundI::release                          :     412766__ohnobones__underwater-hullcreaking (000002497D617588)
+[LOG] SoundI::release                          :  (0000024A29B0CA68)
+[LOG] SoundI::release                          :     water-underwater-distant-explosion-rumble_GyIPV5VO (000002497D611748)
+[LOG] SoundI::release                          :  (0000024A29690E08)
+[LOG] SoundI::release                          :     351408__newagesoup__gleam-glow-sfx-chime (000002497D617C08)
+[LOG] SoundI::release                          :  (0000024A296909B8)
+[LOG] SoundI::release                          :     558155__kratosc2__magical-glowing (000002497D616888)
+[LOG] SoundI::release                          :  (0000024A2968FE38)
+[LOG] SoundI::release                          :     241193__rastaman94__a-light-in-the-dark (000002497D6178C8)
+[LOG] SoundI::release                          :  (0000024A29B0BEE8)
+[LOG] SoundI::release                          :     74908__mjudo12__freewilly (000002497D610228)
+[LOG] SoundI::release                          :  (0000024A29B0BD78)
+[LOG] SoundI::release                          :     448460__psiboy123__underwater-white-noise (000002497D60FD48)
+[LOG] SoundI::release                          : 171945__rebekahday__lowwhalesong (000002497E08EFD8)
+[LOG] SoundI::release                          :     171945__rebekahday__lowwhalesong (0000024976093618)
+[LOG] SoundI::release                          :     171945__rebekahday__lowwhalesong (0000024A8DE72AC8)
+[LOG] SoundI::release                          : 187499__old-waveplay__sfx-eerie-glow (000002497E08E768)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A8DFBD828)
+[LOG] SoundI::release                          :     187499__old-waveplay__sfx-eerie-glow (0000024A8DE71D48)
+[LOG] SoundI::release                          : 258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A8DF2FBF8)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024976093958)
+[LOG] SoundI::release                          :     258283__norman-hittle__deepsea-creature-echolocation-hydrogen-skyline-com (0000024A8DE72258)
+[LOG] SoundI::release                          :  (000002497DBFC158)
+[LOG] SoundI::release                          :     Stone1 (000002497D617F48)
+[LOG] SoundI::release                          :  (0000024A296903F8)
+[LOG] SoundI::release                          :     Stone2 (000002497D614CE8)
+[LOG] SoundI::release                          :  (0000024A29B0C8F8)
+[LOG] SoundI::release                          :     Stone3 (000002497D614808)
+[LOG] SoundI::release                          :  (0000024A296913C8)
+[LOG] SoundI::release                          :     Stone4 (000002497D6180E8)
+[LOG] SoundI::release                          :  (0000024A29690288)
+[LOG] SoundI::release                          :     Stone5 (000002497D6149A8)
+[LOG] SoundI::release                          :  (0000024A29B0CD48)
+[LOG] SoundI::release                          :     Stone6 (000002497D612448)
+[LOG] SoundI::release                          :  (0000024A29B0CBD8)
+[LOG] SoundI::release                          :     Stone7 (000002497D6122A8)
+[LOG] SoundI::release                          :  (0000024A29690848)
+[LOG] SoundI::release                          :     Stone8 (000002497D61A308)
+[LOG] SoundI::release                          :  (0000024A29B0DBA8)
+[LOG] SoundI::release                          :     Sand7 (000002497D615B88)
+[LOG] SoundI::release                          :  (0000024A2968F878)
+[LOG] SoundI::release                          :     Sand8 (000002497D619948)
+[LOG] SoundI::release                          :  (0000024A2968FB58)
+[LOG] SoundI::release                          :     Sand1 (000002497D6166E8)
+[LOG] SoundI::release                          :  (0000024A29B0B4D8)
+[LOG] SoundI::release                          :     Sand2 (000002497D60E1A8)
+[LOG] SoundI::release                          :  (0000024A29B0AF18)
+[LOG] SoundI::release                          :     Sand3 (000002497D60E348)
+[LOG] SoundI::release                          :  (0000024A29B0D308)
+[LOG] SoundI::release                          :     Sand4 (000002497D612C68)
+[LOG] SoundI::release                          :  (0000024A29B0D478)
+[LOG] SoundI::release                          :     Sand5 (000002497D613968)
+[LOG] SoundI::release                          :  (0000024A2968F708)
+[LOG] SoundI::release                          :     Sand6 (000002497D61A648)
+[LOG] SoundI::release                          :  (0000024A29B0C1C8)
+[LOG] SoundI::release                          :     Movement4 (000002497D611268)
+[LOG] SoundI::release                          :  (0000024A29690F78)
+[LOG] SoundI::release                          :     Movement5 (000002497D616D68)
+[LOG] SoundI::release                          :  (0000024A29B0B1F8)
+[LOG] SoundI::release                          :     Movement1 (000002497D611F68)
+[LOG] SoundI::release                          :  (0000024A29B0A958)
+[LOG] SoundI::release                          :     Movement2 (000002497D60EB68)
+[LOG] SoundI::release                          :  (0000024A29690118)
+[LOG] SoundI::release                          :     Movement3 (000002497D617DA8)
+[LOG] SoundI::release                          :  (0000024A29B0C788)
+[LOG] SoundI::release                          :     Wood1 (000002497D610F28)
+[LOG] SoundI::release                          :  (0000024A29B0ADA8)
+[LOG] SoundI::release                          :     Wood2 (000002497D610D88)
+[LOG] SoundI::release                          :  (000002497DBFBFE8)
+[LOG] SoundI::release                          :     Wood3 (000002497D6163A8)
+[LOG] SoundI::release                          :  (0000024A29B0CEB8)
+[LOG] SoundI::release                          :     Wood4 (000002497D612928)
+[LOG] SoundI::release                          :  (0000024A29691258)
+[LOG] SoundI::release                          :     Wood5 (000002497D615EC8)
+[LOG] SoundI::release                          :  (0000024A29B0AAC8)
+[LOG] SoundI::release                          :     Wood6 (000002497D613FE8)
+[LOG] SoundI::release                          :  (0000024A29B0C058)
+[LOG] SoundI::release                          :     Wood7 (000002497D614668)
+[LOG] SoundI::release                          :  (0000024A29B0D198)
+[LOG] SoundI::release                          :     Wood8 (000002497D610568)
+[LOG] Thread::callback                         : FMOD Studio update thread finished.
+[LOG] Thread::callback                         : FMOD Studio bank load thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] Thread::callback                         : FMOD Studio sample load thread finished.
+[LOG] LiveUpdate::release                      : 
+[LOG] LiveUpdate::reset                        : Reset connection (reason Disconnected)
+[LOG] Thread::callback                         : FMOD stream thread finished.
+[LOG] Thread::callback                         : FMOD mixer thread finished.
+[LOG] Profile::disconnectAll                   : Profiler disconnecting all clients
+[LOG] SystemI::close                           : Closed.
