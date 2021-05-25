@@ -54,9 +54,9 @@ public class Flock : MonoBehaviour
     private float highlightAngle = 160;
     [SerializeField]
     private bool debuggRays = false;
-    [SerializeField]
+    [HideInInspector]
     public List<Vector3> plottedPoints;
-
+    
     private float dist = 1;
 
     // Hidden variables
