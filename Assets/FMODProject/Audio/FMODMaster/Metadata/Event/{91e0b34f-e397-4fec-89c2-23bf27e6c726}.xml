@@ -2374,8 +2374,8 @@
 	<object class="MixerBusEffectChain" id="{66963c53-0441-49ac-8375-ee35fe1d5e1d}">
 		<relationship name="effects">
 			<destination>{be2ff51f-d333-4d34-8bc3-56409b5e4520}</destination>
-			<destination>{0bfe162a-1cd4-4462-8b74-14e7b408424c}</destination>
 			<destination>{c9b57e9b-f054-4fd4-b570-2c77fc33c22b}</destination>
+			<destination>{ad636fec-c1da-4791-889c-e7075d461fdc}</destination>
 			<destination>{b6f9cdde-40bc-4e50-b8b6-e5f49cebf7b6}</destination>
 		</relationship>
 	</object>
@@ -2589,30 +2589,18 @@
 		</relationship>
 	</object>
 	<object class="MixerBusFader" id="{be2ff51f-d333-4d34-8bc3-56409b5e4520}" />
-	<object class="SFXReverbEffect" id="{0bfe162a-1cd4-4462-8b74-14e7b408424c}">
-		<property name="earlyDelay">
-			<value>7</value>
-		</property>
-		<property name="lateDelay">
-			<value>11</value>
-		</property>
-		<property name="HFDecayRatio">
-			<value>10</value>
-		</property>
-		<property name="highCut">
-			<value>500</value>
-		</property>
-		<property name="earlyLateMix">
-			<value>92</value>
-		</property>
-		<property name="wetLevel">
-			<value>3.5</value>
-		</property>
-	</object>
 	<object class="MultibandEqEffect" id="{c9b57e9b-f054-4fd4-b570-2c77fc33c22b}">
 		<relationship name="automators">
 			<destination>{cb40bd3d-e626-4485-88b1-65fe98d8dd40}</destination>
 		</relationship>
+	</object>
+	<object class="SFXReverbEffect" id="{ad636fec-c1da-4791-889c-e7075d461fdc}">
+		<property name="earlyDelay">
+			<value>3.5</value>
+		</property>
+		<property name="lateDelay">
+			<value>3.5</value>
+		</property>
 	</object>
 	<object class="CompressorEffect" id="{b6f9cdde-40bc-4e50-b8b6-e5f49cebf7b6}">
 		<property name="threshold">
