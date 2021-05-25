@@ -28,15 +28,10 @@ public class RayAvoidance : FilterdFlockBehavior
     private Vector3 FindFreePath( FlockAgent agent)
     {
         bool foundAWay = false;
-        if(Flock.plottedPoints == null || Flock.plottedPoints.Count == 0 )
-        {
-            Debug.LogError($"Plottet poits was null or 0");
-            return Vector3.zero;
-        }
         //Shit I Where can i go ?
-        for (int i = 1 ; i < Flock.plottedPoints.Count; i++)
+        for (int i = 1 ; i < TestRaycast.plottedPoints.Count; i++)
         {
-            Vector3 point = Quaternion.LookRotation(agent.transform.forward) * Flock.plottedPoints[i] ; 
+            Vector3 point = Quaternion.LookRotation(agent.transform.forward) * TestRaycast.plottedPoints[i] ; 
             if (Physics.Raycast(agent.transform.position, point , viewDist, whatIsObstical))
             {
                if(DrawRayDebugg) Debug.DrawRay(agent.transform.position, point * viewDist, Color.red);

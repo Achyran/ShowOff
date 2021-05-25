@@ -6,7 +6,13 @@ public class MoveOrigin : MonoBehaviour
 {
     [SerializeField]
     private StayOriginBehavior behavior;
-    //Transforms the origin point of the behavior to its Transform
+    // Start is called before the first frame update
+    void Start()
+    {
+        
+    }
+
+    // Update is called once per frame
     void Update()
     {
         behavior.origin = transform.position;

@@ -411,6 +411,55 @@ Transform:
   m_Father: {fileID: 1794543677}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!1 &573801497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 573801499}
+  - component: {fileID: 573801498}
+  m_Layer: 0
+  m_Name: RayCalc
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &573801498
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573801497}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5a343aa62b8ef540b8689c1bf8fb50f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  dist: 1
+  numOffRays: 15
+  turnfration: 1.618034
+  highlightAngle: 160
+  drawUnHighlighted: 0
+  highlightedRays: 0
+--- !u!4 &573801499
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 573801497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 10, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &684201478
 GameObject:
   m_ObjectHideFlags: 0
@@ -1139,7 +1188,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1794543676
 GameObject:
@@ -1180,7 +1229,7 @@ Transform:
   - {fileID: 1434356281}
   - {fileID: 1074461334}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1865183991
 GameObject:
@@ -1402,7 +1451,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2b64030feeaa24478093e6e969909b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  calcMode: 0
+  enableCPUClac: 0
   prefab: {fileID: 6258408315881659842, guid: d7315f771194bfe478c15511184b2ebf, type: 3}
   flockBehavior: {fileID: 11400000, guid: 4f3039417565587458e84ba553294b07, type: 2}
   startingCount: 500
@@ -1411,10 +1460,6 @@ MonoBehaviour:
   neighbourRaidus: 1.5
   avoidanceRadiusMultiplier: 0.857
   agentDensity: 0.004
-  numOffRays: 15
-  turnfraction: 1.618034
-  highlightAngle: 160
-  debuggRays: 1
 --- !u!4 &2063180397
 Transform:
   m_ObjectHideFlags: 0
@@ -1423,7 +1468,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2063180395}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.1, z: 0}
+  m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
