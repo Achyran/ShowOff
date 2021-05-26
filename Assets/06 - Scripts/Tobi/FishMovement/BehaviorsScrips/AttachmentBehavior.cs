@@ -2,18 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(menuName = "Flock/Behavior/SteeredCohesion")]
-public class SteeredCohesionBehavior : FilterdFlockBehavior
+[CreateAssetMenu(menuName = "Flock/Behavior/Attachment")]
+public class AttachmentBehavior : FilterdFlockBehavior
 {
-    [SerializeField]
-    private float agentSomthTime = 0.5f;
-
-    private Vector3 currentVelocety;
-
     public override Vector3 CalculateMove(FlockAgent agent, List<Transform> ctx, Flock flock)
     {
-        //Check for neghbors if = 0 no aductmetn
-        if (ctx == null || ctx.Count == 0) return Vector3.zero;
+       //Check for neghbors if = 0 no aductmetn
+       if(ctx == null || ctx.Count == 0) return Vector3.zero;
 
         //add all vecs and avarage
         Vector3 calcmove = Vector3.zero;
@@ -28,9 +23,6 @@ public class SteeredCohesionBehavior : FilterdFlockBehavior
 
         //creat offset
         calcmove -= agent.transform.position;
-
-        calcmove = Vector3.SmoothDamp(agent.transform.forward, calcmove, ref currentVelocety, agentSomthTime);
-
         return calcmove;
     }
 }

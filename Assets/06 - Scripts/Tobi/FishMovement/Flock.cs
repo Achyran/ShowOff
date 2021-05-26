@@ -14,7 +14,7 @@ public class Flock : MonoBehaviour
     [Header("FlockSettings")]
     [SerializeField]
     [Tooltip("This switches the prosess to designated place")]
-    private CalcMode calcMode;
+    private CalcMode calculationMode;
 
     [SerializeField]
     private FlockAgent prefab;
@@ -28,7 +28,7 @@ public class Flock : MonoBehaviour
 
     [SerializeField]
     [Range(1f, 100f)]
-    private float dirveFactor = 10f;
+    private float driveFactor = 10f;
 
     [SerializeField]
     [Range(1f, 100f)]
@@ -36,31 +36,32 @@ public class Flock : MonoBehaviour
 
     [SerializeField]
     [Range(1f, 10f)]
-    private float neighbourRaidus = 1.5f;
+    private float neighbourRadius = 1.5f;
 
     [SerializeField]
     [Range(0f, 1f)]
     private float avoidanceRadiusMultiplier = 0.5f;
     [SerializeField]
     [Range(0f, 1f)]
+    [Tooltip("The lower the closer the agens spawn together")]
     private float agentDensity = 0.8f;
 
     [Header("RayCast variables")]
     [SerializeField]
-    private int numOffRays = 15;
+    private int numberOffRays = 15;
     [SerializeField]
     private float turnfraction = 1.618034f;
     [SerializeField]
-    private float highlightAngle = 160;
+    private float viewAngle = 160;
     [SerializeField]
-    private bool debuggRays = false;
-    [HideInInspector]
-    public List<Vector3> plottedPoints;
+    private bool debugRays = false;
     
-    private float dist = 1;
+    //private float dist = 1;
 
     // Hidden variables
     private List<FlockAgent> agents = new List<FlockAgent>();
+    [HideInInspector]
+    public List<Vector3> plottedPoints;
 
     //Optimisation variabels
     private float squareMaxSpeed;
@@ -77,8 +78,8 @@ public class Flock : MonoBehaviour
 
         //Calculate MathHelpers
         squareMaxSpeed = maxSpeed * maxSpeed;
-        squareNeighborRadius = neighbourRaidus * neighbourRaidus;
-        squareAvoidanceRadius = neighbourRaidus * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
+        squareNeighborRadius = neighbourRadius * neighbourRadius;
+        squareAvoidanceRadius = neighbourRadius * avoidanceRadiusMultiplier * avoidanceRadiusMultiplier;
 
         SpawnFish();
 
@@ -130,9 +131,9 @@ public class Flock : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (debuggRays) DrawDebuggPlottedRays();
+        if (debugRays) DrawDebuggPlottedRays();
 
-        switch (calcMode)
+        switch (calculationMode)
         {
             case CalcMode.CPU:
                 CalcCPU();
@@ -160,7 +161,7 @@ public class Flock : MonoBehaviour
 
 
             Vector3 move = flockBehavior.CalculateMove(agent, ctx, this);
-            move *= dirveFactor;
+            move *= driveFactor;
             if (move.sqrMagnitude > squareMaxSpeed)
             {
                 move = move.normalized * maxSpeed;
@@ -182,7 +183,7 @@ public class Flock : MonoBehaviour
     private List<Transform> GetNearbyObjects(FlockAgent agent)
     {
         List<Transform> ctx = new List<Transform>();
-        Collider[] ctxColliderd = Physics.OverlapSphere(agent.transform.position, neighbourRaidus);
+        Collider[] ctxColliderd = Physics.OverlapSphere(agent.transform.position, neighbourRadius);
         foreach (Collider c in ctxColliderd)
         {
             if (c != agent.AgentCollider) ctx.Add(c.transform);
@@ -196,9 +197,9 @@ public class Flock : MonoBehaviour
         plottedPoints = new List<Vector3>();
 
 
-        for (int i = 0; i < numOffRays; i++)
+        for (int i = 0; i < numberOffRays; i++)
         {
-            float t = i / (numOffRays - 1f);
+            float t = i / (numberOffRays - 1f);
             float inclination = Mathf.Acos(1 - 2 * t);
             float azimuth = 2 * Mathf.PI * turnfraction * i;
 
@@ -229,7 +230,7 @@ public class Flock : MonoBehaviour
                 }
             }
         }
-        if (debuggRays) WriteSortToConsole();
+        if (debugRays) WriteSortToConsole();
     }
 
     //swaps 2 point in a given list 
@@ -256,7 +257,7 @@ public class Flock : MonoBehaviour
     //Adds The point to plotted points if it falls in the field of view
     void PlotRayTest(Vector3 point)
     {
-        if (Mathf.Abs(Vector3.Angle(point, transform.forward)) < highlightAngle)
+        if (Mathf.Abs(Vector3.Angle(point, transform.forward)) < viewAngle)
         {
             plottedPoints.Add(point);
         }
