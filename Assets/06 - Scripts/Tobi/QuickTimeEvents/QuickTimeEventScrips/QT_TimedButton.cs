@@ -5,8 +5,7 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "QuickTimeEvents/TimedButton")]
 public class QT_TimedButton : QuickTimeEvent
 {
-    [SerializeField]
-    public bool canTrigger = true;
+    
     [SerializeField]
     private KeyCode key = KeyCode.Space;
     [SerializeField]

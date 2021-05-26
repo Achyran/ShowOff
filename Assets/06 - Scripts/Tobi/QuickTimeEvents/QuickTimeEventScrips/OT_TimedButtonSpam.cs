@@ -6,9 +6,9 @@ using UnityEngine;
 public class OT_TimedButtonSpam : QuickTimeEvent
 {
     [SerializeField]
-    public bool canTrigger = true;
-    [SerializeField]
     private KeyCode key = KeyCode.Space;
+    [SerializeField]
+    private int buttonPresses = 10;
     [SerializeField]
     private float time = 10;
     [SerializeField]
@@ -16,6 +16,7 @@ public class OT_TimedButtonSpam : QuickTimeEvent
 
 
     private float _time;
+    private int buttonCounter;
 
     //public QuickTimeEvent.Outcome outcome { get; set; } = QuickTimeEvent.Outcome.notReady;
 
@@ -25,6 +26,7 @@ public class OT_TimedButtonSpam : QuickTimeEvent
     public override void Start()
     {
         if (outcome == QuickTimeEvent.Outcome.ready) _Init();
+        Debug.Log($" Button Counter :{buttonCounter}");
     }
     public override void Run()
     {
@@ -45,15 +47,21 @@ public class OT_TimedButtonSpam : QuickTimeEvent
 
         if (Input.GetKeyDown(key))
         {
-            if (debug) Debug.Log("The Quick time event was a Sucsess");
+            buttonCounter++;
 
-            outcome = QuickTimeEvent.Outcome.sucsess;
+            if (buttonCounter >= buttonPresses)
+            {
+                if (debug) Debug.Log("The Quick time event was a Sucsess");
+
+                outcome = QuickTimeEvent.Outcome.sucsess;
+            }
         }
     }
 
     private void _Init()
     {
         _time = time;
+        buttonCounter = 0;
         outcome = QuickTimeEvent.Outcome.running;
         if (debug) Debug.Log($"QuicktimeEvent Got Started.\n Press :{ key} Time Left: { _time}");
     }

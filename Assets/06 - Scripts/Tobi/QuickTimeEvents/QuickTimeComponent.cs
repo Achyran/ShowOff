@@ -7,11 +7,15 @@ public class QuickTimeComponent : MonoBehaviour
 {
     public QuickTimeEvent _event;
     [SerializeField]
+    private bool destroyAfterOutcome;
+    [SerializeField]
+    private UnityEvent start;
+    [SerializeField]
     private UnityEvent sucsess;
     [SerializeField]
     private UnityEvent failure;
-    [SerializeField]
-    private bool destroyAfterOutcome;
+   
+
     private bool isDone = false;
 
     // Start is called before the first frame update
@@ -25,6 +29,7 @@ public class QuickTimeComponent : MonoBehaviour
     {
         _event.Run();
         Evaluate();
+        //Debug.Log(Input.mousePosition);
     }
 
     private void Evaluate()
@@ -35,11 +40,13 @@ public class QuickTimeComponent : MonoBehaviour
             {
                 isDone = true;
                 sucsess.Invoke();
+                if (destroyAfterOutcome) Destroy(this.gameObject);
             }
             if (_event.outcome == QuickTimeEvent.Outcome.failure)
             {
                 isDone = true;
                 failure.Invoke();
+                if (destroyAfterOutcome) Destroy(this.gameObject);
             }
         }
     }
