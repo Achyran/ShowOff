@@ -14,6 +14,7 @@ public class Player : MonoBehaviour
 	public Camera mainCam;
 	public CinemachineFreeLook playerCam;
 	public LayerMask playerLayer;
+	public float rotateSpeed = 1;
 	private bool playerFrozen = false;
 	private GameObject inspectingObject;
 	private OutlineScript lastOutline;
@@ -97,6 +98,7 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		rigidBody = GetComponent<Rigidbody>();
+		rigidBody.freezeRotation = true;
 		Cursor.lockState = CursorLockMode.Locked;
 	}
 	void OnEnable()
@@ -186,8 +188,9 @@ public class Player : MonoBehaviour
 			
 			m_TargetCameraState.Translate(translation);
 
-			rigidBody.angularVelocity = Vector3.zero;
-			
+			Vector3 newDirection = Vector3.RotateTowards(transform.forward, translation, rotateSpeed * Time.deltaTime, 0.0f);
+
+			transform.rotation = Quaternion.LookRotation(newDirection);
 			/*
 			// Framerate-independent interpolation
 			// Calculate the lerp amount, such that we get 99% of the way to our target in the specified time
