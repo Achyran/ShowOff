@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [CreateAssetMenu(menuName = "Flock/Behavior/MoveToPoitList")]
-public class MoveToTransform : FlockBehavior
+public class MoveToPointsBehavior : FlockBehavior
 {
     [SerializeField]
     private Vector3[] point;
