@@ -6,6 +6,10 @@ public class PosessionMovement : MonoBehaviour
 {
     //exposedVarables
 
+    [SerializeField]
+    [Tooltip("Overrides the stats at the start")]
+    private PosessionMovementStats stats;
+
     [Header("Movement Stads")]
     [SerializeField]
     private float maxSpeed = 5;
@@ -28,7 +32,11 @@ public class PosessionMovement : MonoBehaviour
     [Header("Funcutional Variabels")]
     [SerializeField]
     private bool freeze;
-
+    [SerializeField]
+    private bool loadStats = true;
+    [SerializeField]
+    [Tooltip("Saves the changes to the Stats when exiting the playmode")]
+    private bool saveStats = false;
 
 
     //HiddenVarabels
@@ -46,6 +54,11 @@ public class PosessionMovement : MonoBehaviour
         rb = GetComponent<Rigidbody>();
         if (rb == null) Debug.LogError($"Rigidbody is missing", this);
         else canMove = true;
+
+        if(stats != null && loadStats)
+        {
+            SetStats();
+        }
     }
 
     private void FixedUpdate()
@@ -97,7 +110,6 @@ public class PosessionMovement : MonoBehaviour
         if (Input.GetKey(pitchKeys[0])) pitchRotation -= 1.0f;
         if (Input.GetKey(pitchKeys[1])) pitchRotation += 1.0f;
 
-        Debug.Log(transform.eulerAngles.x);
         if(pitchRotation != 0 && pitchInClap())
         {
             transform.Rotate(pitchRotation * rotationSpeed, 0, 0);
@@ -120,5 +132,46 @@ public class PosessionMovement : MonoBehaviour
         if (transform.rotation.eulerAngles.x < pitchClamp || transform.rotation.eulerAngles.x > 360 - pitchClamp)
             return true;
         return false;
+    }
+    private void SetStats()
+    {
+        maxSpeed = stats.maxSpeed;
+        speed = stats.speed;
+        reverseDamp = stats.reverseDamp;
+        pitchClamp = stats.pitchClamp;
+        rotationSpeed = stats.rotationSpeed;
+        rotationReturnDamp = stats.rotationReturnDamp;
+
+        if(rb != null)
+        {
+            rb.mass = stats.mass;
+            rb.drag = stats.drag;
+            rb.angularDrag = stats.AngularDrag;
+        }
+    }
+    private void SaveStats()
+    {
+        if (stats != null)
+        {
+            stats.maxSpeed = maxSpeed;
+            stats.speed = speed;
+            stats.reverseDamp = reverseDamp;
+            stats.pitchClamp = pitchClamp;
+            stats.rotationSpeed = rotationSpeed;
+            stats.rotationReturnDamp = rotationReturnDamp;
+
+            if (rb != null)
+            {
+                stats.mass = rb.mass;
+                stats.drag = rb.drag;
+                stats.AngularDrag = rb.angularDrag;
+            }
+        }
+        else Debug.LogWarning("Stats could not be saved. Stats were Null", this);
+    }
+
+    private void OnApplicationQuit()
+    {
+        if (saveStats) SaveStats();
     }
 }
