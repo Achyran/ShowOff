@@ -405,13 +405,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 63235e173bc4e664781fba2dfbccec01, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  stats: {fileID: 11400000, guid: 555bbd7897e42664f904cf715bfb6728, type: 2}
   maxSpeed: 20
   speed: 20
   reverseDamp: 0.5
-  pitchClamp: 70.6
+  pitchClamp: 70
   rotationSpeed: 2
-  rotationReturnDamp: 0.638
+  rotationReturnDamp: 0.832
   freeze: 0
+  loadStats: 1
+  saveStats: 0
 --- !u!54 &1898848360
 Rigidbody:
   m_ObjectHideFlags: 0
