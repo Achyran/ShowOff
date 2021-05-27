@@ -10,7 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2414414356572537381}
   - component: {fileID: 2669436365265270685}
-  m_Layer: 0
+  - component: {fileID: -4163521153241622878}
+  m_Layer: 8
   m_Name: PR_Plant2_LOD
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -43,7 +44,7 @@ LODGroup:
   serializedVersion: 2
   m_LocalReferencePoint: {x: -0.044486046, y: 0.2707498, z: -0.0013292432}
   m_Size: 1.254153
-  m_FadeMode: 0
+  m_FadeMode: 1
   m_AnimateCrossFading: 0
   m_LastLODIsBillboard: 0
   m_LODs:
@@ -59,6 +60,20 @@ LODGroup:
     fadeTransitionWidth: 0
     renderers: []
   m_Enabled: 1
+--- !u!64 &-4163521153241622878
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 685532536131231967}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &1351058482721749428
 GameObject:
   m_ObjectHideFlags: 0
@@ -68,7 +83,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 745147957653660041}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: transform29
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -98,7 +113,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7118267977807941405}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: transform28
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -128,7 +143,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7723120876427025627}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: transform8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -158,7 +173,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7710793527017092395}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface27
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -191,7 +206,8 @@ GameObject:
   - component: {fileID: 1918451154773323896}
   - component: {fileID: 2117345392568694892}
   - component: {fileID: 8145922538364399434}
-  m_Layer: 0
+  - component: {fileID: 7681088224446644072}
+  m_Layer: 8
   m_Name: Plant2(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -261,6 +277,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &7681088224446644072
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3620898981134804279}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 8899473800732853123, guid: 2640e8a4eeac2ba468bdf376d8cbab22, type: 3}
 --- !u!1 &4344291638395994068
 GameObject:
   m_ObjectHideFlags: 0
@@ -270,7 +300,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6429219472808856681}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: pPlane8
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -304,7 +334,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2702357418221792388}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: 2D_Algae(Clone)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -338,7 +368,7 @@ GameObject:
   - component: {fileID: 8369827052472364823}
   - component: {fileID: 5647533856334647750}
   - component: {fileID: 2014278529188108952}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface19
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -417,7 +447,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4836181717400204584}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface10
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -448,7 +478,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2485844724935082740}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: polySurface19 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -479,7 +509,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8139000350838258234}
-  m_Layer: 0
+  m_Layer: 8
   m_Name: transform30
   m_TagString: Untagged
   m_Icon: {fileID: 0}
