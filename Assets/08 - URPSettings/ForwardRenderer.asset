@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: Color
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   settings:
     passTag: Color
     Event: 300
@@ -56,13 +56,13 @@ MonoBehaviour:
     passTag: Toon Outline
     Event: 300
     filterSettings:
-      RenderQueueType: 0
+      RenderQueueType: 1
       LayerMask:
         serializedVersion: 2
-        m_Bits: 4294967295
+        m_Bits: 256
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: da5140f0d05ea35419ee072e72886b02, type: 2}
-    overrideMaterialPassIndex: 0
+    overrideMaterialPassIndex: 8
     overrideDepthState: 0
     depthCompareFunction: 4
     enableWrite: 1
