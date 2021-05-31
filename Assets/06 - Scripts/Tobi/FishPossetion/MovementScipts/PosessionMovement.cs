@@ -59,6 +59,10 @@ public class PosessionMovement : MonoBehaviour
         {
             SetStats();
         }
+
+        //Subscribe
+        GameMaster.current.onPosessionStart += StartPosession;
+        GameMaster.current.onPosessionStop += StopPosession;
     }
 
     private void FixedUpdate()
@@ -68,6 +72,8 @@ public class PosessionMovement : MonoBehaviour
             if (freeze)
             {
                 rb.constraints = RigidbodyConstraints.FreezeAll;
+
+                //ToDo: Add Fish AI
             }
             else
             {
@@ -173,5 +179,23 @@ public class PosessionMovement : MonoBehaviour
     private void OnApplicationQuit()
     {
         if (saveStats) SaveStats();
+    }
+
+    private void StartPosession(PosessionMovement posession)
+    {
+        if(this == posession)
+        {
+            freeze = false;
+        }
+    }
+    private void StopPosession()
+    {
+        freeze = true;
+    }
+
+    private void OnDestroy()
+    {
+        GameMaster.current.onPosessionStart -= StartPosession;
+        GameMaster.current.onPosessionStop -= StopPosession;
     }
 }
