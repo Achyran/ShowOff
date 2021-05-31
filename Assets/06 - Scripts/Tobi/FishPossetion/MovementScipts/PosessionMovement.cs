@@ -26,6 +26,8 @@ public class PosessionMovement : MonoBehaviour
     [SerializeField]
     [Range(0,1)]
     private float rotationReturnDamp = 0.5f;
+    [Range(0, 60)]
+    public float posessionTime = 5;
 
 
 
@@ -59,6 +61,10 @@ public class PosessionMovement : MonoBehaviour
         {
             SetStats();
         }
+
+        //Subscribe
+        GameMaster.current.onPosessionStart += StartPosession;
+        GameMaster.current.onPosessionStop += StopPosession;
     }
 
     private void FixedUpdate()
@@ -68,6 +74,8 @@ public class PosessionMovement : MonoBehaviour
             if (freeze)
             {
                 rb.constraints = RigidbodyConstraints.FreezeAll;
+
+                //ToDo: Add Fish AI
             }
             else
             {
@@ -141,6 +149,7 @@ public class PosessionMovement : MonoBehaviour
         pitchClamp = stats.pitchClamp;
         rotationSpeed = stats.rotationSpeed;
         rotationReturnDamp = stats.rotationReturnDamp;
+        posessionTime = stats.posessionTime;
 
         if(rb != null)
         {
@@ -159,6 +168,7 @@ public class PosessionMovement : MonoBehaviour
             stats.pitchClamp = pitchClamp;
             stats.rotationSpeed = rotationSpeed;
             stats.rotationReturnDamp = rotationReturnDamp;
+            stats.posessionTime = posessionTime;
 
             if (rb != null)
             {
@@ -173,5 +183,23 @@ public class PosessionMovement : MonoBehaviour
     private void OnApplicationQuit()
     {
         if (saveStats) SaveStats();
+    }
+
+    private void StartPosession(PosessionMovement posession)
+    {
+        if(this == posession)
+        {
+            freeze = false;
+        }
+    }
+    private void StopPosession()
+    {
+        freeze = true;
+    }
+
+    private void OnDestroy()
+    {
+        GameMaster.current.onPosessionStart -= StartPosession;
+        GameMaster.current.onPosessionStop -= StopPosession;
     }
 }
