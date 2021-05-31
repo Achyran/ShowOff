@@ -11,8 +11,6 @@ public class GameMaster : MonoBehaviour
     private PosessionMovement[] posessions;
     private PosessionMovement currentposession;
 
-    [SerializeField]
-    private float time;
     private float _time;
     private bool canPosess = true;
 
@@ -80,7 +78,7 @@ public class GameMaster : MonoBehaviour
     {
         if (canPosess)
         {
-            _time = time;
+            _time = posession.posessionTime;
             canPosess = false;
             if (onPosessionStart != null)
             {

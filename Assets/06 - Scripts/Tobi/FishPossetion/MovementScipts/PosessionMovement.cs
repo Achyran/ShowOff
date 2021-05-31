@@ -26,6 +26,8 @@ public class PosessionMovement : MonoBehaviour
     [SerializeField]
     [Range(0,1)]
     private float rotationReturnDamp = 0.5f;
+    [Range(0, 60)]
+    public float posessionTime = 5;
 
 
 
@@ -147,6 +149,7 @@ public class PosessionMovement : MonoBehaviour
         pitchClamp = stats.pitchClamp;
         rotationSpeed = stats.rotationSpeed;
         rotationReturnDamp = stats.rotationReturnDamp;
+        posessionTime = stats.posessionTime;
 
         if(rb != null)
         {
@@ -165,6 +168,7 @@ public class PosessionMovement : MonoBehaviour
             stats.pitchClamp = pitchClamp;
             stats.rotationSpeed = rotationSpeed;
             stats.rotationReturnDamp = rotationReturnDamp;
+            stats.posessionTime = posessionTime;
 
             if (rb != null)
             {

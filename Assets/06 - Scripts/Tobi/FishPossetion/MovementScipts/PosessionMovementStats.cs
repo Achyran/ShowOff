@@ -21,6 +21,9 @@ public class PosessionMovementStats : ScriptableObject
     [SerializeField]
     [Range(0, 1)]
     public float rotationReturnDamp = 0.5f;
+    [SerializeField]
+    [Range(0, 50)]
+    public float posessionTime;
 
     [Header("Rigidbody Stats")]
     [SerializeField]
