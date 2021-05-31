@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
   m_Name: Color
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   settings:
     passTag: Color
     Event: 300
@@ -59,10 +59,10 @@ MonoBehaviour:
       RenderQueueType: 1
       LayerMask:
         serializedVersion: 2
-        m_Bits: 256
+        m_Bits: 4294967295
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: da5140f0d05ea35419ee072e72886b02, type: 2}
-    overrideMaterialPassIndex: 8
+    overrideMaterialPassIndex: 0
     overrideDepthState: 0
     depthCompareFunction: 4
     enableWrite: 1
@@ -78,6 +78,43 @@ MonoBehaviour:
       restoreCamera: 1
       offset: {x: 0, y: 0, z: 0, w: 0}
       cameraFieldOfView: 60
+--- !u!114 &-4963068570557338645
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 96d286886b392af47bd85f6f26f5ae34, type: 3}
+  m_Name: NewRFFog
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    Event: 300
+    computeShader: {fileID: 7200000, guid: f81748f70ef25584d9a1adfad7fc1141, type: 3}
+    fogColor: {r: 0, g: 0, b: 0, a: 0}
+    depthStart: 1
+    depthDistance: 3762.3
+--- !u!114 &-4107059136982274300
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 090053878036ce64b8c4d9cf6d60e517, type: 3}
+  m_Name: NewIFFogEffect
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  renderPassEvent: 1000
+  _material: {fileID: 2100000, guid: 0d4905be9fa0d0444b527968627c2c1e, type: 2}
+  _fogColor: {r: 0.2834639, g: 0.52558064, b: 0.6603774, a: 0.39607844}
+  _depthStart: -93.8
+  _depthDistance: 172.1
 --- !u!114 &-1724113258711829197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -98,7 +135,7 @@ MonoBehaviour:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
-        m_Bits: 1536
+        m_Bits: 2048
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 251a343f2f432d7459ece8058055741e, type: 2}
     overrideMaterialPassIndex: 0
@@ -133,7 +170,9 @@ MonoBehaviour:
   - {fileID: -8467921345885945125}
   - {fileID: -1724113258711829197}
   - {fileID: -8821139975786753515}
-  m_RendererFeatureMap: db4285a066e67b8a33b5f03d20b812e815923baded039585
+  - {fileID: -4107059136982274300}
+  - {fileID: 3332219870871751663}
+  m_RendererFeatureMap: db4285a066e67b8a33b5f03d20b812e815923baded039585042fa69c79cb00c7ef0bcf54516c3e2e
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -162,3 +201,24 @@ MonoBehaviour:
   m_ShadowTransparentReceive: 0
   m_RenderingMode: 0
   m_AccurateGbufferNormals: 0
+--- !u!114 &3332219870871751663
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d7f7a8965105a5442ac8bb7359d1b791, type: 3}
+  m_Name: NewIFUnderWaterEffect
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  renderPassEvent: 1000
+  _material: {fileID: 2100000, guid: 5e2dc04e6b65c9d478be9d017d02d5af, type: 2}
+  _pixelOffset: 0.0019
+  _noiseScale: 1.46
+  _noiseFrequency: 4.15
+  _noiseSpeed: 5.69
+  _depthStart: 20
+  _depthDistance: 300
