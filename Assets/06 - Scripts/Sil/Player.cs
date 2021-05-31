@@ -13,8 +13,8 @@ public class Player : MonoBehaviour
 	public GameObject notepad;
 	public Camera mainCam;
 	public CinemachineFreeLook playerCam;
-	public LayerMask playerLayer;
 	public float rotateSpeed = 1;
+	public float inspectRange = 25;
 	private bool playerFrozen = false;
 	private GameObject inspectingObject;
 	private OutlineScript lastOutline;
@@ -191,29 +191,10 @@ public class Player : MonoBehaviour
 			Vector3 newDirection = Vector3.RotateTowards(transform.forward, translation, rotateSpeed * Time.deltaTime, 0.0f);
 
 			transform.rotation = Quaternion.LookRotation(newDirection);
-			/*
-			// Framerate-independent interpolation
-			// Calculate the lerp amount, such that we get 99% of the way to our target in the specified time
-			var positionLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / positionLerpTime) * Time.deltaTime);
-			var rotationLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / rotationLerpTime) * Time.deltaTime);
-			m_InterpolatingCameraState.LerpTowards(m_TargetCameraState, positionLerpPct, rotationLerpPct);
-
-			//Only make movements if notepad isn't up
-
-			m_InterpolatingCameraState.UpdateTransform(transform);
-			*/
-
+			
 			/*
 			RaycastHit hit;
-			if (Physics.Raycast(mainCam.ScreenPointToRay(new Vector3(mainCam.pixelWidth / 2, mainCam.pixelHeight / 2)), out hit))
-			{
-				if (hit.transform.gameObject.tag == "Interactable" && Input.GetMouseButtonDown(0))
-					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
-					CameraSwitch(hit.transform.GetChild(0).gameObject);
-			}
-			*/
-			RaycastHit hit;
-			if (Physics.Raycast(transform.position, transform.forward, out hit))
+			if (Physics.Raycast(transform.position, mainCam.transform.forward, out hit))
 			{
 				
 				if (hit.transform.gameObject.tag == "Interactable")
@@ -232,7 +213,37 @@ public class Player : MonoBehaviour
 			}
 			else if (lastOutline != null)
 				lastOutline.outlineObject.gameObject.SetActive(false);
+			*/
 
+			RaycastHit[] hits;
+			//hits = Physics.RaycastAll(transform.position, mainCam.transform.forward, 9999999.0F);
+			Ray ray = mainCam.ScreenPointToRay(new Vector3(mainCam.pixelWidth / 2, mainCam.pixelHeight / 2, 0));
+			hits = Physics.RaycastAll(ray, inspectRange);
+			for (int i = 0; i < hits.Length; i++)
+			{
+				RaycastHit hit = hits[i];
+
+
+				if (hit.transform.gameObject.tag == "Interactable")
+				{
+					lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
+					lastOutline.outlineObject.gameObject.SetActive(true);
+
+
+					if (Input.GetMouseButtonDown(0))
+						//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
+						CameraSwitch(hit.transform.GetChild(0).gameObject);
+
+					break;
+				}
+				else if (lastOutline != null)
+					
+					lastOutline.outlineObject.gameObject.SetActive(false);
+			}
+			if (hits.Length == 0 && lastOutline != null)
+			{
+				lastOutline.outlineObject.gameObject.SetActive(false);
+			}
 
 
 		}
