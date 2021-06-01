@@ -19,16 +19,20 @@ public class VolumetricTool : MonoBehaviour
     private Vector3 meshRotation;
     [SerializeField]
     private Vector3 meshScale;
+    [SerializeField]
+    private GameObject targetParent;
+
     private PlaneTransform oldArea;
     private Plane _plane;
     private GameObject _oldPrefab;
 
     [System.Serializable]
-    private struct PlaneTransform
+    public struct PlaneTransform
     {
         public Vector3 position;
         public Vector2 scale;
     }
+
 
     private void OnDrawGizmos()
     {
@@ -48,13 +52,38 @@ public class VolumetricTool : MonoBehaviour
                 else
                 {
                     Gizmos.DrawMesh(mesh,hitpos,Quaternion.Euler(meshRotation), meshScale);
+
+                    Event e = Event.current;
+
+                    if (e.type == EventType.MouseUp)
+                    {
+                        InstanPrefab(hitpos);
+                    }
                 }
             }
-            
+
+           
+
 
         }
     }
 
+   
+ 
+
+    private void InstanPrefab(Vector3 poss)
+    {
+        if(targetParent == null)
+        {
+            Debug.LogError("Object could not be instancated, Target parent was Null", this);
+            return;
+        }
+        GameObject obj = Instantiate(prefab, targetParent.transform);
+        obj.transform.localScale = meshScale;
+        obj.transform.localPosition = poss;
+        obj.transform.localRotation = Quaternion.Euler( meshRotation);
+
+    }
 
     private void UpdatePrefab()
     {
