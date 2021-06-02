@@ -15,6 +15,7 @@ public class Player : MonoBehaviour
 	public CinemachineFreeLook playerCam;
 	public float rotateSpeed = 1;
 	public float inspectRange = 25;
+	public ModelControl modelControl;
 	private bool playerFrozen = false;
 	private GameObject inspectingObject;
 	private OutlineScript lastOutline;
@@ -100,11 +101,7 @@ public class Player : MonoBehaviour
 
 		rigidBody.AddForce(translation);
 
-
-
-		Vector3 newDirection = Vector3.RotateTowards(transform.forward, translation, rotateSpeed * Time.deltaTime, 0.0f);
-
-		transform.rotation = Quaternion.LookRotation(newDirection);
+		modelControl.ModelUpdate(translation, transform.position);
 
 		/*
 		RaycastHit hit;
