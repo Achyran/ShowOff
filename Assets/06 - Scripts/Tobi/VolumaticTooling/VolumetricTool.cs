@@ -7,14 +7,14 @@ using UnityEditor;
 public class VolumetricTool : MonoBehaviour
 {
     [SerializeField]
-    private PlaneTransform area;
-    [SerializeField]
     private bool draw;
+    [SerializeField]
+    private PlaneTransform area;
     [SerializeField]
     private GameObject prefab;
     private Mesh mesh;
     [SerializeField]
-    private bool previewMesh;
+    private bool preview;
     [SerializeField]
     private Vector3 meshRotation;
     [SerializeField]
@@ -42,9 +42,10 @@ public class VolumetricTool : MonoBehaviour
             ReCalculatePlane();
             UpdatePrefab();
             Gizmos.color = new Color(0, 1, 0,0.3f);
-            Gizmos.DrawCube(area.position,new Vector3(area.scale.x *10,0.1f, area.scale.y *10));
+            Gizmos.DrawCube(area.position,new Vector3(area.scale.x ,0.1f, area.scale.y ));
             Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
             Vector3 hitpos = hitPlane(ray);
+            if (preview) DrawPreview();
             if(hitpos != Vector3.zero)
             {
                 if (mesh == null)
@@ -61,15 +62,19 @@ public class VolumetricTool : MonoBehaviour
                     }
                 }
             }
-
-           
-
-
         }
     }
 
-   
- 
+    private void DrawPreview()
+    {
+        
+        if (mesh != null)
+        {
+            mesh.RecalculateNormals();
+            Gizmos.DrawMesh(mesh, area.position, Quaternion.Euler(meshRotation), meshScale);
+        }
+    }
+
 
     private void InstanPrefab(Vector3 poss)
     {
@@ -80,7 +85,7 @@ public class VolumetricTool : MonoBehaviour
         }
         GameObject obj = Instantiate(prefab, targetParent.transform);
         obj.transform.localScale = meshScale;
-        obj.transform.localPosition = poss;
+        obj.transform.localPosition = poss - targetParent.transform.position;
         obj.transform.localRotation = Quaternion.Euler( meshRotation);
 
     }
@@ -117,10 +122,18 @@ public class VolumetricTool : MonoBehaviour
         if (_plane.Raycast(pRay,out dist))
         {
             
-
             Vector3 output = pRay.origin + pRay.direction * dist;
-            return output;
+            if (isInRec(new Vector2(output.x, output.z))) return output;
         }
         return Vector3.zero;
+    }
+
+    private bool isInRec(Vector2 vec)
+    {
+
+        if((area.position.x- area.scale.x/2) < vec.x && vec.x < (area.position.x + area.scale.x/2) &&
+            (area.position.z - area.scale.y / 2) < vec.y && vec.y < (area.position.z + area.scale.y / 2))
+        return true;
+        return false;
     }
 }
