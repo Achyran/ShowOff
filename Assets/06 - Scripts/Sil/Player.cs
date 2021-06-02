@@ -39,12 +39,28 @@ public class Player : MonoBehaviour
 		rigidBody = GetComponent<Rigidbody>();
 		rigidBody.freezeRotation = true;
 		Cursor.lockState = CursorLockMode.Locked;
+
+		if(GameMaster.current != null)
+        {
+			GameMaster.current.onPosessionStart += StartPosession;
+			GameMaster.current.onPosessionStop += StopPosession;
+        }
 	}
-	
 
-	
+    #region Tobi
+	//This is neede for the gameMasterLogic
+    private void StartPosession(PosessionMovement posession)
+    {
+		FreezePlayer(true);
+    }
+     
+    private void StopPosession()
+    {
+		FreezePlayer(false);
+    }
+    #endregion
 
-	void Update()
+    void Update()
 	{
 		
 
@@ -129,6 +145,7 @@ public class Player : MonoBehaviour
 		RaycastHit[] hits;
 		//hits = Physics.RaycastAll(transform.position, mainCam.transform.forward, 9999999.0F);
 		Ray ray = mainCam.ScreenPointToRay(new Vector3(mainCam.pixelWidth / 2, mainCam.pixelHeight / 2, 0));
+		//Possable optimasation : check only for first hit, Implement Masks
 		hits = Physics.RaycastAll(ray, inspectRange);
 		for (int i = 0; i < hits.Length; i++)
 		{
@@ -142,11 +159,14 @@ public class Player : MonoBehaviour
 
 
 				if (Input.GetMouseButtonDown(0))
+				{
 					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
 					CameraSwitch(hit.transform.GetChild(0).gameObject);
+				}
+
 
 				break;
-			}
+            }
 			else if (lastOutline != null)
 
 				lastOutline.outlineObject.gameObject.SetActive(false);
@@ -187,10 +207,12 @@ public class Player : MonoBehaviour
 		return direction;
 	}
 
-	public void FreezePlayer(bool val)
+	private void FreezePlayer(bool val)
 	{
 		playerFrozen = val;
 	}
+
+	//Legacy Aproche Use CamMaster.current.SetCam(CamConnection connection);
 	private void CameraSwitch(GameObject _object)
 	{
 		if (playerCam.gameObject.activeInHierarchy)
@@ -207,9 +229,18 @@ public class Player : MonoBehaviour
 			inspectingObject = null;
 			playerFrozen = false;
 		}
+
+		if (CamMaster.current != null)
+		{
+			CamConnection connection = _object.GetComponent<CamConnection>();
+			if (connection != null)
+			{
+				CamMaster.current.SetCam(connection);
+			}
+		}
 	}
 
-	private void ToggleNotebook()
+	public void ToggleNotebook()
 	{
 		if (notepad.activeInHierarchy)
 		{

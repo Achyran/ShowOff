@@ -10,9 +10,9 @@ public class GameMaster : MonoBehaviour
     private Player player;
     private PosessionMovement[] posessions;
     private PosessionMovement currentposession;
-
     private float _time;
-    private bool canPosess = true;
+    [HideInInspector]
+    public bool canPosess { get; private set; } = true;
 
     private void Awake()
     {
@@ -76,6 +76,7 @@ public class GameMaster : MonoBehaviour
     public event Action<PosessionMovement> onPosessionStart;
     public void PosessionStart(PosessionMovement posession)
     {
+        Debug.Log($"Started Poession");
         if (canPosess)
         {
             _time = posession.posessionTime;
@@ -93,6 +94,7 @@ public class GameMaster : MonoBehaviour
         if(onPosessionStop != null)
         {
             onPosessionStop();
+            CamMaster.current.SetCam(player.gameObject);
         }
     }
 
