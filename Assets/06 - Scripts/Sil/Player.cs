@@ -13,79 +13,18 @@ public class Player : MonoBehaviour
 	public GameObject notepad;
 	public Camera mainCam;
 	public CinemachineFreeLook playerCam;
-	public LayerMask playerLayer;
 	public float rotateSpeed = 1;
+	public float inspectRange = 25;
+	public ModelControl modelControl;
 	private bool playerFrozen = false;
 	private GameObject inspectingObject;
 	private OutlineScript lastOutline;
 	private Rigidbody rigidBody;
 
-	class CameraState
-	{
-		public float yaw;
-		public float pitch;
-		public float roll;
-		public float x;
-		public float y;
-		public float z;
-
-
-		public void SetFromTransform(Transform t)
-		{
-			pitch = t.eulerAngles.x;
-			yaw = t.eulerAngles.y;
-			roll = t.eulerAngles.z;
-			x = t.position.x;
-			y = t.position.y;
-			z = t.position.z;
-		}
-
-		public void Translate(Vector3 translation)
-		{
-			Vector3 rotatedTranslation = Quaternion.Euler(pitch, yaw, roll) * translation;
-
-			x += rotatedTranslation.x;
-			y += rotatedTranslation.y;
-			z += rotatedTranslation.z;
-		}
-
-		public void LerpTowards(CameraState target, float positionLerpPct, float rotationLerpPct)
-		{
-			yaw = Mathf.Lerp(yaw, target.yaw, rotationLerpPct);
-			pitch = Mathf.Lerp(pitch, target.pitch, rotationLerpPct);
-			roll = Mathf.Lerp(roll, target.roll, rotationLerpPct);
-
-			x = Mathf.Lerp(x, target.x, positionLerpPct);
-			y = Mathf.Lerp(y, target.y, positionLerpPct);
-			z = Mathf.Lerp(z, target.z, positionLerpPct);
-		}
-
-		public void UpdateTransform(Transform t)
-		{
-			t.eulerAngles = new Vector3(pitch, yaw, roll);
-			t.position = new Vector3(x, y, z);
-		}
-	}
-
-	CameraState m_TargetCameraState = new CameraState();
-	CameraState m_InterpolatingCameraState = new CameraState();
 
 	[Header("Movement Settings")]
 	[Tooltip("The speed at which you move in any direction")]
 	public float speed = 3.5f;
-
-	[Tooltip("Time it takes to interpolate camera position 99% of the way to the target."), Range(0.001f, 1f)]
-	public float positionLerpTime = 0.2f;
-
-	[Header("Rotation Settings")]
-	[Tooltip("X = Change in mouse position.\nY = Multiplicative factor for camera rotation.")]
-	public AnimationCurve mouseSensitivityCurve = new AnimationCurve(new Keyframe(0f, 0.5f, 0f, 5f), new Keyframe(1f, 2.5f, 0f, 0f));
-
-	[Tooltip("Time it takes to interpolate camera rotation 99% of the way to the target."), Range(0.001f, 1f)]
-	public float rotationLerpTime = 0.01f;
-
-	[Tooltip("Whether or not to invert our Y axis for mouse input to rotation.")]
-	public bool invertY = false;
 
 	[Header("Controls")]
 	public KeyCode ForwardsKey = KeyCode.W;
@@ -101,12 +40,121 @@ public class Player : MonoBehaviour
 		rigidBody.freezeRotation = true;
 		Cursor.lockState = CursorLockMode.Locked;
 	}
-	void OnEnable()
-	{
-		m_TargetCameraState.SetFromTransform(transform);
-		m_InterpolatingCameraState.SetFromTransform(transform);
+	
 
+	
+
+	void Update()
+	{
 		
+
+		InputManager();
+		
+
+		if (!playerFrozen)
+		{
+			MovementCalc();
+		}
+		//Switching out of inspection mode
+		else if (inspectingObject != null && Input.GetMouseButtonDown(0))
+		{
+			CameraSwitch(inspectingObject);
+		}
+		
+	}
+
+	private void InputManager()
+	{
+		// Exit Sample  
+		if (Input.GetKey(KeyCode.Escape))
+		{
+			Application.Quit();
+#if UNITY_EDITOR
+			UnityEditor.EditorApplication.isPlaying = false;
+#endif
+		}
+
+		if (Input.GetKeyDown(KeyCode.K))
+		{
+			SaveData();
+		}
+
+		if (Input.GetKeyDown(KeyCode.L))
+		{
+			LoadData();
+		}
+
+		if (Input.GetKeyDown(KeyCode.Tab))
+		{
+			ToggleNotebook();
+		}
+	}
+
+	private void MovementCalc()
+	{
+		Vector3 translation = Vector3.zero;
+
+		// Translation
+		translation = GetInputTranslationDirection() * Time.deltaTime;
+
+		translation *= speed;
+
+		rigidBody.AddForce(translation);
+
+		modelControl.ModelUpdate(translation, transform.position);
+
+		/*
+		RaycastHit hit;
+		if (Physics.Raycast(transform.position, mainCam.transform.forward, out hit))
+		{
+
+			if (hit.transform.gameObject.tag == "Interactable")
+			{
+				lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
+				lastOutline.outlineObject.gameObject.SetActive(true);
+
+				if(Input.GetMouseButtonDown(0))
+				//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
+					CameraSwitch(hit.transform.GetChild(0).gameObject);
+
+			}
+			else if (lastOutline != null)
+				lastOutline.outlineObject.gameObject.SetActive(false);
+
+		}
+		else if (lastOutline != null)
+			lastOutline.outlineObject.gameObject.SetActive(false);
+		*/
+
+		RaycastHit[] hits;
+		//hits = Physics.RaycastAll(transform.position, mainCam.transform.forward, 9999999.0F);
+		Ray ray = mainCam.ScreenPointToRay(new Vector3(mainCam.pixelWidth / 2, mainCam.pixelHeight / 2, 0));
+		hits = Physics.RaycastAll(ray, inspectRange);
+		for (int i = 0; i < hits.Length; i++)
+		{
+			RaycastHit hit = hits[i];
+
+
+			if (hit.transform.gameObject.tag == "Interactable")
+			{
+				lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
+				lastOutline.outlineObject.gameObject.SetActive(true);
+
+
+				if (Input.GetMouseButtonDown(0))
+					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
+					CameraSwitch(hit.transform.GetChild(0).gameObject);
+
+				break;
+			}
+			else if (lastOutline != null)
+
+				lastOutline.outlineObject.gameObject.SetActive(false);
+		}
+		if (hits.Length == 0 && lastOutline != null)
+		{
+			lastOutline.outlineObject.gameObject.SetActive(false);
+		}
 	}
 
 	Vector3 GetInputTranslationDirection()
@@ -137,111 +185,6 @@ public class Player : MonoBehaviour
 			direction += mainCam.transform.up;
 		}
 		return direction;
-	}
-
-	void Update()
-	{
-		Vector3 translation = Vector3.zero;
-
-
-		// Exit Sample  
-		if (Input.GetKey(KeyCode.Escape))
-		{
-			Application.Quit();
-#if UNITY_EDITOR
-			UnityEditor.EditorApplication.isPlaying = false;
-#endif
-		}
-
-		if (Input.GetKeyDown(KeyCode.K))
-		{
-			SaveData();
-		}
-		
-		if (Input.GetKeyDown(KeyCode.L))
-		{
-			LoadData();
-		}
-
-		if (Input.GetKeyDown(KeyCode.Tab))
-		{
-			ToggleNotebook();
-		}
-
-		if (!playerFrozen)
-		{
-
-			var mouseMovement = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y") * (invertY ? 1 : -1));
-
-			var mouseSensitivityFactor = mouseSensitivityCurve.Evaluate(mouseMovement.magnitude);
-
-			m_TargetCameraState.yaw += mouseMovement.x * mouseSensitivityFactor;
-			m_TargetCameraState.pitch += mouseMovement.y * mouseSensitivityFactor;
-
-			// Translation
-			translation = GetInputTranslationDirection() * Time.deltaTime;
-
-			translation *= speed;
-
-			rigidBody.AddForce(translation);
-
-			
-			m_TargetCameraState.Translate(translation);
-
-			Vector3 newDirection = Vector3.RotateTowards(transform.forward, translation, rotateSpeed * Time.deltaTime, 0.0f);
-
-			transform.rotation = Quaternion.LookRotation(newDirection);
-			/*
-			// Framerate-independent interpolation
-			// Calculate the lerp amount, such that we get 99% of the way to our target in the specified time
-			var positionLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / positionLerpTime) * Time.deltaTime);
-			var rotationLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / rotationLerpTime) * Time.deltaTime);
-			m_InterpolatingCameraState.LerpTowards(m_TargetCameraState, positionLerpPct, rotationLerpPct);
-
-			//Only make movements if notepad isn't up
-
-			m_InterpolatingCameraState.UpdateTransform(transform);
-			*/
-
-			/*
-			RaycastHit hit;
-			if (Physics.Raycast(mainCam.ScreenPointToRay(new Vector3(mainCam.pixelWidth / 2, mainCam.pixelHeight / 2)), out hit))
-			{
-				if (hit.transform.gameObject.tag == "Interactable" && Input.GetMouseButtonDown(0))
-					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
-					CameraSwitch(hit.transform.GetChild(0).gameObject);
-			}
-			*/
-			RaycastHit hit;
-			if (Physics.Raycast(transform.position, transform.forward, out hit))
-			{
-				
-				if (hit.transform.gameObject.tag == "Interactable")
-				{
-					lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
-					lastOutline.outlineObject.gameObject.SetActive(true);
-
-					if(Input.GetMouseButtonDown(0))
-					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
-						CameraSwitch(hit.transform.GetChild(0).gameObject);
-
-				}
-				else if (lastOutline != null)
-					lastOutline.outlineObject.gameObject.SetActive(false);
-
-			}
-			else if (lastOutline != null)
-				lastOutline.outlineObject.gameObject.SetActive(false);
-
-
-
-		}
-		//Switching out of inspection mode
-		else if (inspectingObject != null && Input.GetMouseButtonDown(0))
-		{
-			CameraSwitch(inspectingObject);
-		}
-		
 	}
 
 	public void FreezePlayer(bool val)
