@@ -21,6 +21,18 @@ public class GameMaster : MonoBehaviour
         GetPosessions();
     }
 
+    private void Start()
+    {
+        CheckOtherManagers();
+    }
+    
+    private void CheckOtherManagers()
+    {
+        if (CamMaster.current == null) Debug.LogWarning("No Camera Master is in the Sceene, Cam Transistions will not work");
+        if (ProgressionMaster.current == null) Debug.LogWarning("No Progression Master is in the Sceen, Progression based Events will not work");
+    }
+
+
     private void Update()
     {
         if (!canPosess)

@@ -155,13 +155,14 @@ public class Player : MonoBehaviour
 			if (hit.transform.gameObject.tag == "Interactable")
 			{
 				lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
+				if( lastOutline != null)
 				lastOutline.outlineObject.gameObject.SetActive(true);
 
 
 				if (Input.GetMouseButtonDown(0))
 				{
 					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
-					CameraSwitch(hit.transform.GetChild(0).gameObject);
+					//CameraSwitch(hit.transform.GetChild(0).gameObject);
 				}
 
 
