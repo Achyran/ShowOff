@@ -155,13 +155,15 @@ public class Player : MonoBehaviour
 			if (hit.transform.gameObject.GetComponent<OutlineScript>() != null)
 			{
 				lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
+				if( lastOutline != null)
 				lastOutline.outlineObject.gameObject.SetActive(true);
 
 
 				if (Input.GetMouseButtonDown(0))
 				{
 					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
-					CameraSwitch(hit.transform.gameObject);
+					//CameraSwitch(hit.transform.GetChild(0).gameObject);
+				}
 
 
 				break;
@@ -244,6 +246,7 @@ public class Player : MonoBehaviour
 
 	public void ToggleNotebook()
 	{
+		if(notepad != null)
 		if (notepad.activeInHierarchy)
 		{
 			notepad.SetActive(false);
