@@ -7,12 +7,17 @@ public class GameMaster : MonoBehaviour
 {
 
     public static GameMaster current;
-    private Player player;
+    public Player player { get; private set; }
     private PosessionMovement[] posessions;
     private PosessionMovement currentposession;
     private float _time;
-    [HideInInspector]
-    public bool canPosess { get; private set; } = true;
+    public enum State { _base, _posessing, _inspecting, _transition}
+
+    public State state { get; private set; } = State._base;
+    private State nextState = State._transition;
+    private float transitionTime = 0.5f;
+    private float _transitionTime;
+
 
     private void Awake()
     {
@@ -20,6 +25,7 @@ public class GameMaster : MonoBehaviour
         FindPlayer();
         GetPosessions();
     }
+
 
     private void Start()
     {
@@ -35,13 +41,38 @@ public class GameMaster : MonoBehaviour
 
     private void Update()
     {
-        if (!canPosess)
+        if (state == State._posessing)
         {
             _time -= Time.deltaTime;
             if(_time <= 0)
             {
                 PosessionStop();
             }
+        }
+        StateCooldown();
+    }
+
+    private void StateCooldown()
+    {
+        if(nextState != State._transition && _transitionTime >= 0)
+        {
+            _transitionTime -= Time.deltaTime;
+        }else if( nextState != State._transition && _transitionTime < 0)
+        {
+            state = nextState;
+            nextState = State._transition;
+        }
+    }
+
+    private void SetState(State pstate)
+    {
+        
+        if (nextState == State._transition)
+        {
+            Debug.Log($"Set State");
+            state = State._transition;
+            nextState = pstate;
+            _transitionTime = transitionTime;
         }
     }
 
@@ -89,10 +120,11 @@ public class GameMaster : MonoBehaviour
     public void PosessionStart(PosessionMovement posession)
     {
         Debug.Log($"Started Poession");
-        if (canPosess)
+        if (state == State._base)
         {
             _time = posession.posessionTime;
-            canPosess = false;
+            SetState(State._posessing);
+            CamMaster.current.SetCam(posession.gameObject);
             if (onPosessionStart != null)
             {
                 onPosessionStart(posession);
@@ -102,13 +134,48 @@ public class GameMaster : MonoBehaviour
     public event Action onPosessionStop;
     public void PosessionStop()
     {
-        canPosess = true;
-        if(onPosessionStop != null)
+        Debug.Log("Posession Stop");
+        if (state == State._posessing)
         {
-            onPosessionStop();
-            CamMaster.current.SetCam(player.gameObject);
+            state = State._base;
+            if (onPosessionStop != null)
+            {
+                onPosessionStop();
+                CamMaster.current.SetCam(CamMaster.current.playerConnection);
+            }
         }
     }
+    public event Action<GameObject> onInspectionStart;
+    public void InspectionStart (GameObject obj)
+    {
+        Debug.Log( $"Inspection Started {state}");
+        //ToDo a is interacatbe check
+        if (state == State._base)
+        {
+            SetState(State._inspecting);
+            CamMaster.current.SetCam(obj);       
+        }
+        if(onInspectionStart != null) 
+        {
+            onInspectionStart(obj);
+        }
+    }
+    public event Action<GameObject> onInpsectionStop;
+
+    public void InspectionStop()
+    {
+        Debug.Log("InpectionStoped");
+        if (state == State._inspecting)
+        {
+            SetState(State._base);
+            if (onInpsectionStop != null)
+            {
+                onInpsectionStop(CamMaster.current.connections[CamMaster.current.currentConnectionIndex].target);
+            }
+            CamMaster.current.SetCam(CamMaster.current.playerConnection.target);
+        }
+    }
+
 
     #endregion
 

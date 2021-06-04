@@ -33,7 +33,7 @@ public class PosessionMovement : MonoBehaviour
 
     [Header("Funcutional Variabels")]
     [SerializeField]
-    private bool freeze;
+    private bool freeze = true;
     [SerializeField]
     private bool loadStats = true;
     [SerializeField]
@@ -65,6 +65,7 @@ public class PosessionMovement : MonoBehaviour
         //Subscribe
         GameMaster.current.onPosessionStart += StartPosession;
         GameMaster.current.onPosessionStop += StopPosession;
+        rb.isKinematic = true;
     }
 
     private void FixedUpdate()
@@ -190,11 +191,13 @@ public class PosessionMovement : MonoBehaviour
         if(this == posession)
         {
             freeze = false;
+            rb.isKinematic = false;
         }
     }
     private void StopPosession()
     {
         freeze = true;
+        rb.isKinematic = true;
     }
 
     private void OnDestroy()

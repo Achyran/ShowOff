@@ -243,6 +243,7 @@ public class Player : MonoBehaviour
 
 	public void ToggleNotebook()
 	{
+		if(notepad != null)
 		if (notepad.activeInHierarchy)
 		{
 			notepad.SetActive(false);

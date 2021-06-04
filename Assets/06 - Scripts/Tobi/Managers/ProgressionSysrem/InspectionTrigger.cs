@@ -8,26 +8,22 @@ public class InspectionTrigger : ProgressionTrigger
     [SerializeField]
     private ProgressionBlock block;
     [SerializeField]
-    private CamConnection inspection;
+    private GameObject inspection;
 
    
 
     // Start is called before the first frame update
     void Start()
     {
-        if (CamMaster.current == null)
+        if(GameMaster.current != null)
         {
-            Debug.LogWarning("No CamMaster Found, destrying this ", this);
-            Destroy(this);
-        }
-        else {
-            CamMaster.current.onConnectionUpdate += Listen; 
+            GameMaster.current.onInpsectionStop += Listen;
         }
         
     }
 
-    private void Listen(CamConnection connection)
+    private void Listen(GameObject obj)
     {
-        if (connection == inspection) Triggerd(block);
+        if (obj == inspection) Triggerd(block);
     }
 }

@@ -7,8 +7,8 @@ using Cinemachine;
 [RequireComponent(typeof(CinemachineFreeLook))]
 public class CamConnection : MonoBehaviour
 {
-    [SerializeField]
-    private bool isStartCam;
+
+    public bool isStartCam;
     public GameObject target;
     public CinemachineFreeLook freeLook { get; private set; }
 
@@ -35,12 +35,16 @@ public class CamConnection : MonoBehaviour
             {
                 Debug.LogWarning($"A different Cam is allready active. Active Cam = {CamMaster.current.connections[CamMaster.current.currentConnectionIndex]}", this);
                 freeLook.enabled = false;
+            }else
+            {
+                CamMaster.current.SetCam(target);
             }
         }
         else freeLook.enabled = false;
         freeLook.LookAt = target.transform;
         freeLook.Follow = target.transform;
     }
+    
 
     private void UpdateCam(CamConnection obj)
     {

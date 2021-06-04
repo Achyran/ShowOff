@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -25,11 +26,18 @@ public class PlayerPosessinTest : MonoBehaviour
     void Update()
     {
         CastRay();
+        ReturnToPlayer();
+    }
+
+    private void ReturnToPlayer()
+    { 
+       if (Input.GetMouseButtonDown(0) && GameMaster.current.state == GameMaster.State._inspecting) GameMaster.current.InspectionStop();
+
     }
 
     private void CastRay()
     {
-        if (Input.GetMouseButton(0) && GameMaster.current.canPosess)
+        if (Input.GetMouseButton(0) && GameMaster.current.state == GameMaster.State._base)
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
             if (debug) Debug.DrawRay(ray.origin,ray.direction * posessableDist);
@@ -44,16 +52,30 @@ public class PlayerPosessinTest : MonoBehaviour
             {
                 interactHit = hit;
             }
-            besthit(posHit, interactHit);
+            if (posHit.distance != 0 && interactHit.distance != 0)
+                besthit(posHit, interactHit);
+            else if (posHit.distance != 0) 
+            {
+                PosessionMovement posession = posHit.collider.GetComponent<PosessionMovement>();
+                if (posession != null)
+                {
+                    GameMaster.current.PosessionStart(posession);
+                }
+            }else if(interactHit.distance != 0)
+            {
+                GameMaster.current.InspectionStart( interactHit.transform.gameObject);
+            }
+
         }
     }
 
     private void besthit(RaycastHit posHit, RaycastHit interHit)
     {
+        Debug.Log($"posHit was {posHit.distance} and InterHit was {interHit.distance} {posHit.distance > interHit.distance}");
         if (posHit.distance == interHit.distance) return;
         if(posHit.distance > interHit.distance)
         {
-            CamMaster.current.SetCam(interHit.transform.gameObject);
+            GameMaster.current.InspectionStart(interHit.collider.gameObject);
         }
         else
         {
@@ -61,7 +83,6 @@ public class PlayerPosessinTest : MonoBehaviour
             if (posession != null)
             {
                 GameMaster.current.PosessionStart(posession);
-                CamMaster.current.SetCam(posHit.transform.gameObject);
             }
         }
     }

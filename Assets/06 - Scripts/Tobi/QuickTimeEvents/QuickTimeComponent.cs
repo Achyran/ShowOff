@@ -54,4 +54,9 @@ public class QuickTimeComponent : MonoBehaviour
     {
         _event.Start();
     }
+
+    public void Reset()
+    {
+        _event.outcome = QuickTimeEvent.Outcome.ready;
+    }
 }

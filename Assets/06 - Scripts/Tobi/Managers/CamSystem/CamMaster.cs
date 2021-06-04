@@ -9,12 +9,15 @@ public class CamMaster : MonoBehaviour
     public int currentConnectionIndex { get; private set; } = -1;
     public static CamMaster current;
     public CamConnection[] connections { get; private set; }
+    public CamConnection playerConnection;
 
     void Awake()
     {
         InitiateGameMaster();
         GetConnections();
+        if (playerConnection == null) Debug.LogWarning("The player connection was not set", this);
     }
+
 
     private void InitiateGameMaster()
     {
@@ -45,10 +48,9 @@ public class CamMaster : MonoBehaviour
         
     }
 
+
     public void SetCam(GameObject target)
     {
-
-
         for (int i = 0; i < connections.Length; i++)
         {
             if (connections[i].target == target)
@@ -64,9 +66,10 @@ public class CamMaster : MonoBehaviour
             }
 
         }
-
         
     }
+   
 
+    
    
 }
