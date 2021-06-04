@@ -2,7 +2,7 @@
 <objects serializationModel="Studio.02.01.00">
 	<object class="Event" id="{b3ed5cf7-a034-40f6-86f4-c86c9cc27bed}">
 		<property name="name">
-			<value>Mysterious Soundscaped</value>
+			<value>Mysterious Soundscape</value>
 		</property>
 		<property name="outputFormat">
 			<value>1</value>
@@ -120,9 +120,27 @@
 	<object class="MixerBusEffectChain" id="{67957d16-8118-42be-918f-2d4328b65395}">
 		<relationship name="effects">
 			<destination>{48deb7cc-f6f1-46a9-9db5-0aa78c0b6b58}</destination>
+			<destination>{7464b236-0a26-45bd-81e0-76e3e918a6dc}</destination>
+			<destination>{e951227d-eceb-44a3-97b4-66892163fcfb}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{d984c173-014e-4965-9804-5d4bbb36238f}" />
 	<object class="MixerBusFader" id="{5589529e-c59e-464a-9d14-002580c6594d}" />
 	<object class="MixerBusFader" id="{48deb7cc-f6f1-46a9-9db5-0aa78c0b6b58}" />
+	<object class="ProxyEffect" id="{7464b236-0a26-45bd-81e0-76e3e918a6dc}">
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="preset">
+			<destination>{f90e7f14-a09d-4dd7-9d0a-6527126e9c40}</destination>
+		</relationship>
+	</object>
+	<object class="ProxyEffect" id="{e951227d-eceb-44a3-97b4-66892163fcfb}">
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="preset">
+			<destination>{4383088c-1391-4f52-b739-05dcf2cbe120}</destination>
+		</relationship>
+	</object>
 </objects>

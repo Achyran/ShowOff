@@ -149,7 +149,8 @@
 	<object class="MixerBusEffectChain" id="{a06d2b4a-195c-4dcc-a021-e78504822423}">
 		<relationship name="effects">
 			<destination>{a2094da8-25ed-4d26-a7e9-9a8f5dc47aef}</destination>
-			<destination>{e1692b42-6f99-4d18-b08c-13abe1699b2d}</destination>
+			<destination>{4a78d362-d651-45c8-aa15-3851264a6c8a}</destination>
+			<destination>{7e55ba58-1cf4-4d62-86ee-0a589434f4b3}</destination>
 			<destination>{d8979f3b-e9cd-4f66-93df-0044fe019b51}</destination>
 		</relationship>
 	</object>
@@ -185,13 +186,21 @@
 	</object>
 	<object class="MixerBusPanner" id="{3b6dfb4a-4286-4be7-aff0-e9af950c57a7}" />
 	<object class="MixerBusFader" id="{a2094da8-25ed-4d26-a7e9-9a8f5dc47aef}" />
-	<object class="SFXReverbEffect" id="{e1692b42-6f99-4d18-b08c-13abe1699b2d}">
-		<property name="earlyDelay">
-			<value>3.5</value>
+	<object class="ProxyEffect" id="{4a78d362-d651-45c8-aa15-3851264a6c8a}">
+		<property name="inputFormat">
+			<value>5</value>
 		</property>
-		<property name="lateDelay">
-			<value>3.5</value>
+		<relationship name="preset">
+			<destination>{f90e7f14-a09d-4dd7-9d0a-6527126e9c40}</destination>
+		</relationship>
+	</object>
+	<object class="ProxyEffect" id="{7e55ba58-1cf4-4d62-86ee-0a589434f4b3}">
+		<property name="inputFormat">
+			<value>5</value>
 		</property>
+		<relationship name="preset">
+			<destination>{4383088c-1391-4f52-b739-05dcf2cbe120}</destination>
+		</relationship>
 	</object>
 	<object class="PluginEffect" id="{d8979f3b-e9cd-4f66-93df-0044fe019b51}">
 		<relationship name="plugin">
