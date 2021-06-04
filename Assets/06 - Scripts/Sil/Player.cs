@@ -135,7 +135,7 @@ public class Player : MonoBehaviour
 			RaycastHit hit = hits[i];
 
 
-			if (hit.transform.gameObject.tag == "Interactable")
+			if (hit.transform.gameObject.GetComponent<OutlineScript>() != null)
 			{
 				lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
 				lastOutline.outlineObject.gameObject.SetActive(true);
@@ -143,7 +143,7 @@ public class Player : MonoBehaviour
 
 				if (Input.GetMouseButtonDown(0))
 					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
-					CameraSwitch(hit.transform.GetChild(0).gameObject);
+					CameraSwitch(hit.transform.gameObject);
 
 				break;
 			}
@@ -193,16 +193,19 @@ public class Player : MonoBehaviour
 	}
 	private void CameraSwitch(GameObject _object)
 	{
+		OutlineScript outlineObj = _object.GetComponent<OutlineScript>();
+		GameObject camObj = outlineObj.objectCam.gameObject;
+
 		if (playerCam.gameObject.activeInHierarchy)
 		{
-			_object.gameObject.SetActive(true);
+			camObj.gameObject.SetActive(true);
 			playerCam.gameObject.SetActive(false);
 			inspectingObject = _object;
 			playerFrozen = true;
 		}
 		else
 		{
-			_object.gameObject.SetActive(false);
+			camObj.gameObject.SetActive(false);
 			playerCam.gameObject.SetActive(true);
 			inspectingObject = null;
 			playerFrozen = false;
