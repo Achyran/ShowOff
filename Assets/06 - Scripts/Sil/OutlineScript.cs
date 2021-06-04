@@ -1,6 +1,8 @@
+
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Cinemachine;
 
 public class OutlineScript : MonoBehaviour
 {
@@ -9,12 +11,21 @@ public class OutlineScript : MonoBehaviour
     [SerializeField] private Color outlineColor;
     private Renderer outlineRenderer;
     public GameObject outlineObject;
+    public GameObject CameraPrefab;
+    public CinemachineFreeLook objectCam;
 
     // Start is called before the first frame update
     void Start()
     {
         outlineRenderer = CreateOutline(outlineMaterial, outlineScaleFactor, outlineColor);
         outlineRenderer.enabled = true;
+
+        GameObject _camObj = Instantiate(CameraPrefab, new Vector3(0, 0, 0), Quaternion.identity);
+        _camObj.transform.parent = transform;
+        objectCam = _camObj.GetComponent<CinemachineFreeLook>();
+
+        objectCam.Follow = transform;
+        objectCam.LookAt = transform;
     }
 
     Renderer CreateOutline(Material outlineMat, float scaleFactor, Color color) 
