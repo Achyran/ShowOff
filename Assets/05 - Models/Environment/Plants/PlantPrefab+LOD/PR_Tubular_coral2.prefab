@@ -90,8 +90,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2067278564510848607}
+  - component: {fileID: 6223314272963382941}
   m_Layer: 0
-  m_Name: Tubular_coral2
+  m_Name: PR_Tubular_coral2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -117,6 +118,41 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &6223314272963382941
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1728153322143255781}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.46386996, y: 1.602886, z: -0.53764945}
+  m_Size: 3.278892
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.019640291
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6793247693797948005}
+    - renderer: {fileID: 6243038017091587152}
+    - renderer: {fileID: 4473152169573240470}
+    - renderer: {fileID: 3162642097553549843}
+    - renderer: {fileID: 3722801895936036295}
+    - renderer: {fileID: 1722001835493594448}
+  - screenRelativeHeight: 0
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 6793247693797948005}
+    - renderer: {fileID: 6243038017091587152}
+    - renderer: {fileID: 4473152169573240470}
+    - renderer: {fileID: 3162642097553549843}
+    - renderer: {fileID: 1722001835493594448}
+  m_Enabled: 1
 --- !u!1 &4366019315403169617
 GameObject:
   m_ObjectHideFlags: 0
