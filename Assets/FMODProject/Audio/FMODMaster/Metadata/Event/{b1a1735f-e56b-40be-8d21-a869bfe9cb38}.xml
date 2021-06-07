@@ -117,7 +117,7 @@
 	</object>
 	<object class="EventMixerGroup" id="{8aff7cc7-4559-489b-96a7-5497d44e3a65}">
 		<property name="name">
-			<value>Audio 1</value>
+			<value>Seashore</value>
 		</property>
 		<relationship name="automators">
 			<destination>{1218106e-2573-4866-b2a5-3986c3c3b41f}</destination>
@@ -149,6 +149,7 @@
 	<object class="MixerBusEffectChain" id="{47b359e7-c3a0-451a-ab21-0a5e2a82c52b}">
 		<relationship name="effects">
 			<destination>{45528162-b50a-47a0-8db2-ed0cede8a67a}</destination>
+			<destination>{048dd925-690c-49b8-b09d-ebc3b046acfa}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{b3bc1643-8d36-426d-a2c6-c6fbb6e6fbab}" />
@@ -168,6 +169,14 @@
 	</object>
 	<object class="MixerBusPanner" id="{d76e541d-3350-41c9-a805-5dfa44153dc5}" />
 	<object class="MixerBusFader" id="{45528162-b50a-47a0-8db2-ed0cede8a67a}" />
+	<object class="ProxyEffect" id="{048dd925-690c-49b8-b09d-ebc3b046acfa}">
+		<property name="inputFormat">
+			<value>1</value>
+		</property>
+		<relationship name="preset">
+			<destination>{4383088c-1391-4f52-b739-05dcf2cbe120}</destination>
+		</relationship>
+	</object>
 	<object class="AutomationCurve" id="{7761df8f-158b-49fd-9bd3-6ec657ae0d22}">
 		<relationship name="parameter">
 			<destination>{5a17dc0c-a95b-41ee-bc47-5d7efae4a61d}</destination>

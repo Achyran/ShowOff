@@ -12,79 +12,19 @@ public class Player : MonoBehaviour
 {
 	public GameObject notepad;
 	public Camera mainCam;
-	public CinemachineVirtualCamera playerCam;
-	public CinemachineFreeLook objectCam;
-	public LayerMask playerLayer;
+	public CinemachineFreeLook playerCam;
+	public float rotateSpeed = 1;
+	public float inspectRange = 25;
+	public ModelControl modelControl;
 	private bool playerFrozen = false;
 	private GameObject inspectingObject;
 	private OutlineScript lastOutline;
+	private Rigidbody rigidBody;
 
-	class CameraState
-	{
-		public float yaw;
-		public float pitch;
-		public float roll;
-		public float x;
-		public float y;
-		public float z;
-
-
-		public void SetFromTransform(Transform t)
-		{
-			pitch = t.eulerAngles.x;
-			yaw = t.eulerAngles.y;
-			roll = t.eulerAngles.z;
-			x = t.position.x;
-			y = t.position.y;
-			z = t.position.z;
-		}
-
-		public void Translate(Vector3 translation)
-		{
-			Vector3 rotatedTranslation = Quaternion.Euler(pitch, yaw, roll) * translation;
-
-			x += rotatedTranslation.x;
-			y += rotatedTranslation.y;
-			z += rotatedTranslation.z;
-		}
-
-		public void LerpTowards(CameraState target, float positionLerpPct, float rotationLerpPct)
-		{
-			yaw = Mathf.Lerp(yaw, target.yaw, rotationLerpPct);
-			pitch = Mathf.Lerp(pitch, target.pitch, rotationLerpPct);
-			roll = Mathf.Lerp(roll, target.roll, rotationLerpPct);
-
-			x = Mathf.Lerp(x, target.x, positionLerpPct);
-			y = Mathf.Lerp(y, target.y, positionLerpPct);
-			z = Mathf.Lerp(z, target.z, positionLerpPct);
-		}
-
-		public void UpdateTransform(Transform t)
-		{
-			t.eulerAngles = new Vector3(pitch, yaw, roll);
-			t.position = new Vector3(x, y, z);
-		}
-	}
-
-	CameraState m_TargetCameraState = new CameraState();
-	CameraState m_InterpolatingCameraState = new CameraState();
 
 	[Header("Movement Settings")]
 	[Tooltip("The speed at which you move in any direction")]
 	public float speed = 3.5f;
-
-	[Tooltip("Time it takes to interpolate camera position 99% of the way to the target."), Range(0.001f, 1f)]
-	public float positionLerpTime = 0.2f;
-
-	[Header("Rotation Settings")]
-	[Tooltip("X = Change in mouse position.\nY = Multiplicative factor for camera rotation.")]
-	public AnimationCurve mouseSensitivityCurve = new AnimationCurve(new Keyframe(0f, 0.5f, 0f, 5f), new Keyframe(1f, 2.5f, 0f, 0f));
-
-	[Tooltip("Time it takes to interpolate camera rotation 99% of the way to the target."), Range(0.001f, 1f)]
-	public float rotationLerpTime = 0.01f;
-
-	[Tooltip("Whether or not to invert our Y axis for mouse input to rotation.")]
-	public bool invertY = false;
 
 	[Header("Controls")]
 	public KeyCode ForwardsKey = KeyCode.W;
@@ -94,49 +34,53 @@ public class Player : MonoBehaviour
 	public KeyCode DownKey = KeyCode.LeftControl;
 	public KeyCode UpKey = KeyCode.Space;
 
-	void OnEnable()
+	private void Start()
 	{
-		m_TargetCameraState.SetFromTransform(transform);
-		m_InterpolatingCameraState.SetFromTransform(transform);
-
+		rigidBody = GetComponent<Rigidbody>();
+		rigidBody.freezeRotation = true;
 		Cursor.lockState = CursorLockMode.Locked;
+
+		if(GameMaster.current != null)
+        {
+			GameMaster.current.onPosessionStart += StartPosession;
+			GameMaster.current.onPosessionStop += StopPosession;
+        }
 	}
 
-	Vector3 GetInputTranslationDirection()
+    #region Tobi
+	//This is neede for the gameMasterLogic
+    private void StartPosession(PosessionMovement posession)
+    {
+		FreezePlayer(true);
+    }
+     
+    private void StopPosession()
+    {
+		FreezePlayer(false);
+    }
+    #endregion
+
+    void Update()
 	{
-		Vector3 direction = new Vector3();
-		if (Input.GetKey(ForwardsKey))
+		
+
+		InputManager();
+		
+
+		if (!playerFrozen)
 		{
-			direction += Vector3.forward;
+			MovementCalc();
 		}
-		if (Input.GetKey(BackwardsKey))
+		//Switching out of inspection mode
+		else if (inspectingObject != null && Input.GetMouseButtonDown(0))
 		{
-			direction += Vector3.back;
+			CameraSwitch(inspectingObject);
 		}
-		if (Input.GetKey(LeftKey))
-		{
-			direction += Vector3.left;
-		}
-		if (Input.GetKey(RightKey))
-		{
-			direction += Vector3.right;
-		}
-		if (Input.GetKey(DownKey))
-		{
-			direction += Vector3.down;
-		}
-		if (Input.GetKey(UpKey))
-		{
-			direction += Vector3.up;
-		}
-		return direction;
+		
 	}
 
-	void Update()
+	private void InputManager()
 	{
-		Vector3 translation = Vector3.zero;
-
-
 		// Exit Sample  
 		if (Input.GetKey(KeyCode.Escape))
 		{
@@ -150,7 +94,7 @@ public class Player : MonoBehaviour
 		{
 			SaveData();
 		}
-		
+
 		if (Input.GetKeyDown(KeyCode.L))
 		{
 			LoadData();
@@ -160,97 +104,149 @@ public class Player : MonoBehaviour
 		{
 			ToggleNotebook();
 		}
+	}
 
-		if (!playerFrozen)
+	private void MovementCalc()
+	{
+		Vector3 translation = Vector3.zero;
+
+		// Translation
+		translation = GetInputTranslationDirection() * Time.deltaTime;
+
+		translation *= speed;
+
+		rigidBody.AddForce(translation);
+
+		modelControl.ModelUpdate(translation, transform.position);
+
+		/*
+		RaycastHit hit;
+		if (Physics.Raycast(transform.position, mainCam.transform.forward, out hit))
 		{
 
-			var mouseMovement = new Vector2(Input.GetAxis("Mouse X"), Input.GetAxis("Mouse Y") * (invertY ? 1 : -1));
-
-			var mouseSensitivityFactor = mouseSensitivityCurve.Evaluate(mouseMovement.magnitude);
-
-			m_TargetCameraState.yaw += mouseMovement.x * mouseSensitivityFactor;
-			m_TargetCameraState.pitch += mouseMovement.y * mouseSensitivityFactor;
-
-			// Translation
-			translation = GetInputTranslationDirection() * Time.deltaTime;
-
-			translation *= Mathf.Pow(2.0f, speed);
-
-
-
-			m_TargetCameraState.Translate(translation);
-
-			// Framerate-independent interpolation
-			// Calculate the lerp amount, such that we get 99% of the way to our target in the specified time
-			var positionLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / positionLerpTime) * Time.deltaTime);
-			var rotationLerpPct = 1f - Mathf.Exp((Mathf.Log(1f - 0.99f) / rotationLerpTime) * Time.deltaTime);
-			m_InterpolatingCameraState.LerpTowards(m_TargetCameraState, positionLerpPct, rotationLerpPct);
-
-			//Only make movements if notepad isn't up
-
-			m_InterpolatingCameraState.UpdateTransform(transform);
-
-			/*
-			RaycastHit hit;
-			if (Physics.Raycast(mainCam.ScreenPointToRay(new Vector3(mainCam.pixelWidth / 2, mainCam.pixelHeight / 2)), out hit))
+			if (hit.transform.gameObject.tag == "Interactable")
 			{
-				if (hit.transform.gameObject.tag == "Interactable" && Input.GetMouseButtonDown(0))
-					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
+				lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
+				lastOutline.outlineObject.gameObject.SetActive(true);
+
+				if(Input.GetMouseButtonDown(0))
+				//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
 					CameraSwitch(hit.transform.GetChild(0).gameObject);
-			}
-			*/
-			RaycastHit hit;
-			if (Physics.Raycast(transform.position, transform.forward, out hit))
-			{
-				
-				if (hit.transform.gameObject.tag == "Interactable")
-				{
-					lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
-					lastOutline.outlineObject.gameObject.SetActive(true);
-
-					if(Input.GetMouseButtonDown(0))
-					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
-						CameraSwitch(hit.transform.GetChild(0).gameObject);
-
-				}
-				else if (lastOutline != null)
-					lastOutline.outlineObject.gameObject.SetActive(false);
 
 			}
 			else if (lastOutline != null)
 				lastOutline.outlineObject.gameObject.SetActive(false);
 
-
-
 		}
-		//Switching out of inspection mode
-		else if (inspectingObject != null && Input.GetMouseButtonDown(0))
+		else if (lastOutline != null)
+			lastOutline.outlineObject.gameObject.SetActive(false);
+		*/
+
+		RaycastHit[] hits;
+		//hits = Physics.RaycastAll(transform.position, mainCam.transform.forward, 9999999.0F);
+		Ray ray = mainCam.ScreenPointToRay(new Vector3(mainCam.pixelWidth / 2, mainCam.pixelHeight / 2, 0));
+		//Possable optimasation : check only for first hit, Implement Masks
+		hits = Physics.RaycastAll(ray, inspectRange);
+		for (int i = 0; i < hits.Length; i++)
 		{
-			CameraSwitch(inspectingObject);
+			RaycastHit hit = hits[i];
+
+
+			if (hit.transform.gameObject.GetComponent<OutlineScript>() != null)
+			{
+				lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
+				if( lastOutline != null)
+				lastOutline.outlineObject.gameObject.SetActive(true);
+
+
+				if (Input.GetMouseButtonDown(0))
+				{
+					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
+					//CameraSwitch(hit.transform.GetChild(0).gameObject);
+				}
+
+
+				break;
+            }
+			else if (lastOutline != null)
+
+				lastOutline.outlineObject.gameObject.SetActive(false);
 		}
-		
+		if (hits.Length == 0 && lastOutline != null)
+		{
+			lastOutline.outlineObject.gameObject.SetActive(false);
+		}
 	}
 
+	Vector3 GetInputTranslationDirection()
+	{
+		Vector3 direction = new Vector3();
+		if (Input.GetKey(ForwardsKey))
+		{
+			direction += mainCam.transform.forward;
+		}
+		if (Input.GetKey(BackwardsKey))
+		{
+			direction += mainCam.transform.forward * -1;
+		}
+		if (Input.GetKey(LeftKey))
+		{
+			direction += mainCam.transform.right * -1;
+		}
+		if (Input.GetKey(RightKey))
+		{
+			direction += mainCam.transform.right;
+		}
+		if (Input.GetKey(DownKey))
+		{
+			direction += mainCam.transform.up * -1;
+		}
+		if (Input.GetKey(UpKey))
+		{
+			direction += mainCam.transform.up;
+		}
+		return direction;
+	}
+
+	private void FreezePlayer(bool val)
+	{
+		playerFrozen = val;
+	}
+
+	//Legacy Aproche Use CamMaster.current.SetCam(CamConnection connection);
 	private void CameraSwitch(GameObject _object)
 	{
+		OutlineScript outlineObj = _object.GetComponent<OutlineScript>();
+		GameObject camObj = outlineObj.objectCam.gameObject;
+
 		if (playerCam.gameObject.activeInHierarchy)
 		{
-			_object.gameObject.SetActive(true);
+			camObj.gameObject.SetActive(true);
 			playerCam.gameObject.SetActive(false);
 			inspectingObject = _object;
 			playerFrozen = true;
 		}
 		else
 		{
-			_object.gameObject.SetActive(false);
+			camObj.gameObject.SetActive(false);
 			playerCam.gameObject.SetActive(true);
 			inspectingObject = null;
 			playerFrozen = false;
 		}
+
+		if (CamMaster.current != null)
+		{
+			CamConnection connection = _object.GetComponent<CamConnection>();
+			if (connection != null)
+			{
+				CamMaster.current.SetCam(connection);
+			}
+		}
 	}
 
-	private void ToggleNotebook()
+	public void ToggleNotebook()
 	{
+		if(notepad != null)
 		if (notepad.activeInHierarchy)
 		{
 			notepad.SetActive(false);

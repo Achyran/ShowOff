@@ -2375,8 +2375,8 @@
 		<relationship name="effects">
 			<destination>{be2ff51f-d333-4d34-8bc3-56409b5e4520}</destination>
 			<destination>{c9b57e9b-f054-4fd4-b570-2c77fc33c22b}</destination>
-			<destination>{ad636fec-c1da-4791-889c-e7075d461fdc}</destination>
-			<destination>{b6f9cdde-40bc-4e50-b8b6-e5f49cebf7b6}</destination>
+			<destination>{0fb98a93-6a4a-4de5-ace0-4e7a5eed57c7}</destination>
+			<destination>{31a7d318-b219-4858-855d-60d22b58492a}</destination>
 		</relationship>
 	</object>
 	<object class="MixerBusPanner" id="{6fb2c8ab-515b-4f13-86c4-f2814d1f6258}" />
@@ -2594,18 +2594,21 @@
 			<destination>{cb40bd3d-e626-4485-88b1-65fe98d8dd40}</destination>
 		</relationship>
 	</object>
-	<object class="SFXReverbEffect" id="{ad636fec-c1da-4791-889c-e7075d461fdc}">
-		<property name="earlyDelay">
-			<value>3.5</value>
+	<object class="ProxyEffect" id="{0fb98a93-6a4a-4de5-ace0-4e7a5eed57c7}">
+		<property name="inputFormat">
+			<value>1</value>
 		</property>
-		<property name="lateDelay">
-			<value>3.5</value>
-		</property>
+		<relationship name="preset">
+			<destination>{f90e7f14-a09d-4dd7-9d0a-6527126e9c40}</destination>
+		</relationship>
 	</object>
-	<object class="CompressorEffect" id="{b6f9cdde-40bc-4e50-b8b6-e5f49cebf7b6}">
-		<property name="threshold">
-			<value>-15</value>
+	<object class="ProxyEffect" id="{31a7d318-b219-4858-855d-60d22b58492a}">
+		<property name="inputFormat">
+			<value>1</value>
 		</property>
+		<relationship name="preset">
+			<destination>{4383088c-1391-4f52-b739-05dcf2cbe120}</destination>
+		</relationship>
 	</object>
 	<object class="AutomationPoint" id="{84fa7476-2b32-4e63-9495-ac268efc35f1}">
 		<property name="position">

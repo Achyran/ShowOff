@@ -5,7 +5,7 @@ using UnityEngine;
 public class MoveOrigin : MonoBehaviour
 {
     [SerializeField]
-    private StayOriginBehavior behavior;
+    private StayAtTransformBehavior behavior;
     // Start is called before the first frame update
     void Start()
     {
@@ -15,6 +15,6 @@ public class MoveOrigin : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        behavior.origin = transform.position;
+        behavior.transform = transform.position;
     }
 }
