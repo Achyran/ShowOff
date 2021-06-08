@@ -15,6 +15,7 @@ public class PlayerPosessinTest : MonoBehaviour
     [SerializeField]
     private LayerMask whatIsInteractabel;
     private Player player;
+    private OutlineScript lastOutline;
     // Start is called before the first frame update
     void Start()
     {
@@ -37,7 +38,7 @@ public class PlayerPosessinTest : MonoBehaviour
 
     private void CastRay()
     {
-        if (Input.GetMouseButton(0) && GameMaster.current.state == GameMaster.State._base)
+        if (GameMaster.current.state == GameMaster.State._base)
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
             if (debug) Debug.DrawRay(ray.origin,ray.direction * posessableDist);
@@ -51,21 +52,27 @@ public class PlayerPosessinTest : MonoBehaviour
             if (Physics.Raycast(ray, out hit, posessableDist, whatIsInteractabel))
             {
                 interactHit = hit;
+                OutlineActivate(hit);
             }
-            if (posHit.distance != 0 && interactHit.distance != 0)
-                besthit(posHit, interactHit);
-            else if (posHit.distance != 0) 
+            else
+                OutlineDisable();
+            if (Input.GetMouseButtonDown(0))
             {
-                PosessionMovement posession = posHit.collider.GetComponent<PosessionMovement>();
-                if (posession != null)
+                if (posHit.distance != 0 && interactHit.distance != 0)
+                    besthit(posHit, interactHit);
+                else if (posHit.distance != 0)
                 {
-                    GameMaster.current.PosessionStart(posession);
+                    PosessionMovement posession = posHit.collider.GetComponent<PosessionMovement>();
+                    if (posession != null)
+                    {
+                        GameMaster.current.PosessionStart(posession);
+                    }
                 }
-            }else if(interactHit.distance != 0)
-            {
-                GameMaster.current.InspectionStart( interactHit.transform.gameObject);
+                else if (interactHit.distance != 0)
+                {
+                    GameMaster.current.InspectionStart(interactHit.transform.gameObject);
+                }
             }
-
         }
     }
 
@@ -85,5 +92,26 @@ public class PlayerPosessinTest : MonoBehaviour
                 GameMaster.current.PosessionStart(posession);
             }
         }
+    }
+
+    private void OutlineActivate(RaycastHit interHit) 
+    {
+        OutlineScript outline = interHit.transform.gameObject.GetComponent<OutlineScript>();
+        if (outline != null)
+        {
+            outline.ToggleOutline(true);
+            lastOutline = outline;
+        }
+        else
+            Debug.LogError("Object is on the interactible layer but doesn't have an outline script", this);
+
+    }
+
+    private void OutlineDisable()
+    {
+        if (lastOutline != null)
+            lastOutline.ToggleOutline(false);
+
+        lastOutline = null;
     }
 }
