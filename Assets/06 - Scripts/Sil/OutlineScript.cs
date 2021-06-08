@@ -20,12 +20,6 @@ public class OutlineScript : MonoBehaviour
         outlineRenderer = CreateOutline(outlineMaterial, outlineScaleFactor, outlineColor);
         outlineRenderer.enabled = true;
 
-        GameObject _camObj = Instantiate(CameraPrefab, new Vector3(0, 0, 0), Quaternion.identity);
-        _camObj.transform.parent = transform;
-        objectCam = _camObj.GetComponent<CinemachineFreeLook>();
-
-        objectCam.Follow = transform;
-        objectCam.LookAt = transform;
     }
 
     Renderer CreateOutline(Material outlineMat, float scaleFactor, Color color) 
@@ -45,5 +39,10 @@ public class OutlineScript : MonoBehaviour
 
         outlineObject.gameObject.SetActive(false);
         return rend;
+    }
+
+    public void ToggleOutline(bool val)
+    {
+        outlineObject.SetActive(val);
     }
 }
