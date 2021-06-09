@@ -70,7 +70,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090053878036ce64b8c4d9cf6d60e517, type: 3}
   m_Name: NewIFFogEffect
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   renderPassEvent: 450
   _material: {fileID: 2100000, guid: 0d4905be9fa0d0444b527968627c2c1e, type: 2}
   _fogColor: {r: 0.21048418, g: 0.50853854, b: 0.8113208, a: 0.49019608}
@@ -131,8 +131,8 @@ MonoBehaviour:
   - {fileID: -1724113258711829197}
   - {fileID: -4107059136982274300}
   - {fileID: 3332219870871751663}
-  - {fileID: -5421496766794381172}
-  m_RendererFeatureMap: 33b5f03d20b812e8042fa69c79cb00c7ef0bcf54516c3e2e8cc84a386af9c2b4
+  - {fileID: 740368143726280469}
+  m_RendererFeatureMap: db4285a066e67b8a33b5f03d20b812e815923baded039585042fa69c79cb00c7ef0bcf54516c3e2e15ffd171e750460a
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -147,7 +147,7 @@ MonoBehaviour:
     materialErrorPS: {fileID: 4800000, guid: 5fd9a8feb75a4b5894c241777f519d4e, type: 3}
   m_OpaqueLayerMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 10487927
   m_TransparentLayerMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -161,6 +161,45 @@ MonoBehaviour:
   m_ShadowTransparentReceive: 0
   m_RenderingMode: 0
   m_AccurateGbufferNormals: 0
+--- !u!114 &740368143726280469
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
+  m_Name: NewRenderObjects
+  m_EditorClassIdentifier: 
+  m_Active: 1
+  settings:
+    passTag: NewRenderObjects
+    Event: 300
+    filterSettings:
+      RenderQueueType: 0
+      LayerMask:
+        serializedVersion: 2
+        m_Bits: 16777216
+      PassNames: []
+    overrideMaterial: {fileID: 2100000, guid: 7b58833cad6d99e48ad522bc9ef97d4c, type: 2}
+    overrideMaterialPassIndex: 0
+    overrideDepthState: 1
+    depthCompareFunction: 8
+    enableWrite: 1
+    stencilSettings:
+      overrideStencilState: 0
+      stencilReference: 0
+      stencilCompareFunction: 8
+      passOperation: 0
+      failOperation: 0
+      zFailOperation: 0
+    cameraSettings:
+      overrideCamera: 0
+      restoreCamera: 1
+      offset: {x: 0, y: 0, z: 0, w: 0}
+      cameraFieldOfView: 60
 --- !u!114 &3332219870871751663
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -173,7 +212,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f7a8965105a5442ac8bb7359d1b791, type: 3}
   m_Name: NewIFUnderWaterEffect
   m_EditorClassIdentifier: 
-  m_Active: 1
+  m_Active: 0
   renderPassEvent: 1000
   _material: {fileID: 2100000, guid: 5e2dc04e6b65c9d478be9d017d02d5af, type: 2}
   _pixelOffset: 0.0272
