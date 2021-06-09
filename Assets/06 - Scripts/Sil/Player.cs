@@ -20,11 +20,14 @@ public class Player : MonoBehaviour
 	private GameObject inspectingObject;
 	private OutlineScript lastOutline;
 	private Rigidbody rigidBody;
-
+	private float speed;
 
 	[Header("Movement Settings")]
 	[Tooltip("The speed at which you move in any direction")]
-	public float speed = 3.5f;
+	public float movementSpeed = 400f;
+	
+	[Tooltip("The speed at which you move in any direction while sprinting")]
+	public float sprintSpeed = 800f;
 
 	[Header("Controls")]
 	public KeyCode ForwardsKey = KeyCode.W;
@@ -33,12 +36,14 @@ public class Player : MonoBehaviour
 	public KeyCode LeftKey = KeyCode.A;
 	public KeyCode DownKey = KeyCode.LeftControl;
 	public KeyCode UpKey = KeyCode.Space;
+	public KeyCode SprintKey = KeyCode.LeftShift;
 
 	private void Start()
 	{
 		rigidBody = GetComponent<Rigidbody>();
 		rigidBody.freezeRotation = true;
 		Cursor.lockState = CursorLockMode.Locked;
+		speed = movementSpeed;
 
 		if(GameMaster.current != null)
         {
@@ -62,19 +67,10 @@ public class Player : MonoBehaviour
 
     void Update()
 	{
-		
-
 		InputManager();
-		
-
 		if (!playerFrozen)
 		{
 			MovementCalc();
-		}
-		//Switching out of inspection mode
-		else if (inspectingObject != null && Input.GetMouseButtonDown(0))
-		{
-			CameraSwitch(inspectingObject);
 		}
 		
 	}
@@ -89,7 +85,6 @@ public class Player : MonoBehaviour
 			UnityEditor.EditorApplication.isPlaying = false;
 #endif
 		}
-
 		if (Input.GetKeyDown(KeyCode.K))
 		{
 			SaveData();
@@ -119,63 +114,6 @@ public class Player : MonoBehaviour
 
 		modelControl.ModelUpdate(translation, transform.position);
 
-		/*
-		RaycastHit hit;
-		if (Physics.Raycast(transform.position, mainCam.transform.forward, out hit))
-		{
-
-			if (hit.transform.gameObject.tag == "Interactable")
-			{
-				lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
-				lastOutline.outlineObject.gameObject.SetActive(true);
-
-				if(Input.GetMouseButtonDown(0))
-				//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
-					CameraSwitch(hit.transform.GetChild(0).gameObject);
-
-			}
-			else if (lastOutline != null)
-				lastOutline.outlineObject.gameObject.SetActive(false);
-
-		}
-		else if (lastOutline != null)
-			lastOutline.outlineObject.gameObject.SetActive(false);
-		*/
-
-		RaycastHit[] hits;
-		//hits = Physics.RaycastAll(transform.position, mainCam.transform.forward, 9999999.0F);
-		Ray ray = mainCam.ScreenPointToRay(new Vector3(mainCam.pixelWidth / 2, mainCam.pixelHeight / 2, 0));
-		//Possable optimasation : check only for first hit, Implement Masks
-		hits = Physics.RaycastAll(ray, inspectRange);
-		for (int i = 0; i < hits.Length; i++)
-		{
-			RaycastHit hit = hits[i];
-
-
-			if (hit.transform.gameObject.GetComponent<OutlineScript>() != null)
-			{
-				lastOutline = hit.transform.gameObject.GetComponent<OutlineScript>();
-				if( lastOutline != null)
-				lastOutline.outlineObject.gameObject.SetActive(true);
-
-
-				if (Input.GetMouseButtonDown(0))
-				{
-					//CameraSwitch(_hit.transform.gameObject.GetComponentInChildren<CinemachineFreeLook>());
-					//CameraSwitch(hit.transform.GetChild(0).gameObject);
-				}
-
-
-				break;
-            }
-			else if (lastOutline != null)
-
-				lastOutline.outlineObject.gameObject.SetActive(false);
-		}
-		if (hits.Length == 0 && lastOutline != null)
-		{
-			lastOutline.outlineObject.gameObject.SetActive(false);
-		}
 	}
 
 	Vector3 GetInputTranslationDirection()
@@ -205,43 +143,17 @@ public class Player : MonoBehaviour
 		{
 			direction += mainCam.transform.up;
 		}
+		if (Input.GetKey(SprintKey))
+			speed = sprintSpeed;
+		else
+			speed = movementSpeed;
+
 		return direction;
 	}
 
 	private void FreezePlayer(bool val)
 	{
 		playerFrozen = val;
-	}
-
-	//Legacy Aproche Use CamMaster.current.SetCam(CamConnection connection);
-	private void CameraSwitch(GameObject _object)
-	{
-		OutlineScript outlineObj = _object.GetComponent<OutlineScript>();
-		GameObject camObj = outlineObj.objectCam.gameObject;
-
-		if (playerCam.gameObject.activeInHierarchy)
-		{
-			camObj.gameObject.SetActive(true);
-			playerCam.gameObject.SetActive(false);
-			inspectingObject = _object;
-			playerFrozen = true;
-		}
-		else
-		{
-			camObj.gameObject.SetActive(false);
-			playerCam.gameObject.SetActive(true);
-			inspectingObject = null;
-			playerFrozen = false;
-		}
-
-		if (CamMaster.current != null)
-		{
-			CamConnection connection = _object.GetComponent<CamConnection>();
-			if (connection != null)
-			{
-				CamMaster.current.SetCam(connection);
-			}
-		}
 	}
 
 	public void ToggleNotebook()

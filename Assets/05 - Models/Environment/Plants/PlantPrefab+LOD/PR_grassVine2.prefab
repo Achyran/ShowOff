@@ -9,8 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1147223129867854176}
+  - component: {fileID: 4796271833193048771}
   m_Layer: 0
-  m_Name: grassVine2
+  m_Name: PR_grassVine2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -35,6 +36,35 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!205 &4796271833193048771
+LODGroup:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 333286125639760858}
+  serializedVersion: 2
+  m_LocalReferencePoint: {x: -0.033132493, y: 3.5880098, z: -0.8079795}
+  m_Size: 7.242424
+  m_FadeMode: 0
+  m_AnimateCrossFading: 0
+  m_LastLODIsBillboard: 0
+  m_LODs:
+  - screenRelativeHeight: 0.015523668
+    fadeTransitionWidth: 0
+    renderers:
+    - renderer: {fileID: 2094365183174873540}
+    - renderer: {fileID: 6527117947955742677}
+    - renderer: {fileID: 9120886668086309850}
+    - renderer: {fileID: 8443821132768704604}
+    - renderer: {fileID: 2025092183384930009}
+  - screenRelativeHeight: 0
+    fadeTransitionWidth: 0
+    renderers: []
+  - screenRelativeHeight: 0
+    fadeTransitionWidth: 0
+    renderers: []
+  m_Enabled: 1
 --- !u!1 &3066582487823807598
 GameObject:
   m_ObjectHideFlags: 0
