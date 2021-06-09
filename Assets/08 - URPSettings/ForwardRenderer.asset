@@ -1,6 +1,6 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
---- !u!114 &-8821139975786753515
+--- !u!114 &-5421496766794381172
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -10,58 +10,19 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: Color
+  m_Name: NormalMaps
   m_EditorClassIdentifier: 
   m_Active: 1
   settings:
-    passTag: Color
-    Event: 300
+    passTag: NormalMaps
+    Event: 1000
     filterSettings:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
         m_Bits: 4294967295
       PassNames: []
-    overrideMaterial: {fileID: 2100000, guid: 28f980e8ccf7adf40866693bab5469b9, type: 2}
-    overrideMaterialPassIndex: 0
-    overrideDepthState: 0
-    depthCompareFunction: 4
-    enableWrite: 1
-    stencilSettings:
-      overrideStencilState: 0
-      stencilReference: 0
-      stencilCompareFunction: 8
-      passOperation: 0
-      failOperation: 0
-      zFailOperation: 0
-    cameraSettings:
-      overrideCamera: 0
-      restoreCamera: 1
-      offset: {x: 0, y: 0, z: 0, w: 0}
-      cameraFieldOfView: 60
---- !u!114 &-8467921345885945125
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6b3d386ba5cd94485973aee1479b272e, type: 3}
-  m_Name: Toon Outline
-  m_EditorClassIdentifier: 
-  m_Active: 0
-  settings:
-    passTag: Toon Outline
-    Event: 300
-    filterSettings:
-      RenderQueueType: 1
-      LayerMask:
-        serializedVersion: 2
-        m_Bits: 4294967295
-      PassNames: []
-    overrideMaterial: {fileID: 2100000, guid: da5140f0d05ea35419ee072e72886b02, type: 2}
+    overrideMaterial: {fileID: 2100000, guid: 76859228f1bb842439cb38ad41fb2574, type: 2}
     overrideMaterialPassIndex: 0
     overrideDepthState: 0
     depthCompareFunction: 4
@@ -109,12 +70,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090053878036ce64b8c4d9cf6d60e517, type: 3}
   m_Name: NewIFFogEffect
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   renderPassEvent: 450
   _material: {fileID: 2100000, guid: 0d4905be9fa0d0444b527968627c2c1e, type: 2}
   _fogColor: {r: 0.21048418, g: 0.50853854, b: 0.8113208, a: 0.49019608}
-  _depthStart: 15.97
-  _depthDistance: 86.95
+  _depthStart: 7.8
+  _depthDistance: 52
 --- !u!114 &-1724113258711829197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -167,12 +128,11 @@ MonoBehaviour:
   m_Name: ForwardRenderer
   m_EditorClassIdentifier: 
   m_RendererFeatures:
-  - {fileID: -8467921345885945125}
   - {fileID: -1724113258711829197}
-  - {fileID: -8821139975786753515}
   - {fileID: -4107059136982274300}
   - {fileID: 3332219870871751663}
-  m_RendererFeatureMap: db4285a066e67b8a33b5f03d20b812e815923baded039585042fa69c79cb00c7ef0bcf54516c3e2e
+  - {fileID: -5421496766794381172}
+  m_RendererFeatureMap: 33b5f03d20b812e8042fa69c79cb00c7ef0bcf54516c3e2e8cc84a386af9c2b4
   postProcessData: {fileID: 11400000, guid: 41439944d30ece34e96484bdb6645b55, type: 2}
   xrSystemData: {fileID: 11400000, guid: 60e1133243b97e347b653163a8c01b64, type: 2}
   shaders:
@@ -213,12 +173,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7f7a8965105a5442ac8bb7359d1b791, type: 3}
   m_Name: NewIFUnderWaterEffect
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   renderPassEvent: 1000
   _material: {fileID: 2100000, guid: 5e2dc04e6b65c9d478be9d017d02d5af, type: 2}
   _pixelOffset: 0.0272
   _noiseScale: 1.8
   _noiseFrequency: 1.89
   _noiseSpeed: 5.5
-  _depthStart: -15
-  _depthDistance: 28.5
+  _depthStart: -40.4
+  _depthDistance: 54.3
