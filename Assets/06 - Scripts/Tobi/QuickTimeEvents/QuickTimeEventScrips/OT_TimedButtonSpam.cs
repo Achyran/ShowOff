@@ -5,6 +5,13 @@ using UnityEngine;
 [CreateAssetMenu(menuName = "QuickTimeEvents/TimedButtonSpam")]
 public class OT_TimedButtonSpam : QuickTimeEvent
 {
+    [Header("UI Elements")]
+    [SerializeField]
+    public Texture _UItexture;
+    [SerializeField]
+    public string _UItext;
+
+    [Header("Event Settings")]
     [SerializeField]
     private KeyCode key = KeyCode.Space;
     [SerializeField]
@@ -25,8 +32,14 @@ public class OT_TimedButtonSpam : QuickTimeEvent
 
     public override void Start()
     {
-        if (outcome == QuickTimeEvent.Outcome.ready) _Init();
-        Debug.Log($" Button Counter :{buttonCounter}");
+        if (outcome == QuickTimeEvent.Outcome.ready)
+        {
+            _Init();
+        }
+        UItext = _UItext;
+        UItexture = _UItexture;
+        
+        
     }
     public override void Run()
     {
@@ -51,7 +64,7 @@ public class OT_TimedButtonSpam : QuickTimeEvent
 
             if (buttonCounter >= buttonPresses)
             {
-                if (debug) Debug.Log("The Quick time event was a Sucsess");
+                if (debug) Debug.Log("The Quick time event was a Sucsess",this);
 
                 outcome = QuickTimeEvent.Outcome.sucsess;
             }

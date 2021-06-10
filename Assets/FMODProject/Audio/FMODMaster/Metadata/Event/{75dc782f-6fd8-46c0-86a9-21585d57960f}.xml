@@ -102,13 +102,13 @@
 			<value>1</value>
 		</property>
 		<property name="minimumTimeBetweenSounds">
-			<value>20000</value>
+			<value>250</value>
 		</property>
 		<property name="maximumTimeBetweenSounds">
-			<value>65000</value>
+			<value>6000</value>
 		</property>
 		<property name="maximumScatterDistance">
-			<value>7.80000019</value>
+			<value>45</value>
 		</property>
 		<relationship name="modulators">
 			<destination>{d39c9c87-ff6e-44aa-84c6-421efdcf7bff}</destination>
@@ -119,6 +119,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{f1dd74c5-92dc-49c1-b0eb-ba3d4d0f758c}">
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<property name="name">
 			<value>Monster</value>
 		</property>
@@ -255,7 +258,7 @@
 			<value>V. Radius</value>
 		</property>
 		<property name="value">
-			<value>7</value>
+			<value>7.5</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,1.000000)(2.000000,4.000000)(3.000000,11.000000)(4.000000,25.000000)(5.000000,100.000000)(6.000000,1000.000000)}</value>
@@ -277,7 +280,7 @@
 			<value>Range Max</value>
 		</property>
 		<property name="value">
-			<value>7000</value>
+			<value>6500</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,5.000000)(2.000000,10.000000)(3.000000,100.000000)(4.000000,1000.000000)(5.000000,10000.000000)}</value>

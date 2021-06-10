@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -34,6 +35,7 @@ public class PosessionMovement : MonoBehaviour
     [Header("Funcutional Variabels")]
     [SerializeField]
     private bool freeze = true;
+    private bool qtFreeze = false;
     [SerializeField]
     private bool loadStats = true;
     [SerializeField]
@@ -65,6 +67,25 @@ public class PosessionMovement : MonoBehaviour
         //Subscribe
         GameMaster.current.onPosessionStart += StartPosession;
         GameMaster.current.onPosessionStop += StopPosession;
+
+        if (QuickTimeMaster.current != null)
+        {
+            QuickTimeMaster.current.onQuickTimeStart += StartQuicktime;
+            QuickTimeMaster.current.onQuickTimeEnd += EndQuicktime;
+        }
+        else 
+        rb.isKinematic = true;
+    }
+
+    private void EndQuicktime(QuickTimeComponent arg1, bool arg2)
+    {
+        qtFreeze = false;
+        rb.isKinematic = false;
+    }
+
+    private void StartQuicktime(QuickTimeComponent obj)
+    {
+        qtFreeze = true;
         rb.isKinematic = true;
     }
 
@@ -72,7 +93,7 @@ public class PosessionMovement : MonoBehaviour
     {
         if(canMove)
         {
-            if (freeze)
+            if (freeze || qtFreeze)
             {
                 rb.constraints = RigidbodyConstraints.FreezeAll;
 
@@ -114,6 +135,7 @@ public class PosessionMovement : MonoBehaviour
     //Regulates the PitchRotation
     private void RotationPitch()
     {
+
         //translate input to float
         float pitchRotation = 0f;
         if (Input.GetKey(pitchKeys[0])) pitchRotation -= 1.0f;
