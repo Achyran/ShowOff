@@ -16,6 +16,9 @@ public class PlayerPosessinTest : MonoBehaviour
     private LayerMask whatIsInteractabel;
     private Player player;
     private OutlineScript lastOutline;
+    [SerializeField]
+    private KeyCode key;
+
     // Start is called before the first frame update
     void Start()
     {

@@ -6,7 +6,7 @@
 
 using UnityEngine;
 using Cinemachine;
-
+using System;
 
 public class Player : MonoBehaviour
 {
@@ -50,10 +50,19 @@ public class Player : MonoBehaviour
 			GameMaster.current.onPosessionStart += StartPosession;
 			GameMaster.current.onPosessionStop += StopPosession;
         }
+		if(QuickTimeMaster.current != null)
+        {
+			QuickTimeMaster.current.onQuickTimeStart += StartQt;
+			QuickTimeMaster.current.onQuickTimeEnd += EndQt;
+        }
 	}
 
+    
+
+
+
     #region Tobi
-	//This is neede for the gameMasterLogic
+    //This is neede for the gameMasterLogic
     private void StartPosession(PosessionMovement posession)
     {
 		FreezePlayer(true);
@@ -63,9 +72,18 @@ public class Player : MonoBehaviour
     {
 		FreezePlayer(false);
     }
-    #endregion
+	private void EndQt(QuickTimeComponent arg1, bool arg2)
+	{
+		FreezePlayer(false);
+	}
+	private void StartQt(QuickTimeComponent obj)
+	{
+		FreezePlayer(true);
+	}
 
-    void Update()
+	#endregion
+
+	void Update()
 	{
 		InputManager();
 		if (!playerFrozen)
