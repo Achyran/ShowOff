@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -5,6 +6,8 @@ using UnityEngine.Events;
 
 public class QuickTimeComponent : MonoBehaviour
 {
+
+    [Tooltip("Make shure that Every trigger has a unic sciptable object instance")]
     public QuickTimeEvent _event;
     [SerializeField]
     private bool destroyAfterOutcome;
@@ -14,15 +17,21 @@ public class QuickTimeComponent : MonoBehaviour
     private UnityEvent sucsess;
     [SerializeField]
     private UnityEvent failure;
-   
+    [SerializeField]
+    private QuickTimeComponent precondition;
+    [SerializeField]
+    [Tooltip("Add the player or a posessable fish here if it is only suposed to be triggered by that, if left empty every one can trigger this event")]
+    private GameObject triggerobject;
 
     private bool isDone = false;
 
-    // Start is called before the first frame update
-    void Start()
+    private void Start()
     {
-        _event.outcome = QuickTimeEvent.Outcome.ready;
+        _event.outcome = QuickTimeEvent.Outcome.notReady;
+        if (precondition == null) _event.outcome = QuickTimeEvent.Outcome.ready;
+
     }
+
 
     // Update is called once per frame
     void Update()
@@ -30,6 +39,30 @@ public class QuickTimeComponent : MonoBehaviour
         _event.Run();
         Evaluate();
         //Debug.Log(Input.mousePosition);
+
+        if (QuickTimeMaster.current != null)
+        {
+            QuickTimeMaster.current.onQuickTimeStart += QuickTimeStart;
+            QuickTimeMaster.current.onQuickTimeEnd += QuickTimeEnd;
+        }
+        else Debug.Log("Quickt time events requier a Qucktime event Master, this was not found");
+    }
+
+    private void QuickTimeEnd(QuickTimeComponent component, bool outcome)
+    {
+        
+        if(precondition != null && component == precondition && outcome && _event.outcome == QuickTimeEvent.Outcome.notReady) 
+        { 
+            _event.outcome = QuickTimeEvent.Outcome.ready;
+        }
+    }
+
+    private void QuickTimeStart(QuickTimeComponent obj)
+    {
+        if(obj == this && _event.outcome == QuickTimeEvent.Outcome.ready)
+        {
+            _event.Start();
+        }
     }
 
     private void Evaluate()
@@ -39,24 +72,38 @@ public class QuickTimeComponent : MonoBehaviour
             if (_event.outcome == QuickTimeEvent.Outcome.sucsess)
             {
                 isDone = true;
-                sucsess.Invoke();
+                Sucsess();
                 if (destroyAfterOutcome) Destroy(this.gameObject);
             }
             if (_event.outcome == QuickTimeEvent.Outcome.failure)
             {
                 isDone = true;
-                failure.Invoke();
+                Failure();
                 if (destroyAfterOutcome) Destroy(this.gameObject);
             }
         }
     }
-    private void OnCollisionEnter(Collision collision)
+
+    private void Sucsess()
     {
-        _event.Start();
+        sucsess.Invoke();
+        QuickTimeMaster.current.QuickTimeEnd(this, true);
+    }
+    private void Failure()
+    {
+        failure.Invoke();
+        QuickTimeMaster.current.QuickTimeEnd(this, false);
     }
 
-    public void Reset()
+    private void OnTriggerEnter(Collider other)
     {
-        _event.outcome = QuickTimeEvent.Outcome.ready;
+        if (_event.outcome == QuickTimeEvent.Outcome.ready && (triggerobject == null || other.transform.gameObject == triggerobject))
+        QuickTimeMaster.current.QuickTimeStart(this);
+    }
+
+    private void OnDestroy()
+    {
+        QuickTimeMaster.current.onQuickTimeStart -= QuickTimeStart;
+        QuickTimeMaster.current.onQuickTimeEnd -= QuickTimeEnd;
     }
 }

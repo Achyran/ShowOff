@@ -479,7 +479,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0dd66476bd4f32c4d82fadb8e203f634, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fill: {fileID: 0}
 --- !u!224 &532939205 stripped
 RectTransform:
   m_CorrespondingSourceObject: {fileID: 5996543594636723802, guid: 39f9b920a8b56564cab842b6c4616a94, type: 3}
@@ -823,7 +822,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4979393916478828879, guid: 38db7f1dabd23b749b3301b7e553cf3f, type: 3}
       propertyPath: m_LocalRotation.w
-      value: 0.6982943
+      value: 0.6982942
       objectReference: {fileID: 0}
     - target: {fileID: 4979393916478828879, guid: 38db7f1dabd23b749b3301b7e553cf3f, type: 3}
       propertyPath: m_LocalRotation.x
@@ -835,7 +834,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4979393916478828879, guid: 38db7f1dabd23b749b3301b7e553cf3f, type: 3}
       propertyPath: m_LocalRotation.z
-      value: -0.22311452
+      value: -0.22311455
       objectReference: {fileID: 0}
     - target: {fileID: 4979393917035064294, guid: 38db7f1dabd23b749b3301b7e553cf3f, type: 3}
       propertyPath: m_LocalPosition.x
@@ -961,7 +960,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 485417bb4aadfea4b8a4822353090dcc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  display: {fileID: 0}
 --- !u!1 &1066894621 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4238356650592806516, guid: 02806708293377f4fa6ee36388cdb797, type: 3}
@@ -997,7 +995,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a22b7a6d7d742d440b97a25535bf3250, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _event: {fileID: 0}
+  _event: {fileID: 11400000, guid: 7a61e54e41d9bb54eb359d471e1a769c, type: 2}
   destroyAfterOutcome: 0
   start:
     m_PersistentCalls:
@@ -1008,6 +1006,8 @@ MonoBehaviour:
   failure:
     m_PersistentCalls:
       m_Calls: []
+  precondition: {fileID: 1426112025}
+  triggerobject: {fileID: 0}
 --- !u!65 &1102707964
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1256,6 +1256,8 @@ MonoBehaviour:
   failure:
     m_PersistentCalls:
       m_Calls: []
+  precondition: {fileID: 0}
+  triggerobject: {fileID: 260963089}
 --- !u!65 &1426112026
 BoxCollider:
   m_ObjectHideFlags: 0
@@ -1771,8 +1773,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 722c48f68e0ed004daab18743e1a56b6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  text: {fileID: 0}
-  img: {fileID: 0}
 --- !u!1 &1888110940 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 4979393917740045024, guid: 38db7f1dabd23b749b3301b7e553cf3f, type: 3}
@@ -1943,8 +1943,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26aa7a9c0275e9d40a940977ed613b74, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  quickTimeEvents: []
-  colliders: []
 --- !u!114 &2026951587
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2013,4 +2011,3 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: be12f9277293bcf4eac08ee066277032, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  img: {fileID: 0}

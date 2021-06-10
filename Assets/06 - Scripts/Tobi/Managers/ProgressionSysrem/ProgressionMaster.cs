@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-
+[RequireComponent(typeof(GameMaster))]
 public class ProgressionMaster : MonoBehaviour
 {
     public static ProgressionMaster current;
