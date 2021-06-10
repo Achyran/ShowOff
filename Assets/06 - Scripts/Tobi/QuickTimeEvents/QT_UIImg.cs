@@ -26,9 +26,11 @@ public class QT_UIImg : MonoBehaviour
 
     private void StartDisplay(QuickTimeComponent obj)
     {
-        img.enabled = true;
-        img.texture = obj._event.UItexture;
-
+        if (obj._event.UItexture != null)
+        {
+            img.enabled = true;
+            img.texture = obj._event.UItexture;
+        }
     }
     private void OnDestroy()
     {

@@ -27,7 +27,7 @@ public class QT_UIText : MonoBehaviour
 
     private void StartDisplay(QuickTimeComponent obj)
     {
-        Debug.Log("Updatting Text");
+        //Debug.Log("Updatting Text");
         //display.enabled = true;
         display.SetText(obj._event.UItext);
 

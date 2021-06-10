@@ -19,6 +19,9 @@ public class QuickTimeComponent : MonoBehaviour
     private UnityEvent failure;
     [SerializeField]
     private QuickTimeComponent precondition;
+    [SerializeField]
+    [Tooltip("Add the player or a posessable fish here if it is only suposed to be triggered by that, if left empty every one can trigger this event")]
+    private GameObject triggerobject;
 
     private bool isDone = false;
 
@@ -94,7 +97,7 @@ public class QuickTimeComponent : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(_event.outcome == QuickTimeEvent.Outcome.ready)
+        if (_event.outcome == QuickTimeEvent.Outcome.ready && (triggerobject == null || other.transform.gameObject == triggerobject))
         QuickTimeMaster.current.QuickTimeStart(this);
     }
 
