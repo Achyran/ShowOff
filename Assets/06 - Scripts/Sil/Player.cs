@@ -22,6 +22,13 @@ public class Player : MonoBehaviour
 	private Rigidbody rigidBody;
 	private float speed;
 
+	private bool isSwimming = false;
+	private bool isFastSwimming = false;
+
+
+	[SerializeField]
+	Animator animator;
+
 	[Header("Movement Settings")]
 	[Tooltip("The speed at which you move in any direction")]
 	public float movementSpeed = 400f;
@@ -71,7 +78,15 @@ public class Player : MonoBehaviour
 		if (!playerFrozen)
 		{
 			MovementCalc();
-		}
+            if (rigidBody.velocity.magnitude < 1)
+            {
+                animator.SetBool("isFastSwimming", false);
+                animator.SetBool("isSwimming", false);
+            }
+        }
+
+		Debug.Log("Velocity = " + rigidBody.velocity.magnitude);
+
 		
 	}
 
@@ -144,9 +159,22 @@ public class Player : MonoBehaviour
 			direction += mainCam.transform.up;
 		}
 		if (Input.GetKey(SprintKey))
+        {
 			speed = sprintSpeed;
+            animator.SetBool("isFastSwimming", true);
+            animator.SetBool("isSwimming", false);
+        }
 		else
+        {
+
 			speed = movementSpeed;
+            animator.SetBool("isFastSwimming", false);
+            animator.SetBool("isSwimming", true);
+
+
+        }
+
+		
 
 		return direction;
 	}
