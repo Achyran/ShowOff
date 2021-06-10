@@ -35,13 +35,16 @@ public class FillHandler : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+
 
 
         if (isActive)
         {
-            image.fillAmount = posessionTime / MaxposessionTime;
-            posessionTime = posessionTime - Time.deltaTime;
+            if ((QuickTimeMaster.current == null || QuickTimeMaster.current.state != QuickTimeMaster.State.inprogress))
+            {
+                image.fillAmount = posessionTime / MaxposessionTime;
+                posessionTime = posessionTime - Time.deltaTime;
+            }
             if (posessionTime <= 0)
             {
                 //Debug.Log("Time is up");

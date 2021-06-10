@@ -41,7 +41,7 @@ public class GameMaster : MonoBehaviour
 
     private void Update()
     {
-        if (state == State._posessing)
+        if (state == State._posessing && (QuickTimeMaster.current == null || QuickTimeMaster.current.state != QuickTimeMaster.State.inprogress))
         {
             _time -= Time.deltaTime;
             if(_time <= 0)
