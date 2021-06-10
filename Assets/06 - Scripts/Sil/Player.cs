@@ -103,7 +103,7 @@ public class Player : MonoBehaviour
             }
         }
 
-		Debug.Log("Velocity = " + rigidBody.velocity.magnitude);
+		//Debug.Log("Velocity = " + rigidBody.velocity.magnitude);
 
 		
 	}
