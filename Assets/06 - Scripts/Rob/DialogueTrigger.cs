@@ -12,7 +12,9 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField]
     List<string> dialogueTexts = new List<string>();
 
+    [SerializeField]
     TextMeshProUGUI dialogueTMP;
+
     AudioSource audioSource;
     AudioClip chosenDialogue;
 
@@ -21,12 +23,14 @@ public class DialogueTrigger : MonoBehaviour
     private void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
-        random = Random.Range(0, dialogueClips.Count + 1);
+        random = Random.Range(0, dialogueClips.Count);
         chosenDialogue = dialogueClips[random];
 
         audioSource.clip = chosenDialogue;
 
-        dialogueTMP = GameObject.FindGameObjectWithTag("dialogueUI").GetComponent<TextMeshProUGUI>();
+       
+
+       
 
         if(dialogueTMP == null)
         {
