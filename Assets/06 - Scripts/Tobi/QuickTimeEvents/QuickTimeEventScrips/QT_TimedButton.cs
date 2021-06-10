@@ -7,9 +7,9 @@ public class QT_TimedButton : QuickTimeEvent
 {
     [Header("UI Elements")]
     [SerializeField]
-    public Texture UItexture;
+    public Texture _UItexture;
     [SerializeField]
-    public string UItext;
+    public string _UItext;
 
     [Header("Event Settings")]
 
@@ -32,6 +32,8 @@ public class QT_TimedButton : QuickTimeEvent
     public override void Start()
     {
         if(outcome == QuickTimeEvent.Outcome.ready)_Init();
+        UItext = _UItext;
+        UItexture = _UItexture;
     }
     public override void Run()
     {
