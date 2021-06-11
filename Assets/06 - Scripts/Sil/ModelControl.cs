@@ -15,6 +15,8 @@ public class ModelControl : MonoBehaviour
         
     }
 
+
+    //Modify this to look in to the velocety direction of the player
     public void ModelUpdate(Vector3 translation, Vector3 position)
     {
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, translation, rotateSpeed * Time.deltaTime, 0.0f);
