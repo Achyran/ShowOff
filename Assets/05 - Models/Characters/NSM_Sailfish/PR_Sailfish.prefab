@@ -192,9 +192,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5199540293465716097}
   - component: {fileID: 5738363434828976649}
+  - component: {fileID: 1407283155}
   m_Layer: 0
-  m_Name: Fish_Sailfish_AnimatedFBXv2
-  m_TagString: Untagged
+  m_Name: PR_Sailfish
+  m_TagString: Interactable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,9 +207,9 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4855912795195764539}
-  m_LocalRotation: {x: -0, y: 0.19957572, z: -0, w: 0.9798825}
+  m_LocalRotation: {x: 0, y: 0.19957313, z: 0, w: 0.97988296}
   m_LocalPosition: {x: -0.7, y: -8.1, z: 0.7}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.49592, y: 0.49592, z: 0.49592}
   m_Children:
   - {fileID: 1283074484988155252}
   - {fileID: 832594511601768717}
@@ -234,6 +235,18 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &1407283155
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4855912795195764539}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8979a270185e6845b6286d4395f777c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &6408597098961380037
 GameObject:
   m_ObjectHideFlags: 0

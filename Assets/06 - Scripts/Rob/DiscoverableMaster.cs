@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -7,12 +8,13 @@ public class DiscoverableMaster : MonoBehaviour
 
 
     public List<DiscoverableAgent> DiscoverableAgents = new List<DiscoverableAgent>();
-    public List<DiscoverableAgent> AgentsDiscovered = new List<DiscoverableAgent>();
+    public List<DiscoverableAgent> AgentsRemaining = new List<DiscoverableAgent>();
     
 
     // Start is called before the first frame update
     void Start()
     {
+        AgentsRemaining = new List<DiscoverableAgent>(DiscoverableAgents);
 
         var agents = FindObjectsOfType<DiscoverableAgent>();
 
@@ -22,13 +24,24 @@ public class DiscoverableMaster : MonoBehaviour
         }
     }
 
-
-        
-
-    // Update is called once per frame
-    void Update()
+    private void OnEnable()
     {
-        
+       GameMaster.current.onInspectionStart += SpeciesChecker;
     }
-    
+
+    private void SpeciesChecker(GameObject obj)
+    {
+
+
+
+        Debug.Log("SpeciesChecker");
+    }
+
+
+
+    private void OnDisable()
+    {
+        GameMaster.current.onInspectionStart -= SpeciesChecker;
+    }
+
 }
