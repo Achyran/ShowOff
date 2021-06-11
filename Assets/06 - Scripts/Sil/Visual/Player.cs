@@ -12,7 +12,6 @@ public class Player : MonoBehaviour
 {
 	public GameObject notepad;
 	public Camera mainCam;
-	public CinemachineFreeLook playerCam;
 	public float rotateSpeed = 1;
 	public float inspectRange = 25;
 	public ModelControl modelControl;
