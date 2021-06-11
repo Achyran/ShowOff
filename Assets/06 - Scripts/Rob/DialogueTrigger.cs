@@ -12,7 +12,7 @@ public class DialogueTrigger : MonoBehaviour
     [SerializeField]
     List<string> dialogueTexts = new List<string>();
 
-    [SerializeField]
+  
     TextMeshProUGUI dialogueTMP;
 
     AudioSource audioSource;
@@ -23,49 +23,57 @@ public class DialogueTrigger : MonoBehaviour
     private void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
-        random = Random.Range(0, dialogueClips.Count);
-        chosenDialogue = dialogueClips[random];
 
-        audioSource.clip = chosenDialogue;
-
-       
-
-       
-
-        if(dialogueTMP == null)
+        dialogueTMP = this.GetComponentInChildren<TextMeshProUGUI>();
+        if (dialogueTMP == null)
         {
             Debug.Log("dialogueTMP in DialogueTrigger is null");
             return;
         }
-
-        
-        
         dialogueTMP.enabled = false;
-        dialogueTMP.SetText(dialogueTexts[random]);
-
-        Debug.Log(dialogueTMP.text);
-
     }
 
     private void Update()
     {
-        if (!audioSource.isPlaying)
+        Debug.Log("Audiosource  = " + audioSource.isPlaying + " on " + this.name);
+        if (audioSource.isPlaying == false)
         {
             dialogueTMP.enabled = false;
+            //Debug.Log("Playing?  = " + audioSource.isPlaying);
+        }
+        else if (audioSource.isPlaying == true)
+        {
+            dialogueTMP.enabled = true;
+            //Debug.Log("Playing?  = " + audioSource.isPlaying);
         }
     }
-
 
     private void OnTriggerEnter(Collider other)
     {
 
-        Debug.Log("collision");
-        audioSource.PlayOneShot(chosenDialogue);
-        if (audioSource.isPlaying)
-        {
-            dialogueTMP.enabled = true;
-            
+        
+        random = Random.Range(0, dialogueClips.Count);
+        chosenDialogue = dialogueClips[random];
 
+        audioSource.clip = chosenDialogue;
+           
+                
+        dialogueTMP.SetText(dialogueTexts[random]);
+
+        if (!audioSource.isPlaying)
+        {
+            audioSource.PlayOneShot(chosenDialogue);
         }
+       
+
+       // Debug.Log(dialogueTMP.text);
+
+      
+
     }
+
+
+   
+
+
 }
