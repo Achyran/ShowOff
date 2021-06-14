@@ -14,7 +14,7 @@ public class DiscoverableMaster : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        AgentsRemaining = new List<DiscoverableAgent>(DiscoverableAgents);
+       
 
         var agents = FindObjectsOfType<DiscoverableAgent>();
 
@@ -22,26 +22,17 @@ public class DiscoverableMaster : MonoBehaviour
         {
             DiscoverableAgents.Add(agents[i]);
         }
+
+        AgentsRemaining = new List<DiscoverableAgent>(DiscoverableAgents);
     }
 
-    private void OnEnable()
+    private void Update()
     {
-       GameMaster.current.onInspectionStart += SpeciesChecker;
-    }
-
-    private void SpeciesChecker(GameObject obj)
-    {
-
-
-
-        Debug.Log("SpeciesChecker");
+        
     }
 
 
 
-    private void OnDisable()
-    {
-        GameMaster.current.onInspectionStart -= SpeciesChecker;
-    }
+
 
 }
