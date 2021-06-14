@@ -4,17 +4,26 @@ using System.Collections.Generic;
 using UnityEngine;
 using System.IO;
 
+
 [RequireComponent(typeof(GameMaster))]
-public class DiscoverableMaster : MonoBehaviour
+public class DiscoverableMaster : Master
 {
     public enum Species {whale, sailFish }
     //holds all informations on all Species that are implemented
     private Dictionary<Species, SpeciesInformation> speciesToInfo;
     private List<Species> progress;
+    public static DiscoverableMaster current;
 
     private string savePath;
-    private void Start()
+    public override void Init()
     {
+        if(current != null)
+        {
+            Debug.Log("Multibel Discover Masters Discoverd, Destroyin This", this);
+            Destroy(this);
+        }
+        current = this;
+
         savePath =  $"{Application.dataPath}/10 - Other assets/SpeciesInfoJson/Progress.json";
         InitInfos();
         LoadeProgress();
@@ -35,6 +44,7 @@ public class DiscoverableMaster : MonoBehaviour
                 return;
             }
             progress.Add(disCom.species);
+            Discover(speciesToInfo[disCom.species]);
             Debug.Log($"Added Species {disCom.species}");
         }
     }
@@ -42,7 +52,7 @@ public class DiscoverableMaster : MonoBehaviour
     private void AddToDescoverd(GameObject obj)
     {
         DiscoverableComponent disCom = obj.GetComponent<DiscoverableComponent>();
-        if(disCom != null && !progress.Contains(disCom.species))
+        if (disCom != null && !progress.Contains(disCom.species))
         {
             if (!speciesToInfo.ContainsKey(disCom.species))
             {
@@ -50,6 +60,7 @@ public class DiscoverableMaster : MonoBehaviour
                 return;
             }
             progress.Add(disCom.species);
+            Discover(speciesToInfo[disCom.species]);
             Debug.Log($"Added Species {disCom.species}");
         }
     }
@@ -60,7 +71,7 @@ public class DiscoverableMaster : MonoBehaviour
         string saveDirectory = $"{Application.dataPath}/10 - Other assets/SpeciesInfoJson/";
         foreach(string file in Directory.GetFiles(saveDirectory))
         {
-            if (file.EndsWith(".json"))
+            if (file.EndsWith(".json") && !file.EndsWith("Progress.json"))
             {
                 string jsonString = File.ReadAllText(file);
                 SpeciesInformation sInfo = JsonUtility.FromJson<SpeciesInformation>(jsonString);
@@ -99,7 +110,22 @@ public class DiscoverableMaster : MonoBehaviour
         File.WriteAllText($"{Application.dataPath}/10 - Other assets/SpeciesInfoJson/Progress.json", jsonString);
     }
 
-   
+
+    #region Event
+
+    //Event fiers when ever something was disvoverd;
+    public event Action<SpeciesInformation> OnDiscover;
+    
+    private void Discover(SpeciesInformation info)
+    {
+        if(OnDiscover != null)
+        {
+            OnDiscover(info);
+        }
+    }
+
+    #endregion
+
 
     #region SaveStrucs
     //This Class holds Species information For display and other purpesoses. The Json Files will be created through a Creat

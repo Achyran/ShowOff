@@ -4,14 +4,14 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(GameMaster))]
-public class QuickTimeMaster : MonoBehaviour
+public class QuickTimeMaster : Master
 {
 
     public static QuickTimeMaster current;
     public enum State { ready, inprogress };
     public State state { get; private set; }
     
-    void Awake()
+    public override void Init()
     {
         if(current != null)
         {
