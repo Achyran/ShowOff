@@ -5,9 +5,9 @@ using UnityEngine;
 
 public class DiscoverableComponent : MonoBehaviour
 {
-    [SerializeField]
-    Species species;
+    //[SerializeField]
+    //Species species;
 
-
+    public DiscoverableMaster.Species species;
 
 }
