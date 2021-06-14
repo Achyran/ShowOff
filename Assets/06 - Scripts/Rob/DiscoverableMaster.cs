@@ -8,7 +8,7 @@ using System.IO;
 [RequireComponent(typeof(GameMaster))]
 public class DiscoverableMaster : Master
 {
-    public enum Species {whale, sailFish }
+    public enum Species {whale, sailfish, jellyfish }
     //holds all informations on all Species that are implemented
     private Dictionary<Species, SpeciesInformation> speciesToInfo;
     private List<Species> progress;
