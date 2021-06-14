@@ -4,13 +4,16 @@ using UnityEngine;
 using Cinemachine;
 //using System;
 
-[RequireComponent(typeof(CinemachineFreeLook))]
 public class CamConnection : MonoBehaviour
 {
 
     public bool isStartCam;
+    
     public GameObject target;
-    public CinemachineFreeLook freeLook { get; private set; }
+
+    [Tooltip("Set this to true if you want to manually set target and follow (for if they are different)")]
+    public bool ignoreTarget = false;
+    public CinemachineVirtualCameraBase virtualCam { get; private set; }
 
     private void Start()
     {
@@ -24,36 +27,47 @@ public class CamConnection : MonoBehaviour
         {
             CamMaster.current.onConnectionUpdate += UpdateCam;
         }
-        else {
+        else
+        {
             Debug.LogError("The ConectionMaset was null, Destroying this object", this);
             Destroy(gameObject);
         }
-        freeLook = GetComponent<CinemachineFreeLook>();
+
+        if (GetComponent<CinemachineFreeLook>() != null)
+            virtualCam = GetComponent<CinemachineFreeLook>();
+        else
+            virtualCam = GetComponent<CinemachineVirtualCamera>();
+
         if (isStartCam)
         {
             if (CamMaster.current.currentConnectionIndex != -1)
             {
                 Debug.LogWarning($"A different Cam is allready active. Active Cam = {CamMaster.current.connections[CamMaster.current.currentConnectionIndex]}", this);
-                freeLook.enabled = false;
-            }else
+                virtualCam.enabled = false;
+            }
+            else
             {
                 CamMaster.current.SetCam(target);
             }
         }
-        else freeLook.enabled = false;
-        freeLook.LookAt = target.transform;
-        freeLook.Follow = target.transform;
+        else virtualCam.enabled = false;
+
+        if (!ignoreTarget)
+        {
+            virtualCam.LookAt = target.transform;
+            virtualCam.Follow = target.transform;
+        }
     }
     
 
     private void UpdateCam(CamConnection obj)
     {
-        if(obj.freeLook == freeLook)
+        if(obj.virtualCam == virtualCam)
         {
-            freeLook.enabled = true;
+            virtualCam.enabled = true;
         }else
         {
-            freeLook.enabled = false;
+            virtualCam.enabled = false;
         }
     }
 
