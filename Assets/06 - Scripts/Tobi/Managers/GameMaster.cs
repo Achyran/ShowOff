@@ -69,7 +69,7 @@ public class GameMaster : MonoBehaviour
         
         if (nextState == State._transition)
         {
-            Debug.Log($"Set State");
+           // Debug.Log($"Set State");
             state = State._transition;
             nextState = pstate;
             _transitionTime = transitionTime;

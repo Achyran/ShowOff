@@ -10,7 +10,11 @@ public class InfoToolingEditor : Editor
     {
         DrawDefaultInspector();
         SpeciesInfoTool myScript = (SpeciesInfoTool)target;
-        if(GUILayout.Button("Save Script"))
+        if(GUILayout.Button("Load Script"))
+        {
+            myScript.LoadInfo();
+        }
+        if (GUILayout.Button("Save Script"))
         {
             myScript.SaveInfo();
         }

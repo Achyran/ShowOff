@@ -12,13 +12,31 @@ public class DiscoverableMaster : MonoBehaviour
     private Dictionary<Species, SpeciesInformation> speciesToInfo;
     private List<Species> progress;
 
-    private string savePath = $"{Application.dataPath}/10 - Other assets/SpeciesInfoJson/Progress.json";
+    private string savePath;
     private void Start()
     {
+        savePath =  $"{Application.dataPath}/10 - Other assets/SpeciesInfoJson/Progress.json";
         InitInfos();
         LoadeProgress();
 
         GameMaster.current.onInspectionStart += AddToDescoverd;
+        GameMaster.current.onPosessionStart += AddToDescoverdPosession;
+
+    }
+
+    private void AddToDescoverdPosession(PosessionMovement obj)
+    {
+        DiscoverableComponent disCom = obj.GetComponent<DiscoverableComponent>();
+        if (disCom != null && !progress.Contains(disCom.species))
+        {
+            if (!speciesToInfo.ContainsKey(disCom.species))
+            {
+                Debug.Log($"Cound not Find {disCom.species} info, Are you missing a .json file?");
+                return;
+            }
+            progress.Add(disCom.species);
+            Debug.Log($"Added Species {disCom.species}");
+        }
     }
 
     private void AddToDescoverd(GameObject obj)
@@ -51,6 +69,15 @@ public class DiscoverableMaster : MonoBehaviour
             }
         }
     }
+    private void OnApplicationQuit()
+    {
+        SaveProgress();
+    }
+    public void ResetSave()
+    {
+        progress = new List<Species>();
+        SaveProgress();
+    }
 
     private void LoadeProgress() 
     {
@@ -68,8 +95,11 @@ public class DiscoverableMaster : MonoBehaviour
         Progress prog = new Progress();
         prog.seenSpecies = progress;
         string jsonString = JsonUtility.ToJson(prog);
-        File.WriteAllText(savePath, jsonString);
+        //Can not use savePath here it would be null in Editor
+        File.WriteAllText($"{Application.dataPath}/10 - Other assets/SpeciesInfoJson/Progress.json", jsonString);
     }
+
+   
 
     #region SaveStrucs
     //This Class holds Species information For display and other purpesoses. The Json Files will be created through a Creat

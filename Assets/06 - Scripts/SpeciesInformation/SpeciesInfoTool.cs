@@ -5,7 +5,7 @@ using System.IO;
 
 public class SpeciesInfoTool : MonoBehaviour
 {
-   
+
     public string OutputName;
 
     public DiscoverableMaster.Species species;
@@ -16,7 +16,9 @@ public class SpeciesInfoTool : MonoBehaviour
     public string UIText;
     public Texture2D UIimage;
 
-    
+    [Header("Loade Save :")]
+    [SerializeField]
+    private string name;
 
     public void SaveInfo()
     {
@@ -39,6 +41,26 @@ public class SpeciesInfoTool : MonoBehaviour
 
     public void LoadInfo()
     {
-    
+        if(name != null && name != "" && name != "Progress")
+        {
+            string jsonString = "";
+            foreach(string file in Directory.GetFiles( $"{ Application.dataPath}/10 - Other assets/SpeciesInfoJson/"))
+            {
+                if (file.EndsWith($"{name}.json"))
+                {
+                    jsonString = File.ReadAllText($"{ Application.dataPath}/10 - Other assets/SpeciesInfoJson/{name}.json");
+                    break;
+                }
+            }
+            DiscoverableMaster.SpeciesInformation info = JsonUtility.FromJson<DiscoverableMaster.SpeciesInformation>(jsonString);
+            OutputName = name;
+            species = info.species;
+            speciesname = info.speciesname;
+            description = info.description;
+            image = info.image;
+            UIText = info.UIText;
+            UIimage = info.UIimage;
+
+        }
     }
 }
