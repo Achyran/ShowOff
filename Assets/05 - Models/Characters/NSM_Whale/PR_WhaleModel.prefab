@@ -44,6 +44,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7639963452514048071}
   - component: {fileID: 5248281092921977565}
+  - component: {fileID: 1729025562}
   m_Layer: 0
   m_Name: pCube2
   m_TagString: Untagged
@@ -127,6 +128,18 @@ SkinnedMeshRenderer:
     m_Center: {x: -0.21881056, y: 0.7893748, z: 0.04463172}
     m_Extent: {x: 9.042967, y: 4.145079, z: 4.7740116}
   m_DirtyAABB: 0
+--- !u!114 &1729025562
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 816202101688055501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f8979a270185e6845b6286d4395f777c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2315403509350011767
 GameObject:
   m_ObjectHideFlags: 0
@@ -260,9 +273,10 @@ GameObject:
   m_Component:
   - component: {fileID: 5028871253161040964}
   - component: {fileID: 4773985754090832304}
+  - component: {fileID: 3289993579330633664}
   m_Layer: 0
-  m_Name: WhaleModel (1)
-  m_TagString: Untagged
+  m_Name: PR_WhaleModel
+  m_TagString: Posessable
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -276,7 +290,7 @@ Transform:
   m_GameObject: {fileID: 5657070261319894782}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 43.65, y: 38.73, z: 161.56}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.7142789, y: 1.7142789, z: 1.7142789}
   m_Children:
   - {fileID: 5625307649428415740}
   - {fileID: 7639963452514048071}
@@ -303,6 +317,20 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!136 &3289993579330633664
+CapsuleCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5657070261319894782}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  m_Radius: 3.8
+  m_Height: 19.21
+  m_Direction: 0
+  m_Center: {x: 0, y: 0.09, z: 0}
 --- !u!1 &6731889696841476425
 GameObject:
   m_ObjectHideFlags: 0
