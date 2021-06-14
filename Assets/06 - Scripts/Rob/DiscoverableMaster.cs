@@ -7,8 +7,8 @@ public class DiscoverableMaster : MonoBehaviour
 {
 
 
-    public List<DiscoverableAgent> DiscoverableAgents = new List<DiscoverableAgent>();
-    public List<DiscoverableAgent> AgentsRemaining = new List<DiscoverableAgent>();
+    public List<DiscoverableComponent> DiscoverableAgents = new List<DiscoverableComponent>();
+    public List<DiscoverableComponent> AgentsRemaining = new List<DiscoverableComponent>();
     
 
     // Start is called before the first frame update
@@ -16,14 +16,14 @@ public class DiscoverableMaster : MonoBehaviour
     {
        
 
-        var agents = FindObjectsOfType<DiscoverableAgent>();
+        var agents = FindObjectsOfType<DiscoverableComponent>();
 
         for (int i = 0; i < agents.Length; i++)
         {
             DiscoverableAgents.Add(agents[i]);
         }
 
-        AgentsRemaining = new List<DiscoverableAgent>(DiscoverableAgents);
+        AgentsRemaining = new List<DiscoverableComponent>(DiscoverableAgents);
     }
 
     private void Update()
