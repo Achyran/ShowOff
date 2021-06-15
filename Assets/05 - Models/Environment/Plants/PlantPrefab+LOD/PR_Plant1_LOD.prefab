@@ -29,7 +29,7 @@ Transform:
   m_LocalPosition: {x: -5.856486, y: 1.237, z: 11.17967}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 4958966381257471054}
+  - {fileID: 6197233540868773479}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -50,7 +50,7 @@ LODGroup:
   - screenRelativeHeight: 0.018568253
     fadeTransitionWidth: 0
     renderers:
-    - renderer: {fileID: 8844394528156222507}
+    - renderer: {fileID: 8809183336269880595}
   - screenRelativeHeight: 0
     fadeTransitionWidth: 0
     renderers: []
@@ -72,7 +72,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 0}
---- !u!1 &8327601187211003043
+--- !u!1 &5765794787544039797
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -80,9 +80,9 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 4958966381257471054}
-  - component: {fileID: 1743831272891607732}
-  - component: {fileID: 8844394528156222507}
+  - component: {fileID: 6197233540868773479}
+  - component: {fileID: 4635723353383572354}
+  - component: {fileID: 8809183336269880595}
   m_Layer: 0
   m_Name: Algae_Blue(Clone)
   m_TagString: Untagged
@@ -90,35 +90,35 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!4 &4958966381257471054
+--- !u!4 &6197233540868773479
 Transform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8327601187211003043}
+  m_GameObject: {fileID: 5765794787544039797}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.346, z: 0}
+  m_LocalPosition: {x: 0, y: 0.3, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 1153228876546427032}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!33 &1743831272891607732
+--- !u!33 &4635723353383572354
 MeshFilter:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8327601187211003043}
+  m_GameObject: {fileID: 5765794787544039797}
   m_Mesh: {fileID: -2339101825362499926, guid: 6f51a226acdd3f6448e659f4b2b7d653, type: 3}
---- !u!23 &8844394528156222507
+--- !u!23 &8809183336269880595
 MeshRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 8327601187211003043}
+  m_GameObject: {fileID: 5765794787544039797}
   m_Enabled: 1
   m_CastShadows: 1
   m_ReceiveShadows: 1
