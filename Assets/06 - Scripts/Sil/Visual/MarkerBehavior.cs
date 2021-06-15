@@ -22,7 +22,7 @@ public class MarkerBehavior : MonoBehaviour
 
 
 		renderer = GetComponent<MeshRenderer>();
-		
+		renderer.enabled = false;
 		
 
 	}
