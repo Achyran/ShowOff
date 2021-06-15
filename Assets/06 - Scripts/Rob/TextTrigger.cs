@@ -14,13 +14,13 @@ public class TextTrigger : MonoBehaviour
         canvas.enabled = false;
     }
 
-    private void OnTriggerStay(Collider other)
+    private void OnTriggerEnter(Collider other)
     {
         canvas.enabled = true;
     }
 
     private void OnTriggerExit(Collider other)
     {
-        this.enabled = false;
+       canvas.enabled = false;
     }
 }
