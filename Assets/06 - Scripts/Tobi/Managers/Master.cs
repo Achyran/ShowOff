@@ -1,11 +1,8 @@
-using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class DiscoverableAgent : MonoBehaviour
+public abstract class Master : MonoBehaviour
 {
-  
-
-
+    public abstract void Init();
 }

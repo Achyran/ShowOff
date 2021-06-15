@@ -10,13 +10,18 @@ public class QT_UIText : MonoBehaviour
     void Start()
     {
         display = GetComponent<TextMeshProUGUI>();
-        if(QuickTimeMaster.current != null)
+        display.SetText("");
+        if (QuickTimeMaster.current != null)
         {
             QuickTimeMaster.current.onQuickTimeStart += StartDisplay;
             QuickTimeMaster.current.onQuickTimeEnd += EndDisplay;
+        }else
+        {
+            Debug.Log($"Quick time master was null, deleating this", this);
+            Destroy(this);
         }
         //display.enabled = false;
-        display.SetText("");
+        
     }
 
 
@@ -35,7 +40,10 @@ public class QT_UIText : MonoBehaviour
     }
     private void OnDestroy()
     {
-        QuickTimeMaster.current.onQuickTimeStart -= StartDisplay;
-        QuickTimeMaster.current.onQuickTimeEnd -= EndDisplay;
+        if (QuickTimeMaster.current != null)
+        {
+            QuickTimeMaster.current.onQuickTimeStart -= StartDisplay;
+            QuickTimeMaster.current.onQuickTimeEnd -= EndDisplay;
+        }
     }
 }
