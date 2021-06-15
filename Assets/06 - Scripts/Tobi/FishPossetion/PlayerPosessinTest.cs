@@ -19,6 +19,8 @@ public class PlayerPosessinTest : MonoBehaviour
     [SerializeField]
     private KeyCode key;
 
+
+
     // Start is called before the first frame update
     void Start()
     {
@@ -44,69 +46,68 @@ public class PlayerPosessinTest : MonoBehaviour
         if (GameMaster.current.state == GameMaster.State._base)
         {
             Ray ray = Camera.main.ScreenPointToRay(new Vector3(Screen.width / 2, Screen.height / 2, 0));
-            if (debug) Debug.DrawRay(ray.origin,ray.direction * posessableDist);
+            if (debug) Debug.DrawRay(ray.origin, ray.direction * posessableDist);
             RaycastHit hit;
-            RaycastHit posHit = new RaycastHit();
-            RaycastHit interactHit = new RaycastHit();
-            if(Physics.Raycast(ray, out hit, posessableDist, whatIsPosessabel))
+            if (Physics.Raycast(ray, out hit, posessableDist, whatIsPosessabel | whatIsInteractabel))
             {
-                posHit = hit;
-            }
-            if (Physics.Raycast(ray, out hit, posessableDist, whatIsInteractabel))
-            {
-                interactHit = hit;
-                OutlineActivate(hit);
-            }
-            else
-                OutlineDisable();
-            if (Input.GetMouseButtonDown(0))
-            {
-                if (posHit.distance != 0 && interactHit.distance != 0)
-                    besthit(posHit, interactHit);
-                else if (posHit.distance != 0)
+                GameObject hitObj = hit.transform.gameObject;
+                if(lastOutline == null || lastOutline.gameObject != hitObj)
                 {
-                    PosessionMovement posession = posHit.collider.GetComponent<PosessionMovement>();
-                    if (posession != null)
+                     lastOutline = hitObj.GetComponent<OutlineScript>();
+                     OutlineActivate(lastOutline);     
+                }
+                if (Input.GetKeyDown(key))
+                {
+                    if (whatIsInteractabel == (whatIsInteractabel | (1 << hitObj.layer)))
                     {
-                        GameMaster.current.PosessionStart(posession);
+                        GameMaster.current.InspectionStart(hitObj);
+                    }
+                    else if (whatIsPosessabel == (whatIsPosessabel | (1 << hitObj.gameObject.layer)))
+                    {
+                        PosessionMovement posmove = hitObj.GetComponent<PosessionMovement>();
+                        if (posmove != null) GameMaster.current.PosessionStart(posmove);
+                        else Debug.LogWarning($"Tryed to posess {hitObj.transform.name}, PosessionMovemetn was null. Pleas add PosessionMovement or Remove form layer", hitObj);
                     }
                 }
-                else if (interactHit.distance != 0)
-                {
-                    GameMaster.current.InspectionStart(interactHit.transform.gameObject);
-                }
-            }
-        }
-    }
+                
 
-    private void besthit(RaycastHit posHit, RaycastHit interHit)
-    {
-        Debug.Log($"posHit was {posHit.distance} and InterHit was {interHit.distance} {posHit.distance > interHit.distance}");
-        if (posHit.distance == interHit.distance) return;
-        if(posHit.distance > interHit.distance)
-        {
-            GameMaster.current.InspectionStart(interHit.collider.gameObject);
+            }
+            else OutlineDisable();
+            
         }
-        else
+
+        //Stop Posession / Interaction
+        if(Input.GetKeyDown(key) && GameMaster.current.state != GameMaster.State._base)
         {
-            PosessionMovement posession = posHit.collider.GetComponent<PosessionMovement>();
-            if (posession != null)
+            switch (GameMaster.current.state)
             {
-                GameMaster.current.PosessionStart(posession);
+                case GameMaster.State._base:
+                    break;
+                case GameMaster.State._posessing:
+                    GameMaster.current.PosessionStop();
+                    break;
+                case GameMaster.State._inspecting:
+                    GameMaster.current.InspectionStop();
+                    break;
+                case GameMaster.State._transition:
+                    break;
+                default:
+                    break;
             }
         }
     }
 
-    private void OutlineActivate(RaycastHit interHit) 
+
+
+    private void OutlineActivate(OutlineScript outline) 
     {
-        OutlineScript outline = interHit.transform.gameObject.GetComponent<OutlineScript>();
         if (outline != null)
         {
             outline.ToggleOutline(true);
-            lastOutline = outline;
+            //lastOutline = outline;
         }
         else
-            Debug.LogError("Object is on the interactible layer but doesn't have an outline script", this);
+        Debug.LogWarning("Object is on the interactible layer but doesn't have an outline script", this);
 
     }
 

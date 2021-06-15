@@ -4,7 +4,7 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(GameMaster))]
-public class CamMaster : MonoBehaviour
+public class CamMaster : Master
 {
 
     public int currentConnectionIndex { get; private set; } = -1;
@@ -12,7 +12,7 @@ public class CamMaster : MonoBehaviour
     public CamConnection[] connections { get; private set; }
     public CamConnection playerConnection;
 
-    void Awake()
+    public override void Init()
     {
         InitiateGameMaster();
         GetConnections();
