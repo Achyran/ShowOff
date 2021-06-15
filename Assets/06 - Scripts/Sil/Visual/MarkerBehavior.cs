@@ -9,18 +9,31 @@ public class MarkerBehavior : MonoBehaviour
 	public float activationTimer = 180;
 	private bool active = false;
 
+	
+
 	MeshRenderer renderer;
+
+
+
+
 	// Start is called before the first frame update
 	void Start()
 	{
+
+
 		renderer = GetComponent<MeshRenderer>();
 		renderer.enabled = false;
+		
+
 	}
 
 	// Update is called once per frame
 	void Update()
 	{
-		if (!active)
+
+	
+
+        if (!active)
 		{
 			if (activationTimer > 0)
 				activationTimer -= Time.deltaTime;
@@ -59,5 +72,10 @@ public class MarkerBehavior : MonoBehaviour
 			}
 		}
 
+		
+
+
+
 	}
 }
+	
