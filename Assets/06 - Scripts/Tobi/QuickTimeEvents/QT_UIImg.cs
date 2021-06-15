@@ -11,12 +11,18 @@ public class QT_UIImg : MonoBehaviour
     void Start()
     {
         img = GetComponent<RawImage>();
+        img.enabled = false;
         if (QuickTimeMaster.current != null)
         {
             QuickTimeMaster.current.onQuickTimeStart += StartDisplay;
             QuickTimeMaster.current.onQuickTimeEnd += EndDisplay;
         }
-        img.enabled = false;
+        else
+        {
+            Debug.Log($"Quick time master was null, deleating this", this);
+            Destroy(this);
+        }
+
     }
 
     private void EndDisplay(QuickTimeComponent arg1, bool arg2)
@@ -34,8 +40,11 @@ public class QT_UIImg : MonoBehaviour
     }
     private void OnDestroy()
     {
-        QuickTimeMaster.current.onQuickTimeStart -= StartDisplay;
-        QuickTimeMaster.current.onQuickTimeEnd -= EndDisplay;
+        if (QuickTimeMaster.current != null)
+        {
+            QuickTimeMaster.current.onQuickTimeStart -= StartDisplay;
+            QuickTimeMaster.current.onQuickTimeEnd -= EndDisplay;
+        }
     }
 
 

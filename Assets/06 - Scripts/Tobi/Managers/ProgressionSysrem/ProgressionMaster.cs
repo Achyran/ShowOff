@@ -4,11 +4,11 @@ using UnityEngine;
 using System;
 
 [RequireComponent(typeof(GameMaster))]
-public class ProgressionMaster : MonoBehaviour
+public class ProgressionMaster : Master
 {
     public static ProgressionMaster current;
 
-    private void Awake()
+    public override void Init()
     {
         if(current == null)
         {

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class GameMaster : MonoBehaviour
+public class GameMaster : Master
 {
 
     public static GameMaster current;
@@ -21,9 +21,7 @@ public class GameMaster : MonoBehaviour
 
     private void Awake()
     {
-        InitiateGameMaster();
-        FindPlayer();
-        GetPosessions();
+        Init();
     }
 
 
@@ -69,7 +67,7 @@ public class GameMaster : MonoBehaviour
         
         if (nextState == State._transition)
         {
-            Debug.Log($"Set State");
+           // Debug.Log($"Set State");
             state = State._transition;
             nextState = pstate;
             _transitionTime = transitionTime;
@@ -148,7 +146,6 @@ public class GameMaster : MonoBehaviour
     public event Action<GameObject> onInspectionStart;
     public void InspectionStart (GameObject obj)
     {
-        Debug.Log( $"Inspection Started {state}");
         //ToDo a is interacatbe check
         if (state == State._base)
         {
@@ -176,6 +173,25 @@ public class GameMaster : MonoBehaviour
         }
     }
 
+    public override void Init()
+    {
+        InitiateGameMaster();
+        FindPlayer();
+        GetPosessions();
+        InitAllMasters();
+    }
+
+    public void InitAllMasters()
+    {
+        Master[] masters = GetComponents<Master>();
+
+        foreach (Master m in masters)
+        {
+            if(m != this)
+            m.Init();
+        }
+
+    }
 
     #endregion
 
