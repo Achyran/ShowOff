@@ -16,6 +16,7 @@ public class CamMaster : Master
     {
         InitiateGameMaster();
         GetConnections();
+        GetPlayerConnections();
         if (playerConnection == null) Debug.LogWarning("The player connection was not set", this);
     }
 
@@ -26,7 +27,7 @@ public class CamMaster : Master
         {
             current = this;
         }
-        else
+        else if( current != this)
         {
             Debug.LogWarning("Multible GameMasters detected, Destroying this", this);
             Destroy(this);
@@ -69,8 +70,38 @@ public class CamMaster : Master
         }
         
     }
-   
 
-    
-   
+
+    private void GetPlayerConnections()
+    {
+        GameObject[] possibleConnections = GameObject.FindGameObjectsWithTag("PlayerConnection");
+        List<CamConnection> camConnections = new List<CamConnection>();
+        foreach (GameObject obj in possibleConnections)
+        {
+            CamConnection conec = obj.GetComponent<CamConnection>();
+            if (conec != null)
+            {
+                camConnections.Add(conec);
+            }
+        }
+        if (camConnections.Count > 1)
+        {
+            Debug.Log("To many player Cam connections found, pleas make shur to tag only one");
+        }
+        else if (camConnections.Count <= 0)
+        {
+            Debug.Log("Cound not find player CamConnection, are you missing a Tag ?");
+        }
+        else
+        {
+            playerConnection = camConnections[0];
+        }
+    }
+
+    public override void ScenneStart()
+    {
+        InitiateGameMaster();
+        GetConnections();
+        GetPlayerConnections();
+    }
 }

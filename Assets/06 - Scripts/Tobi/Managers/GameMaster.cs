@@ -173,6 +173,10 @@ public class GameMaster : Master
         }
     }
 
+
+
+    #endregion
+    #region Overides
     public override void Init()
     {
         InitiateGameMaster();
@@ -180,18 +184,32 @@ public class GameMaster : Master
         GetPosessions();
         InitAllMasters();
     }
-
+    //Inits all Masters
     public void InitAllMasters()
     {
         Master[] masters = GetComponents<Master>();
 
         foreach (Master m in masters)
         {
-            if(m != this)
-            m.Init();
+            if (m != this)
+                m.Init();
         }
 
     }
+    //Calls all masters and loads reverences that are needed on a scean to sean basis
+    public override void ScenneStart()
+    {
+        FindPlayer();
+        GetPosessions();
+        Master[] masters = GetComponents<Master>();
+
+        foreach (Master m in masters)
+        {
+            if (m != this)
+                m.Init();
+        }
+    }
+    
 
     #endregion
 

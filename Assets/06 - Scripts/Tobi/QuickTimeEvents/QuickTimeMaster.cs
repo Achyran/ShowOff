@@ -46,6 +46,10 @@ public class QuickTimeMaster : Master
         }
     }
 
+    public override void ScenneStart()
+    {
+    }
+
     #endregion
 
 }

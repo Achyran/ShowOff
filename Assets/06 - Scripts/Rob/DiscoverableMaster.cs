@@ -17,12 +17,15 @@ public class DiscoverableMaster : Master
     private string savePath;
     public override void Init()
     {
-        if(current != null)
+        if(current == null)
+        {
+            current = this;
+        }else if( current != this)
         {
             Debug.Log("Multibel Discover Masters Discoverd, Destroyin This", this);
             Destroy(this);
         }
-        current = this;
+
 
         savePath =  $"{Application.dataPath}/10 - Other assets/SpeciesInfoJson/Progress.json";
         InitInfos();
@@ -122,6 +125,11 @@ public class DiscoverableMaster : Master
         {
             OnDiscover(info);
         }
+    }
+
+    public override void ScenneStart()
+    {
+        SaveProgress();
     }
 
     #endregion
