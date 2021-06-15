@@ -12,7 +12,7 @@ public class FlockEnable : MonoBehaviour
     {
         FlockMaster = GameObject.FindGameObjectWithTag("FlockMaster").gameObject;
 
-        Debug.Log(FlockMaster);
+        //Debug.Log(FlockMaster);
         FlockMaster.SetActive(false);
     }
 
@@ -24,7 +24,7 @@ public class FlockEnable : MonoBehaviour
         if (FlockMaster != null)
         {
             FlockMaster.SetActive(true);
-            Debug.Log("if");
+
 
         } else
         {
