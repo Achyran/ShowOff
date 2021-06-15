@@ -75,6 +75,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerMaster" id="{f1ea0bca-2fd6-4306-afdc-c86b02b43aff}">
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<relationship name="effectChain">
 			<destination>{df88865c-3e57-4e97-a937-93e5976b4d75}</destination>
 		</relationship>
@@ -119,6 +122,9 @@
 		</relationship>
 	</object>
 	<object class="EventMixerGroup" id="{215b943b-b3e8-4ed2-a42e-cfa670fb94a1}">
+		<property name="volume">
+			<value>10</value>
+		</property>
 		<property name="name">
 			<value>Monster</value>
 		</property>
@@ -255,7 +261,7 @@
 			<value>V. Radius</value>
 		</property>
 		<property name="value">
-			<value>7</value>
+			<value>10</value>
 		</property>
 		<property name="curve">
 			<value>{(0.000000,0.000000)(1.000000,1.000000)(2.000000,4.000000)(3.000000,11.000000)(4.000000,25.000000)(5.000000,100.000000)(6.000000,1000.000000)}</value>
