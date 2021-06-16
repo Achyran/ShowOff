@@ -51,6 +51,7 @@ public class PlayerPosessinTest : MonoBehaviour
             if (Physics.Raycast(ray, out hit, posessableDist, whatIsPosessabel | whatIsInteractabel))
             {
                 GameObject hitObj = hit.transform.gameObject;
+                Debug.Log("hit");
                 if(lastOutline == null || lastOutline.gameObject != hitObj)
                 {
                      lastOutline = hitObj.GetComponent<OutlineScript>();

@@ -20,7 +20,7 @@ public class JournalEntry : MonoBehaviour
     // Update is called once per frame
     void Start()
     {
-        title.text = entryData.title;
+        //title.text = entryData.title;
         if (unlocked)
             entryText.text = entryData.entry;
         else
