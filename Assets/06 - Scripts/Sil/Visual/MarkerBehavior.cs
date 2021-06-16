@@ -9,13 +9,14 @@ public class MarkerBehavior : MonoBehaviour
 	public float activationTimer = 180;
 	private bool active = false;
 
-	
-
 	MeshRenderer renderer;
 
 	//------------ Rob --------------
 	[SerializeField]
-	GameObject target;
+	GameObject InspectableTarget;
+
+	[SerializeField]
+	GameObject NextMarker;
 
 	Material material;
 
@@ -24,11 +25,7 @@ public class MarkerBehavior : MonoBehaviour
 	[SerializeField]
 	float fadeDist = 30;
 
-	bool MarkerNotActive;
-
-	Color FadeColor;
-
-
+	public bool UsesInspectableObjectAsParameter = false;
 	//--------------------------------
 
 	
@@ -49,80 +46,78 @@ public class MarkerBehavior : MonoBehaviour
         }
 
 		player = GameObject.FindGameObjectWithTag("Player");
-		
-		
 		GameMaster.current.onInspectionStart += DisableMarker;
 
-
+		NextMarker.SetActive(false);
 		//--------------------
 
 	}
 
-    private void OnEnable()
-    {
-		FadeIn();
-		MarkerNotActive = false;
-
-    }
-
-    //------------- Rob --------------------
-    void DisableMarker(GameObject obj)
+	// ------------ Rob --------------
+	void DisableMarker(GameObject obj)
 	{
-		if (target != null && obj == target)
+		if (UsesInspectableObjectAsParameter)
 		{
-			renderer.enabled = false;
-			Debug.Log("marker is disabled");
-			MarkerNotActive = true;
-		}
+			if (InspectableTarget != null && obj == InspectableTarget)
+			{
+				renderer.enabled = false;
+				Debug.Log("marker is disabled");
+
+			}
+		} else if (UsesInspectableObjectAsParameter == false)
+        {
+			Debug.Log("Not using a Inspectable Object as parameter");
+        }
+		
 
 	}
 
+	private void OnEnable()
+    {
 
-	void DistanceFade()
+		active = false;
+
+    }
+
+
+    private void OnTriggerEnter(Collider other)
+    {
+		
+		NextMarker.SetActive(true);
+		Destroy(this.gameObject);
+	}
+
+
+    void DistanceFade()
     {
 
 		float distance = Vector3.Distance(transform.position, player.transform.position);
+		Debug.Log(distance);
 
 		if(distance < fadeDist)
         {
 			float distRatio = distance / fadeDist;
-			Color alpha = new Color(material.color.r, material.color.g, material.color.b, distRatio); 
+			Color alpha = new Color(material.color.r, material.color.g, material.color.b, distRatio);
+			Debug.Log(distRatio);
 
 			material.SetColor("_BaseColor", alpha);
 			
-        } 
+        }
+        else
+        {
+			material.SetColor("_BaseColor", new Color(material.color.r, material.color.g, material.color.b, 1));
+        }
 
     }
-	void FadeIn()
-    {
-		float alphaFloat = 0;
-		alphaFloat++;
-		if(material != null)
-        {
-			FadeColor = new Color(material.color.r, material.color.g, material.color.b, alphaFloat);
-		}
-		
-		while(alphaFloat != 1)
-        {
-			material.SetColor("_BaseColor", FadeColor);
-		}
-		
-	}
+	//---------------------------------
 
 
-	// ------------------------------
-	
 
 
 
 
 	void Update()
 	{
-
-		if (MarkerNotActive == true)
-		{
-			renderer.enabled = false;
-		}
 
 		DistanceFade();
 
@@ -171,10 +166,14 @@ public class MarkerBehavior : MonoBehaviour
 
 	}
 	// -------------- Rob --------------
-    private void OnDisable()
+    private void OnDestroy()
     {
-		MarkerNotActive = true;
-		GameMaster.current.onInspectionStart -= DisableMarker;
+
+
+		
+		
+			GameMaster.current.onInspectionStart -= DisableMarker;
+		
 	}
 	//-------------------------------
 }
