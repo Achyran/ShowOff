@@ -119,7 +119,9 @@ public class Player : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.K))
 		{
-			SaveData();
+			JournalProgression.current.UnlockCheck(transform.gameObject);
+
+			//SaveData();
 		}
 
 		if (Input.GetKeyDown(KeyCode.L))
