@@ -4,16 +4,22 @@ using UnityEngine;
 
 public class FlockEnable : MonoBehaviour
 {
+    [SerializeField]
     GameObject FlockMaster;
 
 
     // Start is called before the first frame update
     void Start()
     {
-        FlockMaster = GameObject.FindGameObjectWithTag("FlockMaster").gameObject;
+        
+        
+            FlockMaster = GameObject.FindGameObjectWithTag("FlockMaster");
 
-        //Debug.Log(FlockMaster);
-        FlockMaster.SetActive(false);
+            
+            FlockMaster.SetActive(false);
+
+        
+        
     }
 
     // Update is called once per frame
@@ -26,7 +32,8 @@ public class FlockEnable : MonoBehaviour
             FlockMaster.SetActive(true);
 
 
-        } else
+        }
+        else if (FlockMaster == null) 
         {
             Debug.Log("Flockmaster is null");
         }

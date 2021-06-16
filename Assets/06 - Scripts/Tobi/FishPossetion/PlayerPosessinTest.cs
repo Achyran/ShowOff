@@ -106,8 +106,8 @@ public class PlayerPosessinTest : MonoBehaviour
             outline.ToggleOutline(true);
             //lastOutline = outline;
         }
-        else
-        Debug.LogWarning("Object is on the interactible layer but doesn't have an outline script", this);
+        //else
+       //Debug.LogWarning("Object is on the interactible layer but doesn't have an outline script", this);
 
     }
 
