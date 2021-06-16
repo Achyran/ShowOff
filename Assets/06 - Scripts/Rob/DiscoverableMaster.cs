@@ -22,7 +22,7 @@ public class DiscoverableMaster : Master
             current = this;
         }else if( current != this)
         {
-            Debug.Log("Multibel Discover Masters Discoverd, Destroyin This", this);
+            if (GameMaster.current.debug) Debug.Log("Multibel Discover Masters Discoverd, Destroyin This", this);
             Destroy(this);
         }
 
@@ -43,12 +43,12 @@ public class DiscoverableMaster : Master
         {
             if (!speciesToInfo.ContainsKey(disCom.species))
             {
-                Debug.Log($"Cound not Find {disCom.species} info, Are you missing a .json file?");
+                if (GameMaster.current.debug) Debug.Log($"Cound not Find {disCom.species} info, Are you missing a .json file?");
                 return;
             }
             progress.Add(disCom.species);
             Discover(speciesToInfo[disCom.species]);
-            Debug.Log($"Added Species {disCom.species}");
+            if (GameMaster.current.debug) Debug.Log($"Added Species {disCom.species}");
         }
     }
 
@@ -59,12 +59,12 @@ public class DiscoverableMaster : Master
         {
             if (!speciesToInfo.ContainsKey(disCom.species))
             {
-                Debug.Log($"Cound not Find {disCom.species} info, Are you missing a .json file?");
+                if (GameMaster.current.debug) Debug.Log($"Cound not Find {disCom.species} info, Are you missing a .json file?");
                 return;
             }
             progress.Add(disCom.species);
             Discover(speciesToInfo[disCom.species]);
-            Debug.Log($"Added Species {disCom.species}");
+            if (GameMaster.current.debug) Debug.Log($"Added Species {disCom.species}");
         }
     }
 
@@ -79,7 +79,7 @@ public class DiscoverableMaster : Master
                 string jsonString = File.ReadAllText(file);
                 SpeciesInformation sInfo = JsonUtility.FromJson<SpeciesInformation>(jsonString);
                 if (!speciesToInfo.ContainsKey(sInfo.species)) speciesToInfo.Add(sInfo.species, sInfo);
-                else Debug.Log($"Multible infos for same species found, Ignorgin : {file} ");
+                else if (GameMaster.current.debug) Debug.Log($"Multible infos for same species found, Ignorgin : {file} ");
             }
         }
     }
@@ -101,7 +101,7 @@ public class DiscoverableMaster : Master
             string jsonStrig = File.ReadAllText(savePath);
             progress = JsonUtility.FromJson<Progress>(jsonStrig).seenSpecies;
         }
-        else Debug.Log("No discovery Saves Found");
+        else if(GameMaster.current.debug) Debug.Log("No discovery Saves Found");
 
     }
     private void SaveProgress()
@@ -121,7 +121,8 @@ public class DiscoverableMaster : Master
     
     private void Discover(SpeciesInformation info)
     {
-        if(OnDiscover != null)
+        if (GameMaster.current.debug) Debug.Log($"Species Discoverd {info.species}");
+        if (OnDiscover != null)
         {
             OnDiscover(info);
         }

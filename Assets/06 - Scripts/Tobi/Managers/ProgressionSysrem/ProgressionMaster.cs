@@ -15,7 +15,7 @@ public class ProgressionMaster : Master
             current = this;
         }else if(current != this)
         {
-            Debug.LogWarning("Mulitbel ProgressionMaster were detected, Destroying this", this);
+            if (GameMaster.current.debug) Debug.LogWarning("Mulitbel ProgressionMaster were detected, Destroying this", this);
             Destroy(this);
         }
     }

@@ -6,16 +6,19 @@ using UnityEngine.SceneManagement;
 
 public static class Loader
 {
-    private static _Scenes toBeLoaded = _Scenes.Empty;
-    public static _Scenes currentScene = _Scenes.Scene1;
+    public static _Scenes toBeLoaded = _Scenes.Empty;
+    public static _Scenes currentScene = _Scenes.TestLV1;
+    private static AsyncOperation loadingAsyncOp;
+
+    private class LoadingMonobehavior : MonoBehaviour { };
     public enum _Scenes
     {
-        Scene1,Scene2,Scene3,LoadingScene,Empty
+        TestLV1,TestLV3,TestLV2,LoadingScene,Empty
     }
 
     public static void LoadeScene(_Scenes scene)
     {
-        if (toBeLoaded == _Scenes.Empty && scene != _Scenes.LoadingScene && scene != _Scenes.Empty)
+        if (toBeLoaded == _Scenes.Empty && scene != _Scenes. LoadingScene && scene != _Scenes.Empty)
         {
 
             SceneManager.LoadScene(_Scenes.LoadingScene.ToString());
@@ -23,9 +26,30 @@ public static class Loader
         }
     }
 
+    public static IEnumerator LoadingState(_Scenes scene)
+    {
+        yield return null;
+        loadingAsyncOp =   SceneManager.LoadSceneAsync(scene.ToString());
+
+        while (!loadingAsyncOp.isDone)
+        {
+            yield return null;
+        }
+    }
+
+    public static float LoadingProgres()
+    {
+        if (loadingAsyncOp != null)
+        {
+            return loadingAsyncOp.progress;
+        }
+        else return 1f;
+    }
+
     internal static void Callback()
     {
-        SceneManager.LoadScene(toBeLoaded.ToString());
+        GameObject loadingObj = new GameObject("Loading Object");
+        loadingObj.AddComponent<LoadingMonobehavior>().StartCoroutine(LoadingState(toBeLoaded));
         currentScene = toBeLoaded;
         toBeLoaded = _Scenes.Empty;
     }

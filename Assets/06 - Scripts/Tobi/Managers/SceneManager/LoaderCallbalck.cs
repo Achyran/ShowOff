@@ -10,7 +10,9 @@ public class LoaderCallbalck : MonoBehaviour
     {
         if (isFirstUpdate)
         {
+            Debug.Log($"Calling back with Scenne to be loaded {Loader.toBeLoaded}");
             isFirstUpdate = false;
+            if(Loader.toBeLoaded != Loader._Scenes.Empty)
             Loader.Callback();
         }
     }
