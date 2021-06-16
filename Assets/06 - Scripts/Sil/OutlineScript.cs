@@ -7,8 +7,8 @@ using Cinemachine;
 public class OutlineScript : MonoBehaviour
 {
     [SerializeField] private Material outlineMaterial;
-    [SerializeField] public float highlitScale;
-    [SerializeField] public float nonHighlitScale;
+    [SerializeField] public float highlitScale = -1.2f;
+    [SerializeField] public float nonHighlitScale = -1.07f;
     [SerializeField] private Color outlineColor;
     private float outlineScaleFactor;
     private Renderer outlineRenderer;
@@ -21,6 +21,7 @@ public class OutlineScript : MonoBehaviour
         outlineRenderer = CreateOutline(outlineMaterial, outlineScaleFactor, outlineColor);
         outlineRenderer.enabled = true;
 
+        ToggleOutline(false);
     }
 
     Renderer CreateOutline(Material outlineMat, float scaleFactor, Color color) 
@@ -38,7 +39,7 @@ public class OutlineScript : MonoBehaviour
 
         //rend.enabled = false;
 
-        ToggleOutline(false);
+        
         return rend;
     }
 
