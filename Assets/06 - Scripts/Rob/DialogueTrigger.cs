@@ -35,7 +35,7 @@ public class DialogueTrigger : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log("Audiosource  = " + audioSource.isPlaying + " on " + this.name);
+        //Debug.Log("Audiosource  = " + audioSource.isPlaying + " on " + this.name);
         if (audioSource.isPlaying == false)
         {
             dialogueTMP.enabled = false;
