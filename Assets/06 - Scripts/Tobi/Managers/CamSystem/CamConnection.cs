@@ -13,10 +13,14 @@ public class CamConnection : MonoBehaviour
 
     [Tooltip("Set this to true if you want to manually set target and follow (for if they are different)")]
     public bool ignoreTarget = false;
+    private bool setStart = false;
     public CinemachineVirtualCameraBase virtualCam { get; private set; }
 
+
+    //This needs some work
     private void Start()
     {
+        
         if (target == null)
         {
             Debug.LogError("The Conection Target was not set, Destroying this object", this);
@@ -38,30 +42,34 @@ public class CamConnection : MonoBehaviour
         else
             virtualCam = GetComponent<CinemachineVirtualCamera>();
 
-        if (isStartCam)
-        {
-            if (CamMaster.current.currentConnectionIndex != -1)
-            {
-                Debug.LogWarning($"A different Cam is allready active. Active Cam = {CamMaster.current.connections[CamMaster.current.currentConnectionIndex]}", this);
-                virtualCam.enabled = false;
-            }
-            else
-            {
-                CamMaster.current.SetCam(target);
-            }
-        }
-        else virtualCam.enabled = false;
 
         if (!ignoreTarget)
         {
             virtualCam.LookAt = target.transform;
             virtualCam.Follow = target.transform;
         }
+
+        virtualCam.enabled = false;
     }
-    
+    private void Update()
+    {
+        if (setStart)
+        {
+            virtualCam.enabled = true;
+            setStart = false;
+        }
+    }
+
+
+    public void EnableVirtualCam()
+    {
+        Debug.Log("Called enabled");
+        setStart = true;
+    }
 
     private void UpdateCam(CamConnection obj)
     {
+        Debug.Log($"Update Cam {obj.virtualCam == virtualCam}",this);
         if(obj.virtualCam == virtualCam)
         {
             virtualCam.enabled = true;

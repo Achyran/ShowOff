@@ -13,9 +13,9 @@ public class ProgressionMaster : Master
         if(current == null)
         {
             current = this;
-        }else
+        }else if(current != this)
         {
-            Debug.LogWarning("Mulitbel ProgressionMaster were detected, Destroying this", this);
+            if (GameMaster.current.debug) Debug.LogWarning("Mulitbel ProgressionMaster were detected, Destroying this", this);
             Destroy(this);
         }
     }
@@ -28,5 +28,9 @@ public class ProgressionMaster : Master
        {
             onTriggered(block);
        }
+    }
+
+    public override void ScenneStart()
+    {
     }
 }
