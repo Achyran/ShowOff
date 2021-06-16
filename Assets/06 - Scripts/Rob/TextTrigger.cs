@@ -7,6 +7,8 @@ public class TextTrigger : MonoBehaviour
     [SerializeField]
     CanvasGroup canvasgroup;
 
+    public bool destroyafteruse;
+
     
     GameObject trigger;
 
@@ -27,5 +29,10 @@ public class TextTrigger : MonoBehaviour
     private void OnTriggerExit(Collider other)
     {
         canvasgroup.alpha = 0;
+        if (destroyafteruse)
+        {
+
+            Destroy(this.gameObject);
+        }
     }
 }
