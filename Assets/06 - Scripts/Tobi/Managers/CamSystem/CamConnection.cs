@@ -63,7 +63,7 @@ public class CamConnection : MonoBehaviour
 
     public void EnableVirtualCam()
     {
-        Debug.Log("Called enabled");
+        //Debug.Log("Called enabled");
         setStart = true;
     }
 

@@ -26,6 +26,7 @@ public class MarkerBehavior : MonoBehaviour
 
 	bool MarkerNotActive;
 
+	Color FadeColor;
 
 
 	//--------------------------------
@@ -40,6 +41,13 @@ public class MarkerBehavior : MonoBehaviour
 
 		//--------------- Rob ---------
 		material = GetComponent<Renderer>().sharedMaterial;
+		if(material == null)
+        {
+			Debug.Log("material is null");
+			return;
+
+        }
+
 		player = GameObject.FindGameObjectWithTag("Player");
 		
 		
@@ -89,10 +97,14 @@ public class MarkerBehavior : MonoBehaviour
     {
 		float alphaFloat = 0;
 		alphaFloat++;
-		Color FadeIn = new Color(material.color.r, material.color.g, material.color.b, alphaFloat);
+		if(material != null)
+        {
+			FadeColor = new Color(material.color.r, material.color.g, material.color.b, alphaFloat);
+		}
+		
 		while(alphaFloat != 1)
         {
-			material.SetColor("_BaseColor", FadeIn);
+			material.SetColor("_BaseColor", FadeColor);
 		}
 		
 	}
