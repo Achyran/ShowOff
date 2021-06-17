@@ -28,13 +28,18 @@ public class JournalProgression : MonoBehaviour
         entries = FindObjectsOfType<JournalEntry>(true);
     }
 
-    public void UnlockCheck(GameObject item)
+    public void UnlockCheck()
     {
-        foreach (JournalEntry entry in entries) 
+        foreach (DiscoverableMaster.Species species in DiscoverableMaster.current.progress)
         {
-            if (item == entry.unlockObject)
-                entry.UnlockEntry();
+            foreach (JournalEntry entry in entries)
+            {
+                if (entry.species == species && !entry.unlocked)
+                    entry.UnlockEntry();
+            }
         }
     }
+
+
 
 }

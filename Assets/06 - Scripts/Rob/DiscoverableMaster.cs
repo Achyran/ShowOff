@@ -10,8 +10,8 @@ public class DiscoverableMaster : Master
 {
     public enum Species {whale, sailfish, jellyfish }
     //holds all informations on all Species that are implemented
-    private Dictionary<Species, SpeciesInformation> speciesToInfo;
-    private List<Species> progress;
+    public Dictionary<Species, SpeciesInformation> speciesToInfo { get; private set; }
+    public List<Species> progress { get; private set; } 
     public static DiscoverableMaster current;
 
     private string savePath;
