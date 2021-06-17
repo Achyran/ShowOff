@@ -86,6 +86,7 @@ public class Player : MonoBehaviour
 	{
 		FreezePlayer(true);
 	}
+	
 
 	#endregion
 
@@ -140,6 +141,8 @@ public class Player : MonoBehaviour
 
 		// Translation
 		translation = GetInputTranslationDirection() * Time.deltaTime;
+
+			
 
 		translation *= speed;
 
@@ -212,6 +215,11 @@ public class Player : MonoBehaviour
 			Cursor.visible = false;
 			playerFrozen = false;
 
+				//Tobi
+				if(CamMaster.current != null)
+				CamMaster.current.playerConnection.virtualCam.enabled = true;
+
+
 		}
 		else
 		{
@@ -220,8 +228,12 @@ public class Player : MonoBehaviour
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 			playerFrozen = true;
-			JournalProgression.current.UnlockCheck();
-		}
+			//JournalProgression.current.UnlockCheck();
+
+				//Tobi
+				if (CamMaster.current != null)
+				CamMaster.current.playerConnection.virtualCam.enabled = false;
+			}
 	}
 	private void SaveData()
 	{

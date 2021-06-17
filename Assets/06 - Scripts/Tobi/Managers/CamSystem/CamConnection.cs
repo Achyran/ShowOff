@@ -41,6 +41,7 @@ public class CamConnection : MonoBehaviour
             virtualCam = GetComponent<CinemachineFreeLook>();
         else
             virtualCam = GetComponent<CinemachineVirtualCamera>();
+       
 
 
         if (!ignoreTarget)
@@ -69,7 +70,7 @@ public class CamConnection : MonoBehaviour
 
     private void UpdateCam(CamConnection obj)
     {
-        Debug.Log($"Update Cam {obj.virtualCam == virtualCam}",this);
+        //Debug.Log($"Update Cam {obj.virtualCam == virtualCam}",this);
         if(obj.virtualCam == virtualCam)
         {
             virtualCam.enabled = true;
