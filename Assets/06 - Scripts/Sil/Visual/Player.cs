@@ -55,6 +55,8 @@ public class Player : MonoBehaviour
         {
 			GameMaster.current.onPosessionStart += StartPosession;
 			GameMaster.current.onPosessionStop += StopPosession;
+			GameMaster.current.onInspectionStart += StartInpsection;
+			GameMaster.current.onInpsectionStop += StopInspection;
         }
 		if(QuickTimeMaster.current != null)
         {
@@ -63,13 +65,23 @@ public class Player : MonoBehaviour
         }
 	}
 
-    
 
 
 
-    #region Tobi
-    //This is neede for the gameMasterLogic
-    private void StartPosession(PosessionMovement posession)
+
+
+	#region Tobi
+	//This is neede for the gameMasterLogic
+	private void StopInspection(GameObject obj)
+	{
+		FreezePlayer(false);
+	}
+
+	private void StartInpsection(GameObject obj)
+	{
+		FreezePlayer(true);
+	}
+	private void StartPosession(PosessionMovement posession)
     {
 		FreezePlayer(true);
     }
@@ -86,6 +98,8 @@ public class Player : MonoBehaviour
 	{
 		FreezePlayer(true);
 	}
+
+	
 	
 
 	#endregion
@@ -207,7 +221,7 @@ public class Player : MonoBehaviour
 
 	public void ToggleNotebook()
 	{
-		if(notepad != null)
+		if(notepad != null && GameMaster.current.state == GameMaster.State._base)
 		if (notepad.activeInHierarchy)
 		{
 			notepad.SetActive(false);
@@ -253,6 +267,22 @@ public class Player : MonoBehaviour
 		Debug.Log(position);
 
 		transform.position = position;
+	}
+
+	void OnDestroy()
+	{
+		if (GameMaster.current != null)
+		{
+			GameMaster.current.onPosessionStart -= StartPosession;
+			GameMaster.current.onPosessionStop -= StopPosession;
+			GameMaster.current.onInspectionStart -= StartInpsection;
+			GameMaster.current.onInpsectionStop -= StopInspection;
+		}
+		if (QuickTimeMaster.current != null)
+		{
+			QuickTimeMaster.current.onQuickTimeStart -= StartQt;
+			QuickTimeMaster.current.onQuickTimeEnd -= EndQt;
+		}
 	}
 }
 
