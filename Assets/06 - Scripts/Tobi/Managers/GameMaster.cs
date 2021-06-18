@@ -25,13 +25,14 @@ public class GameMaster : Master
 
     private void Awake()
     {
-        
+        Debug.Log("HI i am calling Awake from the game master");
         Init();
     }
 
 
     private void Start()
     {
+        Debug.Log("HI Start");
         CheckOtherManagers();
     }
     
@@ -188,21 +189,28 @@ public class GameMaster : Master
     #region Overides
     public override void Init()
     {
+        Debug.Log(" .1");
         InitiateGameMaster();
+        Debug.Log(" .2");
         FindPlayer();
         GetPosessions();
+        Debug.Log(" .3");
         InitAllMasters();
+        Debug.Log(" .4");
     }
     //Inits all Masters
     public void InitAllMasters()
     {
-      
+        Debug.Log(" .4 - init all _1");
         Master[] masters = GetComponents<Master>();
+        Debug.Log(" .4 - init all _2 " + masters.Length);
         foreach (Master m in masters)
         {
             if (m != this)
             {
+                Debug.Log(" .4 - init all _3" + m.name);
                 m.Init();
+                Debug.Log(" .4 - init all _4");
             }
         }
 
@@ -217,6 +225,7 @@ public class GameMaster : Master
         foreach (Master m in masters)
         {
             if (m != this)
+
                 m.ScenneStart();
         }
     }

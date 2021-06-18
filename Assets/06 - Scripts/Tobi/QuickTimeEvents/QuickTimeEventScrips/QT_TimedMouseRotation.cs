@@ -81,4 +81,9 @@ public class QT_TimedMouseRotation : QuickTimeEvent
         if (debug) Debug.Log($"Event triggerd Roatate mouse {rotationCount} times");
         
     }
+
+    public override void SetTextAndTexture()
+    {
+        
+    }
 }

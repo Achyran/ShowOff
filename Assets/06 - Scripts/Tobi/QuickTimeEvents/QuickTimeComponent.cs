@@ -29,6 +29,7 @@ public class QuickTimeComponent : MonoBehaviour
     {
         _event.outcome = QuickTimeEvent.Outcome.notReady;
         if (precondition == null) _event.outcome = QuickTimeEvent.Outcome.ready;
+        _event.SetTextAndTexture();
 
     }
 
@@ -103,7 +104,10 @@ public class QuickTimeComponent : MonoBehaviour
 
     private void OnDestroy()
     {
-        QuickTimeMaster.current.onQuickTimeStart -= QuickTimeStart;
-        QuickTimeMaster.current.onQuickTimeEnd -= QuickTimeEnd;
+        if (QuickTimeMaster.current != null)
+        {
+            QuickTimeMaster.current.onQuickTimeStart -= QuickTimeStart;
+            QuickTimeMaster.current.onQuickTimeEnd -= QuickTimeEnd;
+        }
     }
 }
