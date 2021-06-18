@@ -11,15 +11,21 @@ public class FlockEnable : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
-        
-            FlockMaster = GameObject.FindGameObjectWithTag("FlockMaster");
 
-            
+
+        FlockMaster = GameObject.FindGameObjectWithTag("FlockMaster");
+
+        if (FlockMaster != null)
+        {
             FlockMaster.SetActive(false);
+        } else
+        {
+            Debug.Log("Flockmaster is null");
+        }
 
-        
-        
+
+
+
     }
 
     // Update is called once per frame

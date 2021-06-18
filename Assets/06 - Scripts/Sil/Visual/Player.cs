@@ -119,8 +119,7 @@ public class Player : MonoBehaviour
 		}
 		if (Input.GetKeyDown(KeyCode.K))
 		{
-			JournalProgression.current.UnlockCheck(transform.gameObject);
-
+			
 			//SaveData();
 		}
 
@@ -216,10 +215,12 @@ public class Player : MonoBehaviour
 		}
 		else
 		{
+			
 			notepad.SetActive(true);
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 			playerFrozen = true;
+			JournalProgression.current.UnlockCheck();
 		}
 	}
 	private void SaveData()

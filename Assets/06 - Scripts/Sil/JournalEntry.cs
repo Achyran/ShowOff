@@ -7,39 +7,40 @@ using TMPro;
 
 public class JournalEntry : MonoBehaviour
 {
-    public JournalEntryData entryData;
+    
+    public DiscoverableMaster.Species species;
+    private DiscoverableMaster.SpeciesInformation info;
 
     public TMP_Text title;
     public TMP_Text entryText;
+    private string descriptionText;
 
-    
-    public GameObject unlockObject;
 
     public bool unlocked = false;
 
-    // Update is called once per frame
     void Start()
     {
-        //title.text = entryData.title;
+        if (descriptionText != null)
+            Initiate();
+        
+    }
+
+    private void Initiate()
+    {
+        info = DiscoverableMaster.current.speciesToInfo[species];
+        title.text = info.speciesname;
+        descriptionText = info.description;
+
         if (unlocked)
-            entryText.text = entryData.entry;
+            entryText.text = descriptionText;
         else
             entryText.text = "This entry has not yet been unlocked.";
 
-        /*
-        if (entryData.unlockObject != null)
-            unlockObject = entryData.unlockObject;
-        */
     }
-
-	private void Update()
-	{
-       
-	}
 
     public void UnlockEntry()
     {
-        entryText.text = entryData.entry;
+        entryText.text = descriptionText;
         unlocked = true;
     }
 
