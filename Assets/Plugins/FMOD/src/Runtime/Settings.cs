@@ -935,8 +935,8 @@ namespace FMODUnity
                         platformToDestroy = newPlatform;
                     }
 
-                    Debug.LogWarningFormat("FMOD: Cleaning up duplicate platform: ID  = {0}, name = '{1}', type = {2}",
-                        platformToDestroy.Identifier, platformToDestroy.DisplayName, platformToDestroy.GetType().Name);
+                    //Debug.LogWarningFormat("FMOD: Cleaning up duplicate platform: ID  = {0}, name = '{1}', type = {2}",
+                    //    platformToDestroy.Identifier, platformToDestroy.DisplayName, platformToDestroy.GetType().Name);
 
                     DestroyImmediate(platformToDestroy, true);
                 }
