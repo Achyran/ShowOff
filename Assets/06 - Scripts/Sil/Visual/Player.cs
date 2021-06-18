@@ -284,6 +284,7 @@ public class Player : MonoBehaviour
 			QuickTimeMaster.current.onQuickTimeEnd -= EndQt;
 		}
 		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.visible = true;
 	}
 }
 

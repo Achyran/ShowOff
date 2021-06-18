@@ -25,8 +25,8 @@ public class GameMaster : Master
 
     private void Awake()
     {
+        
         Init();
-        DontDestroyOnLoad(this.gameObject);
     }
 
 
@@ -196,12 +196,14 @@ public class GameMaster : Master
     //Inits all Masters
     public void InitAllMasters()
     {
+      
         Master[] masters = GetComponents<Master>();
-
         foreach (Master m in masters)
         {
             if (m != this)
+            {
                 m.Init();
+            }
         }
 
     }
@@ -218,8 +220,13 @@ public class GameMaster : Master
                 m.ScenneStart();
         }
     }
-    
+
 
     #endregion
+
+    private void OnDestroy()
+    {
+       // Debug.LogError("Something Distroyed me ");
+    }
 
 }

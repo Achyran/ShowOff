@@ -12,6 +12,7 @@ public class CamMaster : Master
     public CamConnection[] connections { get; private set; }
     public CamConnection playerConnection { get; private set; }
 
+    
 
     public override void Init()
     {
