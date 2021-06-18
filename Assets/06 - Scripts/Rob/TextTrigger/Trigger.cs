@@ -21,6 +21,7 @@ public class Trigger : MonoBehaviour
         FadeOut = animation.GetClip("FadeOut");
         trigger = this.gameObject;
 
+
         if (trigger == null)
         {
 
@@ -28,15 +29,20 @@ public class Trigger : MonoBehaviour
             return;
 
         }
+        
     }
 
     private void OnTriggerEnter(Collider other)
     {
+     
         animation.Play("FadeOut");
+        Debug.Log("enter");
     }
     private void OnTriggerExit(Collider other)
     {
         animation.Play("FadeIn");
+        Debug.Log("exit");
+        
     }
 
 }

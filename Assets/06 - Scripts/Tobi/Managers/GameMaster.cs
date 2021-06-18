@@ -6,6 +6,7 @@ using System;
 public class GameMaster : Master
 {
 
+
     public static GameMaster current;
     public Player player { get; private set; }
     private PosessionMovement[] posessions;
@@ -18,10 +19,14 @@ public class GameMaster : Master
     private float transitionTime = 0.5f;
     private float _transitionTime;
 
+    [Tooltip("Turns all debugmessagees on / off on all masters")]
+    public bool debug;
+
 
     private void Awake()
     {
         Init();
+        DontDestroyOnLoad(this.gameObject);
     }
 
 
@@ -32,8 +37,12 @@ public class GameMaster : Master
     
     private void CheckOtherManagers()
     {
-        if (CamMaster.current == null) Debug.LogWarning("No Camera Master is in the Sceene, Cam Transistions will not work");
-        if (ProgressionMaster.current == null) Debug.LogWarning("No Progression Master is in the Sceen, Progression based Events will not work");
+        if (debug) {
+            if (CamMaster.current == null) Debug.LogWarning("No Camera Master was found, Cam Transistions will not work");
+            if (ProgressionMaster.current == null) Debug.LogWarning("No Progression Master was found, Progression based Events will not work");
+            if (DiscoverableMaster.current == null) Debug.LogWarning("No Discovery Master was found, discovery and Note book will not work");
+            if (QuickTimeMaster.current == null) Debug.LogWarning("No Quicktime Master was found, QuickTime events will not work");
+        }
     }
 
 
@@ -84,11 +93,11 @@ public class GameMaster : Master
         Player[] players = GameObject.FindObjectsOfType<Player>();
         if (players.Length <= 0)
         {
-            Debug.LogWarning("No player could be found");
+            if(debug) Debug.LogWarning("No player could be found");
             return;
         } else if (players.Length > 1)
         {
-            Debug.LogWarning($" Only one player per seene can exists Players found: {players.Length}");
+            if (debug) Debug.LogWarning($" Only one player per seene can exists Players found: {players.Length}");
             return;
         }
         player = players[0];
@@ -103,8 +112,8 @@ public class GameMaster : Master
         }
         else
         {
-            Debug.LogWarning("Multible GameMasters detected, Destroying this", this);
-            Destroy(this);
+            if (debug) Debug.LogWarning("Multible GameMasters detected, Destroying this", this);
+            Destroy(this.gameObject);
         }
     }
 
@@ -117,7 +126,7 @@ public class GameMaster : Master
     public event Action<PosessionMovement> onPosessionStart;
     public void PosessionStart(PosessionMovement posession)
     {
-        Debug.Log($"Started Poession");
+        if (debug) Debug.Log($"Started Poession");
         if (state == State._base)
         {
             _time = posession.posessionTime;
@@ -132,7 +141,7 @@ public class GameMaster : Master
     public event Action onPosessionStop;
     public void PosessionStop()
     {
-        Debug.Log("Posession Stop");
+        if (debug) Debug.Log("Posession Stop");
         if (state == State._posessing)
         {
             state = State._base;
@@ -161,7 +170,7 @@ public class GameMaster : Master
 
     public void InspectionStop()
     {
-        Debug.Log("InpectionStoped");
+        if (debug) Debug.Log("InpectionStoped");
         if (state == State._inspecting)
         {
             SetState(State._base);
@@ -173,6 +182,10 @@ public class GameMaster : Master
         }
     }
 
+
+
+    #endregion
+    #region Overides
     public override void Init()
     {
         InitiateGameMaster();
@@ -180,18 +193,32 @@ public class GameMaster : Master
         GetPosessions();
         InitAllMasters();
     }
-
+    //Inits all Masters
     public void InitAllMasters()
     {
         Master[] masters = GetComponents<Master>();
 
         foreach (Master m in masters)
         {
-            if(m != this)
-            m.Init();
+            if (m != this)
+                m.Init();
         }
 
     }
+    //Calls all masters and loads reverences that are needed on a scean to sean basis
+    public override void ScenneStart()
+    {
+        FindPlayer();
+        GetPosessions();
+        Master[] masters = GetComponents<Master>();
+
+        foreach (Master m in masters)
+        {
+            if (m != this)
+                m.ScenneStart();
+        }
+    }
+    
 
     #endregion
 

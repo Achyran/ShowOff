@@ -15,7 +15,7 @@ public class QuickTimeMaster : Master
     {
         if(current != null)
         {
-            Debug.Log("Multibele QuickTimeMasters Detected, Destroing this", this);
+            if (GameMaster.current.debug) Debug.Log("Multibele QuickTimeMasters Detected, Destroing this", this);
             Destroy(this);
         }else
         {
@@ -31,7 +31,7 @@ public class QuickTimeMaster : Master
     {
         if (state == State.ready && onQuickTimeStart != null && component._event.outcome == QuickTimeEvent.Outcome.ready)
         {
-            Debug.Log("Calling OnQuictimeStart");
+            if (GameMaster.current.debug) Debug.Log("Calling OnQuictimeStart");
             state = State.inprogress;
             onQuickTimeStart(component);
         }
@@ -44,6 +44,10 @@ public class QuickTimeMaster : Master
             state = State.ready;
             onQuickTimeEnd(component, outcome);
         }
+    }
+
+    public override void ScenneStart()
+    {
     }
 
     #endregion

@@ -51,6 +51,7 @@ public class PlayerPosessinTest : MonoBehaviour
             if (Physics.Raycast(ray, out hit, posessableDist, whatIsPosessabel | whatIsInteractabel))
             {
                 GameObject hitObj = hit.transform.gameObject;
+                
                 if(lastOutline == null || lastOutline.gameObject != hitObj)
                 {
                      lastOutline = hitObj.GetComponent<OutlineScript>();
@@ -58,8 +59,10 @@ public class PlayerPosessinTest : MonoBehaviour
                 }
                 if (Input.GetKeyDown(key))
                 {
+                    
                     if (whatIsInteractabel == (whatIsInteractabel | (1 << hitObj.layer)))
                     {
+                        Debug.Log("hit");
                         GameMaster.current.InspectionStart(hitObj);
                     }
                     else if (whatIsPosessabel == (whatIsPosessabel | (1 << hitObj.gameObject.layer)))
@@ -69,8 +72,6 @@ public class PlayerPosessinTest : MonoBehaviour
                         else Debug.LogWarning($"Tryed to posess {hitObj.transform.name}, PosessionMovemetn was null. Pleas add PosessionMovement or Remove form layer", hitObj);
                     }
                 }
-                
-
             }
             else OutlineDisable();
             
@@ -104,7 +105,7 @@ public class PlayerPosessinTest : MonoBehaviour
         if (outline != null)
         {
             outline.ToggleOutline(true);
-            //lastOutline = outline;
+            lastOutline = outline;
         }
         else
         Debug.LogWarning("Object is on the interactible layer but doesn't have an outline script", this);

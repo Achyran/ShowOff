@@ -7,19 +7,21 @@ using Cinemachine;
 public class OutlineScript : MonoBehaviour
 {
     [SerializeField] private Material outlineMaterial;
-    [SerializeField] public float outlineScaleFactor;
+    [SerializeField] public float highlitScale = -1.2f;
+    [SerializeField] public float nonHighlitScale = -1.07f;
     [SerializeField] private Color outlineColor;
+    private float outlineScaleFactor;
     private Renderer outlineRenderer;
-    public GameObject outlineObject;
-    public GameObject CameraPrefab;
-    public CinemachineFreeLook objectCam;
+    private GameObject outlineObject;
 
     // Start is called before the first frame update
     void Start()
     {
+        outlineScaleFactor = nonHighlitScale;
         outlineRenderer = CreateOutline(outlineMaterial, outlineScaleFactor, outlineColor);
         outlineRenderer.enabled = true;
 
+        ToggleOutline(false);
     }
 
     Renderer CreateOutline(Material outlineMat, float scaleFactor, Color color) 
@@ -35,14 +37,19 @@ public class OutlineScript : MonoBehaviour
         outlineObject.GetComponent<OutlineScript>().enabled = false;
         outlineObject.GetComponent<Collider>().enabled = false;
 
-        rend.enabled = false;
+        //rend.enabled = false;
 
-        outlineObject.gameObject.SetActive(false);
+        
         return rend;
     }
 
     public void ToggleOutline(bool val)
     {
-        outlineObject.SetActive(val);
+        if (val == true)
+            outlineScaleFactor = highlitScale;
+        else
+            outlineScaleFactor = nonHighlitScale;
+
+        outlineRenderer.material.SetFloat("_Scale", outlineScaleFactor);
     }
 }

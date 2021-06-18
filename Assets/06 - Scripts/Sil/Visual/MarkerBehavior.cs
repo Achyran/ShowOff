@@ -13,25 +13,106 @@ public class MarkerBehavior : MonoBehaviour
 
 	MeshRenderer renderer;
 
+	//------------ Rob --------------
+	[SerializeField]
+	GameObject target;
+
+	Material material;
+
+	GameObject player;
+
+	[SerializeField]
+	float fadeDist = 30;
+
+	bool MarkerNotActive;
 
 
 
-	// Start is called before the first frame update
+	//--------------------------------
+
+	
 	void Start()
 	{
 
 
 		renderer = GetComponent<MeshRenderer>();
 		renderer.enabled = false;
+
+		//--------------- Rob ---------
+		material = GetComponent<Renderer>().sharedMaterial;
+		player = GameObject.FindGameObjectWithTag("Player");
 		
+		
+		GameMaster.current.onInspectionStart += DisableMarker;
+
+
+		//--------------------
 
 	}
 
-	// Update is called once per frame
+    private void OnEnable()
+    {
+		FadeIn();
+		MarkerNotActive = false;
+
+    }
+
+    //------------- Rob --------------------
+    void DisableMarker(GameObject obj)
+	{
+		if (target != null && obj == target)
+		{
+			renderer.enabled = false;
+			Debug.Log("marker is disabled");
+			MarkerNotActive = true;
+		}
+
+	}
+
+
+	void DistanceFade()
+    {
+
+		float distance = Vector3.Distance(transform.position, player.transform.position);
+
+		if(distance < fadeDist)
+        {
+			float distRatio = distance / fadeDist;
+			Color alpha = new Color(material.color.r, material.color.g, material.color.b, distRatio); 
+
+			material.SetColor("_BaseColor", alpha);
+			
+        } 
+
+    }
+	void FadeIn()
+    {
+		float alphaFloat = 0;
+		alphaFloat++;
+		Color FadeIn = new Color(material.color.r, material.color.g, material.color.b, alphaFloat);
+		while(alphaFloat != 1)
+        {
+			material.SetColor("_BaseColor", FadeIn);
+		}
+		
+	}
+
+
+	// ------------------------------
+	
+
+
+
+
 	void Update()
 	{
 
-	
+		if (MarkerNotActive == true)
+		{
+			renderer.enabled = false;
+		}
+
+		DistanceFade();
 
         if (!active)
 		{
@@ -77,5 +158,12 @@ public class MarkerBehavior : MonoBehaviour
 
 
 	}
+	// -------------- Rob --------------
+    private void OnDisable()
+    {
+		MarkerNotActive = true;
+		GameMaster.current.onInspectionStart -= DisableMarker;
+	}
+	//-------------------------------
 }
 	

@@ -14,7 +14,10 @@ public class MarkerTrigger : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        if(newMarker != null) { 
+
         newMarker.SetActive(false);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
@@ -35,6 +38,6 @@ public class MarkerTrigger : MonoBehaviour
 
     private void Update()
     {
-        Debug.Log(newMarker.active);
+    
     }
 }
