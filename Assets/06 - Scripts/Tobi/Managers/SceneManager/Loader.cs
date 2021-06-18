@@ -13,7 +13,7 @@ public static class Loader
     private class LoadingMonobehavior : MonoBehaviour { };
     public enum _Scenes
     {
-        TestLV1,TestLV3,TestLV2,Level1, LoadingScene,Empty
+        TestLV1,TestLV3,TestLV2,Level1,EndScenePrototype,VisualReferenceLevel, LoadingScene,Empty
     }
 
     public static void LoadeScene(_Scenes scene)

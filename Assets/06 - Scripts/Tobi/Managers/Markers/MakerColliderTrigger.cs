@@ -18,7 +18,7 @@ public class MakerColliderTrigger : MakerMasterTirgger
 
     private void Update()
     {
-        Debug.Log(isActiv, this);
+
         if (coll.enabled == false && isActiv)
         {
             coll.enabled = true;

@@ -221,7 +221,7 @@ public class Player : MonoBehaviour
 
 	public void ToggleNotebook()
 	{
-		if(notepad != null && GameMaster.current.state == GameMaster.State._base)
+		if(notepad != null && (GameMaster.current.state == GameMaster.State._base || GameMaster.current.state == GameMaster.State._inspecting))
 		if (notepad.activeInHierarchy)
 		{
 			notepad.SetActive(false);
@@ -283,6 +283,7 @@ public class Player : MonoBehaviour
 			QuickTimeMaster.current.onQuickTimeStart -= StartQt;
 			QuickTimeMaster.current.onQuickTimeEnd -= EndQt;
 		}
+		Cursor.lockState = CursorLockMode.Confined;
 	}
 }
 

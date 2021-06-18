@@ -18,6 +18,6 @@ public class NextLVTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if (other == GameMaster.current.player) loader.LoadScene();
+         loader.LoadScene();
     }
 }

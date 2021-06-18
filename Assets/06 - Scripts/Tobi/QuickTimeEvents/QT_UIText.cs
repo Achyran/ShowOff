@@ -17,7 +17,7 @@ public class QT_UIText : MonoBehaviour
             QuickTimeMaster.current.onQuickTimeEnd += EndDisplay;
         }else
         {
-            Debug.Log($"Quick time master was null, deleating this", this);
+            Debug.LogError($"Quick time master was null, deleating this", this);
             Destroy(this);
         }
         //display.enabled = false;
