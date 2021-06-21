@@ -4,16 +4,10 @@ using UnityEngine;
 
 public class ModelControl : MonoBehaviour
 {
-    public float rotateSpeed;
+    [Tooltip("The speed at which the model will rotate into the direction the player is moving")]
+    [SerializeField]
+    private float rotateSpeed;
     public Transform player;
-
-    
-    // Update is called once per frame
-    void LateUpdate()
-    {
-
-        
-    }
 
 
     //Modify this to look in to the velocety direction of the player

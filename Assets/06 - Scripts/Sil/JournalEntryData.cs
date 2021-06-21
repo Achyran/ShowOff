@@ -6,5 +6,5 @@ public class JournalEntryData : ScriptableObject
     public string title;
     public string entry;
 
-    
+    public DiscoverableMaster.Species species;
 }
