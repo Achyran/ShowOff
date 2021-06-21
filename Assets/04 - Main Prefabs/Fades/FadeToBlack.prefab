@@ -111,6 +111,7 @@ GameObject:
   - component: {fileID: 6454660738046179694}
   - component: {fileID: 4176195071738673945}
   - component: {fileID: 8081602458301549359}
+  - component: {fileID: 420709990}
   m_Layer: 5
   m_Name: RawImage
   m_TagString: Untagged
@@ -158,7 +159,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_Color: {r: 0, g: 0, b: 0, a: 0}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
@@ -172,6 +173,22 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
+--- !u!111 &420709990
+Animation:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5547588181698508417}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: d93a8cd2a221a0740bfa0bb31600503e, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: d93a8cd2a221a0740bfa0bb31600503e, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!1 &7393010209280604812
 GameObject:
   m_ObjectHideFlags: 0
@@ -181,7 +198,6 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 6359423533667714849}
-  - component: {fileID: 1583227246767502257}
   m_Layer: 0
   m_Name: FadeToBlack
   m_TagString: Untagged
@@ -198,25 +214,9 @@ Transform:
   m_GameObject: {fileID: 7393010209280604812}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -28.34336, y: 36.417397, z: -36.774998}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.013438873, y: 0.023877144, z: 0.0082628075}
   m_Children:
   - {fileID: 2859716253381449578}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!111 &1583227246767502257
-Animation:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 7393010209280604812}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: d93a8cd2a221a0740bfa0bb31600503e, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: d93a8cd2a221a0740bfa0bb31600503e, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 1
-  m_AnimatePhysics: 0
-  m_CullingType: 0
