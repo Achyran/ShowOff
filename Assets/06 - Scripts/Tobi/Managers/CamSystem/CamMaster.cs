@@ -54,6 +54,7 @@ public class CamMaster : Master
                     foundStartCam = true;
                     currentConnectionIndex = i;
                     connections[i].EnableVirtualCam();
+                    Debug.Log($"Start Cam", connections[i]);
                 }
                 else if(GameMaster.current.debug) Debug.Log($"Multible StartCamsFound.. Ignoring this", connections[i]);
             }
