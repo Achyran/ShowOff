@@ -12,12 +12,8 @@ public class Player : MonoBehaviour
 {
 	public GameObject notepad;
 	public Camera mainCam;
-	public float rotateSpeed = 1;
-	public float inspectRange = 25;
 	public ModelControl modelControl;
 	private bool playerFrozen = false;
-	private GameObject inspectingObject;
-	private OutlineScript lastOutline;
 	private Rigidbody rigidBody;
 	private float speed;
 
@@ -35,6 +31,10 @@ public class Player : MonoBehaviour
 	[Tooltip("The speed at which you move in any direction while sprinting")]
 	public float sprintSpeed = 800f;
 
+	[SerializeField]
+	[Tooltip("Print debug information to console when enabled")]
+	private bool debug = false;
+
 	[Header("Controls")]
 	public KeyCode ForwardsKey = KeyCode.W;
 	public KeyCode BackwardsKey = KeyCode.S;
@@ -47,6 +47,8 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		rigidBody = GetComponent<Rigidbody>();
+		if (rigidBody == null)
+			Debug.LogError("No rigidbody attached to the Playercontroller");
 		rigidBody.freezeRotation = true;
 		Cursor.lockState = CursorLockMode.Locked;
 		speed = movementSpeed;
@@ -117,8 +119,9 @@ public class Player : MonoBehaviour
             }
         }
 
-		//Debug.Log("Velocity = " + rigidBody.velocity.magnitude);
-
+		
+		if (debug)
+			Debug.Log($"Current player speed is {rigidBody.velocity.magnitude}. Player state is {GameMaster.current.state.ToString()}");
 		
 	}
 
@@ -131,16 +134,6 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPlaying = false;
 #endif
-		}
-		if (Input.GetKeyDown(KeyCode.K))
-		{
-			
-			//SaveData();
-		}
-
-		if (Input.GetKeyDown(KeyCode.L))
-		{
-			LoadData();
 		}
 
 		if (Input.GetKeyDown(KeyCode.Tab))
@@ -162,6 +155,7 @@ public class Player : MonoBehaviour
 
 		rigidBody.AddForce(translation);
 
+		//Modelcontrol update for rotations
 		modelControl.ModelUpdate(translation, transform.position);
 
 	}
@@ -201,15 +195,10 @@ public class Player : MonoBehaviour
         }
 		else
         {
-
 			speed = movementSpeed;
             animator.SetBool("isFastSwimming", false);
             animator.SetBool("isSwimming", true);
-
-
         }
-
-		
 
 		return direction;
 	}
