@@ -11,21 +11,23 @@ public static class Loader
     private static AsyncOperation loadingAsyncOp;
 
     private class LoadingMonobehavior : MonoBehaviour { };
+    //Enum of all Scenes in built
+    //To add a nother and the name here
     public enum _Scenes
     {
-        TestLV1,TestLV3,TestLV2,Level1, LoadingScene,Empty
+        TestLV1,TestLV3,TestLV2,Level1,EndScenePrototype,VisualReferenceLevel, Cinematic1, Cinematic2, LoadingScene,Empty
     }
-
+    //Call to Start loading a Scene
     public static void LoadeScene(_Scenes scene)
     {
         if (toBeLoaded == _Scenes.Empty && scene != _Scenes. LoadingScene && scene != _Scenes.Empty)
         {
-
+            //Switch TO loading scene
             SceneManager.LoadScene(_Scenes.LoadingScene.ToString());
             toBeLoaded = scene;
         }
     }
-
+    //Starts loading Sceen Async Returns null as if stil loading
     public static IEnumerator LoadingState(_Scenes scene)
     {
         yield return null;
@@ -36,7 +38,7 @@ public static class Loader
             yield return null;
         }
     }
-
+    //Returning Loading Progres betwen 0-1
     public static float LoadingProgres()
     {
         if (loadingAsyncOp != null)
@@ -45,7 +47,7 @@ public static class Loader
         }
         else return 1f;
     }
-
+    // Creates an object to user the Coroutine
     internal static void Callback()
     {
         GameObject loadingObj = new GameObject("Loading Object");

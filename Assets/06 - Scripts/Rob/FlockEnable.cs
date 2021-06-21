@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
+using UnityEngine.Playables;
 using UnityEngine;
 
 public class FlockEnable : MonoBehaviour
 {
     [SerializeField]
-    GameObject FlockMaster;
+    PlayableDirector FlockMaster;
 
 
     // Start is called before the first frame update
@@ -13,11 +14,11 @@ public class FlockEnable : MonoBehaviour
     {
 
 
-        FlockMaster = GameObject.FindGameObjectWithTag("FlockMaster");
+        FlockMaster = GameObject.FindGameObjectWithTag("FlockMaster").GetComponent<PlayableDirector>();
 
         if (FlockMaster != null)
         {
-            FlockMaster.SetActive(false);
+            FlockMaster.enabled = false;
         } else
         {
             Debug.Log("Flockmaster is null");
@@ -35,7 +36,7 @@ public class FlockEnable : MonoBehaviour
     {
         if (FlockMaster != null)
         {
-            FlockMaster.SetActive(true);
+            FlockMaster.enabled = true;
 
 
         }

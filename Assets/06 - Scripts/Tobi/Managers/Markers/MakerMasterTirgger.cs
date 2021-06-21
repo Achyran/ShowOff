@@ -12,7 +12,7 @@ public class MakerMasterTirgger : MonoBehaviour
     public void Init()
     {
         if (maker.isActiveAtStart) isActiv = true;
-        if (MakerMaster.current != null) MakerMaster.current.onActivate += Activate;
+        if (MarkerMaster.current != null) MarkerMaster.current.onActivate += Activate;
     }
 
     private void Activate(MarkerComponent obj)
@@ -25,7 +25,7 @@ public class MakerMasterTirgger : MonoBehaviour
 
     private void OnDestroy()
     {
-        if (MakerMaster.current != null) MakerMaster.current.onActivate -= Activate;
+        if (MarkerMaster.current != null) MarkerMaster.current.onActivate -= Activate;
     }
 
 }

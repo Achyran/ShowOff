@@ -11,4 +11,5 @@ public abstract class QuickTimeEvent : ScriptableObject
     public enum Outcome { notReady, ready, running, sucsess, failure }
     public abstract void Run();
     public abstract void Start();
+    public abstract void SetTextAndTexture();
 }
