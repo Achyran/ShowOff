@@ -70,12 +70,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 090053878036ce64b8c4d9cf6d60e517, type: 3}
   m_Name: NewIFFogEffect
   m_EditorClassIdentifier: 
-  m_Active: 0
+  m_Active: 1
   renderPassEvent: 450
   _material: {fileID: 2100000, guid: 0d4905be9fa0d0444b527968627c2c1e, type: 2}
   _fogColor: {r: 0.21048418, g: 0.50853854, b: 0.8113208, a: 0.49019608}
-  _depthStart: 1.7
-  _depthDistance: 82.92
+  _depthStart: 4.3
+  _depthDistance: 89
 --- !u!114 &-1724113258711829197
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -96,7 +96,7 @@ MonoBehaviour:
       RenderQueueType: 0
       LayerMask:
         serializedVersion: 2
-        m_Bits: 2048
+        m_Bits: 4294967295
       PassNames: []
     overrideMaterial: {fileID: 2100000, guid: 251a343f2f432d7459ece8058055741e, type: 2}
     overrideMaterialPassIndex: 0
@@ -215,7 +215,7 @@ MonoBehaviour:
   m_Active: 1
   settings:
     passTag: Marker
-    Event: 600
+    Event: 1000
     filterSettings:
       RenderQueueType: 1
       LayerMask:
@@ -252,11 +252,11 @@ MonoBehaviour:
   m_Name: NewIFUnderWaterEffect
   m_EditorClassIdentifier: 
   m_Active: 1
-  renderPassEvent: 1000
+  renderPassEvent: 550
   _material: {fileID: 2100000, guid: 5e2dc04e6b65c9d478be9d017d02d5af, type: 2}
-  _pixelOffset: 0.0086
-  _noiseScale: 1.14
-  _noiseFrequency: 0.81
-  _noiseSpeed: 3.6
-  _depthStart: 16.4
-  _depthDistance: 68.22
+  _pixelOffset: 0.006
+  _noiseScale: 2.01
+  _noiseFrequency: 1.77
+  _noiseSpeed: 3.3
+  _depthStart: 66.2
+  _depthDistance: 16.8

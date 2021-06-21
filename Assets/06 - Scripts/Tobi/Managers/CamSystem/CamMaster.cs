@@ -8,24 +8,26 @@ public class CamMaster : Master
 {
 
     public int currentConnectionIndex { get; private set; } = -1;
-    public static CamMaster current;
+    public static CamMaster current { get; private set; }
     public CamConnection[] connections { get; private set; }
     public CamConnection playerConnection { get; private set; }
 
-
+    
+    //Initialize CamMaster
     public override void Init()
     {
-        InitiateGameMaster();
+        InitiateCamMaster();
         //if (playerConnection == null) Debug.LogWarning("The player connection was not set", this);
     }
+    //Call this to start in a sceene
     public override void ScenneStart()
     {
         GetConnections();
         GetPlayerConnections();
     }
 
-
-    private void InitiateGameMaster()
+    //Init Static Reverence
+    private void InitiateCamMaster()
     {
         if (current == null)
         {
@@ -37,6 +39,7 @@ public class CamMaster : Master
             Destroy(this);
         }
     }
+    //Gets all Cam coneenctions in A scene
     private void GetConnections()
     {
         connections = GameObject.FindObjectsOfType<CamConnection>();
@@ -58,8 +61,9 @@ public class CamMaster : Master
         if (!foundStartCam && GameMaster.current.debug) Debug.LogWarning("No Startcam Found");
 
     }
-
+    //Called Whene evere a camstate Changes
     public event Action<CamConnection> onConnectionUpdate;
+    //Call this to Set a cam Activ
     public void SetCam(CamConnection connection)
     {
         if (onConnectionUpdate != null && currentConnectionIndex != Array.IndexOf(connections,connection))
@@ -70,7 +74,7 @@ public class CamMaster : Master
         
     }
 
-
+    //Check if Camm connection with Target exists and sets that connection
     public void SetCam(GameObject target)
     {
         if (GameMaster.current.debug) Debug.Log("Changing cam");

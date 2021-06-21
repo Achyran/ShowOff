@@ -20,13 +20,13 @@ public class CamConnection : MonoBehaviour
     //This needs some work
     private void Start()
     {
-        
+        //Selve Distruced When Target == null
         if (target == null)
         {
             Debug.LogError("The Conection Target was not set, Destroying this object", this);
             Destroy(gameObject);
         }
-
+        //Subscribes to onConnnectionUpdate
         if (CamMaster.current != null)
         {
             CamMaster.current.onConnectionUpdate += UpdateCam;
@@ -37,20 +37,26 @@ public class CamConnection : MonoBehaviour
             Destroy(gameObject);
         }
 
+
+        //Gets Needed Cam Component
         if (GetComponent<CinemachineFreeLook>() != null)
             virtualCam = GetComponent<CinemachineFreeLook>();
         else
             virtualCam = GetComponent<CinemachineVirtualCamera>();
 
-
+        //Sils part
         if (!ignoreTarget)
         {
             virtualCam.LookAt = target.transform;
             virtualCam.Follow = target.transform;
         }
+        //Sils end
 
+        //Disables ables cam
         virtualCam.enabled = false;
     }
+
+    //Activates Cam If it is Start cam
     private void Update()
     {
         if (setStart)
@@ -67,9 +73,10 @@ public class CamConnection : MonoBehaviour
         setStart = true;
     }
 
+    //Activate the cam if it was Set by CamMaster, Disables it if not
     private void UpdateCam(CamConnection obj)
     {
-        Debug.Log($"Update Cam {obj.virtualCam == virtualCam}",this);
+        //Debug.Log($"Update Cam {obj.virtualCam == virtualCam}",this);
         if(obj.virtualCam == virtualCam)
         {
             virtualCam.enabled = true;
@@ -79,6 +86,7 @@ public class CamConnection : MonoBehaviour
         }
     }
 
+    //UnSubscirbe
     private void OnDestroy()
     {
         CamMaster.current.onConnectionUpdate -= UpdateCam;

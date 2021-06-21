@@ -32,8 +32,8 @@ public class QT_TimedButton : QuickTimeEvent
     public override void Start()
     {
         if(outcome == QuickTimeEvent.Outcome.ready)_Init();
-        UItext = _UItext;
-        UItexture = _UItexture;
+        
+
     }
     public override void Run()
     {
@@ -66,6 +66,10 @@ public class QT_TimedButton : QuickTimeEvent
         outcome = QuickTimeEvent.Outcome.running;
         if(debug) Debug.Log($"QuicktimeEvent Got Started.\n Press :{ key} Time Left: { _time}");
     }
-    
-    
+
+    public override void SetTextAndTexture()
+    {
+        UItext = _UItext;
+        UItexture = _UItexture;
+    }
 }
