@@ -20,8 +20,8 @@ public class JournalEntry : MonoBehaviour
 
     void Start()
     {
-        if (descriptionText != null)
-            Initiate();
+        
+         Initiate();
         
     }
 

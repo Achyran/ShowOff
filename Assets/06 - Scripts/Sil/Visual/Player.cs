@@ -12,12 +12,8 @@ public class Player : MonoBehaviour
 {
 	public GameObject notepad;
 	public Camera mainCam;
-	public float rotateSpeed = 1;
-	public float inspectRange = 25;
 	public ModelControl modelControl;
 	private bool playerFrozen = false;
-	private GameObject inspectingObject;
-	private OutlineScript lastOutline;
 	private Rigidbody rigidBody;
 	private float speed;
 
@@ -35,6 +31,10 @@ public class Player : MonoBehaviour
 	[Tooltip("The speed at which you move in any direction while sprinting")]
 	public float sprintSpeed = 800f;
 
+	[SerializeField]
+	[Tooltip("Print debug information to console when enabled")]
+	private bool debug = false;
+
 	[Header("Controls")]
 	public KeyCode ForwardsKey = KeyCode.W;
 	public KeyCode BackwardsKey = KeyCode.S;
@@ -47,6 +47,8 @@ public class Player : MonoBehaviour
 	private void Start()
 	{
 		rigidBody = GetComponent<Rigidbody>();
+		if (rigidBody == null)
+			Debug.LogError("No rigidbody attached to the Playercontroller");
 		rigidBody.freezeRotation = true;
 		Cursor.lockState = CursorLockMode.Locked;
 		speed = movementSpeed;
@@ -55,6 +57,8 @@ public class Player : MonoBehaviour
         {
 			GameMaster.current.onPosessionStart += StartPosession;
 			GameMaster.current.onPosessionStop += StopPosession;
+			GameMaster.current.onInspectionStart += StartInpsection;
+			GameMaster.current.onInpsectionStop += StopInspection;
         }
 		if(QuickTimeMaster.current != null)
         {
@@ -63,13 +67,23 @@ public class Player : MonoBehaviour
         }
 	}
 
-    
 
 
 
-    #region Tobi
-    //This is neede for the gameMasterLogic
-    private void StartPosession(PosessionMovement posession)
+
+
+	#region Tobi
+	//This is neede for the gameMasterLogic
+	private void StopInspection(GameObject obj)
+	{
+		FreezePlayer(false);
+	}
+
+	private void StartInpsection(GameObject obj)
+	{
+		FreezePlayer(true);
+	}
+	private void StartPosession(PosessionMovement posession)
     {
 		FreezePlayer(true);
     }
@@ -87,6 +101,9 @@ public class Player : MonoBehaviour
 		FreezePlayer(true);
 	}
 
+	
+	
+
 	#endregion
 
 	void Update()
@@ -102,8 +119,9 @@ public class Player : MonoBehaviour
             }
         }
 
-		//Debug.Log("Velocity = " + rigidBody.velocity.magnitude);
-
+		
+		if (debug)
+			Debug.Log($"Current player speed is {rigidBody.velocity.magnitude}. Player state is {GameMaster.current.state.ToString()}");
 		
 	}
 
@@ -116,16 +134,6 @@ public class Player : MonoBehaviour
 #if UNITY_EDITOR
 			UnityEditor.EditorApplication.isPlaying = false;
 #endif
-		}
-		if (Input.GetKeyDown(KeyCode.K))
-		{
-			
-			//SaveData();
-		}
-
-		if (Input.GetKeyDown(KeyCode.L))
-		{
-			LoadData();
 		}
 
 		if (Input.GetKeyDown(KeyCode.Tab))
@@ -141,10 +149,13 @@ public class Player : MonoBehaviour
 		// Translation
 		translation = GetInputTranslationDirection() * Time.deltaTime;
 
+			
+
 		translation *= speed;
 
 		rigidBody.AddForce(translation);
 
+		//Modelcontrol update for rotations
 		modelControl.ModelUpdate(translation, transform.position);
 
 	}
@@ -184,15 +195,10 @@ public class Player : MonoBehaviour
         }
 		else
         {
-
 			speed = movementSpeed;
             animator.SetBool("isFastSwimming", false);
             animator.SetBool("isSwimming", true);
-
-
         }
-
-		
 
 		return direction;
 	}
@@ -204,13 +210,18 @@ public class Player : MonoBehaviour
 
 	public void ToggleNotebook()
 	{
-		if(notepad != null)
+		if(notepad != null && (GameMaster.current.state == GameMaster.State._base ))
 		if (notepad.activeInHierarchy)
 		{
 			notepad.SetActive(false);
 			Cursor.lockState = CursorLockMode.Locked;
 			Cursor.visible = false;
 			playerFrozen = false;
+
+				//Tobi
+				if(CamMaster.current != null)
+				CamMaster.current.playerConnection.virtualCam.enabled = true;
+
 
 		}
 		else
@@ -220,8 +231,12 @@ public class Player : MonoBehaviour
 			Cursor.lockState = CursorLockMode.None;
 			Cursor.visible = true;
 			playerFrozen = true;
-			JournalProgression.current.UnlockCheck();
-		}
+			//JournalProgression.current.UnlockCheck();
+
+				//Tobi
+				if (CamMaster.current != null)
+				CamMaster.current.playerConnection.virtualCam.enabled = false;
+			}
 	}
 	private void SaveData()
 	{
@@ -241,6 +256,24 @@ public class Player : MonoBehaviour
 		Debug.Log(position);
 
 		transform.position = position;
+	}
+
+	void OnDestroy()
+	{
+		if (GameMaster.current != null)
+		{
+			GameMaster.current.onPosessionStart -= StartPosession;
+			GameMaster.current.onPosessionStop -= StopPosession;
+			GameMaster.current.onInspectionStart -= StartInpsection;
+			GameMaster.current.onInpsectionStop -= StopInspection;
+		}
+		if (QuickTimeMaster.current != null)
+		{
+			QuickTimeMaster.current.onQuickTimeStart -= StartQt;
+			QuickTimeMaster.current.onQuickTimeEnd -= EndQt;
+		}
+		Cursor.lockState = CursorLockMode.Confined;
+		Cursor.visible = true;
 	}
 }
 

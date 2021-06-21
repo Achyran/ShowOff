@@ -1,5 +1,28 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!114 &-7791039489044939862
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5485954d14dfb9a4c8ead8edb0ded5b1, type: 3}
+  m_Name: LiftGammaGain
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  lift:
+    m_OverrideState: 1
+    m_Value: {x: 0.62119174, y: 0.7158936, z: 1, w: 0}
+  gamma:
+    m_OverrideState: 1
+    m_Value: {x: 1, y: 0.8658118, z: 0.71953607, w: 0}
+  gain:
+    m_OverrideState: 1
+    m_Value: {x: 0.58825856, y: 0.7389077, z: 1, w: 0}
 --- !u!114 &-4850978556392044130
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -35,31 +58,31 @@ MonoBehaviour:
     m_Value: 0
   focusDistance:
     m_OverrideState: 1
-    m_Value: 10
+    m_Value: 7.66
     min: 0.1
   aperture:
     m_OverrideState: 1
-    m_Value: 5.9
+    m_Value: 8.3
     min: 1
     max: 32
   focalLength:
     m_OverrideState: 1
-    m_Value: 118
+    m_Value: 119
     min: 1
     max: 300
   bladeCount:
     m_OverrideState: 1
-    m_Value: 8
+    m_Value: 5
     min: 3
     max: 9
   bladeCurvature:
     m_OverrideState: 1
-    m_Value: 1
+    m_Value: 0.492
     min: 0
     max: 1
   bladeRotation:
     m_OverrideState: 1
-    m_Value: 4
+    m_Value: 13
     min: -180
     max: 180
 --- !u!114 &11400000
@@ -78,6 +101,8 @@ MonoBehaviour:
   - {fileID: 3142723794449980446}
   - {fileID: 50990796767378195}
   - {fileID: -4850978556392044130}
+  - {fileID: -7791039489044939862}
+  - {fileID: 841195136152408831}
 --- !u!114 &50990796767378195
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -94,15 +119,15 @@ MonoBehaviour:
   m_AdvancedMode: 0
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.25
+    m_Value: 0.51
   contrast:
     m_OverrideState: 1
-    m_Value: 20.3
+    m_Value: 47.75
     min: -100
     max: 100
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.4481132, g: 0.64289695, b: 1, a: 1}
+    m_Value: {r: 0.4470588, g: 0.46738496, b: 1, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
@@ -116,6 +141,25 @@ MonoBehaviour:
     m_Value: 22
     min: -100
     max: 100
+--- !u!114 &841195136152408831
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 81180773991d8724ab7f2d216912b564, type: 3}
+  m_Name: ChromaticAberration
+  m_EditorClassIdentifier: 
+  active: 1
+  m_AdvancedMode: 0
+  intensity:
+    m_OverrideState: 1
+    m_Value: 0.103
+    min: 0
+    max: 1
 --- !u!114 &3142723794449980446
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -132,7 +176,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 0.3329477, g: 0.5794425, b: 0.8113208, a: 1}
+    m_Value: {r: 0, g: 0.5163934, b: 1, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -141,12 +185,12 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.27
+    m_Value: 0.464
     min: 0
     max: 1
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.307
+    m_Value: 0.709
     min: 0.01
     max: 1
   rounded:

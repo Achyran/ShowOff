@@ -62,14 +62,13 @@ public class PlayerPosessinTest : MonoBehaviour
                     
                     if (whatIsInteractabel == (whatIsInteractabel | (1 << hitObj.layer)))
                     {
-                        Debug.Log("hit");
                         GameMaster.current.InspectionStart(hitObj);
                     }
                     else if (whatIsPosessabel == (whatIsPosessabel | (1 << hitObj.gameObject.layer)))
                     {
                         PosessionMovement posmove = hitObj.GetComponent<PosessionMovement>();
                         if (posmove != null) GameMaster.current.PosessionStart(posmove);
-                        else Debug.LogWarning($"Tryed to posess {hitObj.transform.name}, PosessionMovemetn was null. Pleas add PosessionMovement or Remove form layer", hitObj);
+                        else Debug.LogWarning($"Tried to posess {hitObj.transform.name}, PosessionMovement was null. Pleas add PosessionMovement or Remove from layer", hitObj);
                     }
                 }
             }
@@ -107,8 +106,8 @@ public class PlayerPosessinTest : MonoBehaviour
             outline.ToggleOutline(true);
             lastOutline = outline;
         }
-        else
-        Debug.LogWarning("Object is on the interactible layer but doesn't have an outline script", this);
+//else
+        //Debug.LogWarning("Object is on the interactible layer but doesn't have an outline script", this);
 
     }
 

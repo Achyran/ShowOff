@@ -94,7 +94,7 @@ public class Flock : MonoBehaviour
         if(player == null)
         {
             //get all objects taged as player
-            GameObject[] players = GameObject.FindGameObjectsWithTag(playerTag);
+            Player[] players = GameObject.FindObjectsOfType<Player>();
             //Check if there are more or less than one object as player taged
             if ( players == null || players.Length > 1 || players.Length == 0)
             {

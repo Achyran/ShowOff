@@ -26,15 +26,15 @@ public class GameMaster : Master
     private void Awake()
     {
         Init();
-        DontDestroyOnLoad(this.gameObject);
     }
 
 
     private void Start()
-    {
+    { 
         CheckOtherManagers();
     }
     
+    //Checks if the other Masters existsts and logs missing Masters
     private void CheckOtherManagers()
     {
         if (debug) {
@@ -45,7 +45,7 @@ public class GameMaster : Master
         }
     }
 
-
+    //Timer for posession Duration
     private void Update()
     {
         if (state == State._posessing && (QuickTimeMaster.current == null || QuickTimeMaster.current.state != QuickTimeMaster.State.inprogress))
@@ -58,7 +58,7 @@ public class GameMaster : Master
         }
         StateCooldown();
     }
-
+    //Creates a delay for the transition between states
     private void StateCooldown()
     {
         if(nextState != State._transition && _transitionTime >= 0)
@@ -71,6 +71,7 @@ public class GameMaster : Master
         }
     }
 
+    //Sets States unialising the delay
     private void SetState(State pstate)
     {
         
@@ -83,11 +84,13 @@ public class GameMaster : Master
         }
     }
 
+    //Gets all Posessable Gameobjects in a scene
     private void GetPosessions()
     {
         posessions = GameObject.FindObjectsOfType<PosessionMovement>();
     }
 
+    //Finds player in Scene (logs if not sucessfull)
     private void FindPlayer()
     {
         Player[] players = GameObject.FindObjectsOfType<Player>();
@@ -117,13 +120,11 @@ public class GameMaster : Master
         }
     }
 
-    private string toString()
-    {
-        return "Not Implemetned jet";
-    }
-
     #region Events
+
+    //Called when posession Starts
     public event Action<PosessionMovement> onPosessionStart;
+    //Call to start a posession
     public void PosessionStart(PosessionMovement posession)
     {
         if (debug) Debug.Log($"Started Poession");
@@ -138,7 +139,9 @@ public class GameMaster : Master
             }
         }
     }
+    //Called on Posession Stop
     public event Action onPosessionStop;
+    //Stops the current posession
     public void PosessionStop()
     {
         if (debug) Debug.Log("Posession Stop");
@@ -152,7 +155,9 @@ public class GameMaster : Master
             }
         }
     }
+    //Called on InspectionStart
     public event Action<GameObject> onInspectionStart;
+    //Call to start Posession
     public void InspectionStart (GameObject obj)
     {
         //ToDo a is interacatbe check
@@ -166,8 +171,9 @@ public class GameMaster : Master
             onInspectionStart(obj);
         }
     }
+    //Called On inspection Stop
     public event Action<GameObject> onInpsectionStop;
-
+    //Call To stop current Inspection
     public void InspectionStop()
     {
         if (debug) Debug.Log("InpectionStoped");
@@ -186,6 +192,7 @@ public class GameMaster : Master
 
     #endregion
     #region Overides
+    //Call to Init GameMaster
     public override void Init()
     {
         InitiateGameMaster();
@@ -196,16 +203,19 @@ public class GameMaster : Master
     //Inits all Masters
     public void InitAllMasters()
     {
-        Master[] masters = GetComponents<Master>();
 
+        Master[] masters = GetComponents<Master>();
         foreach (Master m in masters)
         {
             if (m != this)
+            {
                 m.Init();
+            }
         }
 
     }
     //Calls all masters and loads reverences that are needed on a scean to sean basis
+    //Call this in the Awake of an object in the sceene
     public override void ScenneStart()
     {
         FindPlayer();
@@ -215,11 +225,11 @@ public class GameMaster : Master
         foreach (Master m in masters)
         {
             if (m != this)
+
                 m.ScenneStart();
         }
     }
-    
+
 
     #endregion
-
 }

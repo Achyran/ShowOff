@@ -66,30 +66,32 @@ public class PosessionMovement : MonoBehaviour
         }
 
         //Subscribe
-        GameMaster.current.onPosessionStart += StartPosession;
-        GameMaster.current.onPosessionStop += StopPosession;
-
+        if (GameMaster.current != null)
+        {
+            GameMaster.current.onPosessionStart += StartPosession;
+            GameMaster.current.onPosessionStop += StopPosession;
+        }
         if (QuickTimeMaster.current != null)
         {
             QuickTimeMaster.current.onQuickTimeStart += StartQuicktime;
             QuickTimeMaster.current.onQuickTimeEnd += EndQuicktime;
         }
-        else 
+        
         rb.isKinematic = true;
     }
-
+    //UnFreezes On QuickTime end
     private void EndQuicktime(QuickTimeComponent arg1, bool arg2)
     {
         qtFreeze = false;
         rb.isKinematic = false;
     }
-
+    //Freezes on Qucicktime Start
     private void StartQuicktime(QuickTimeComponent obj)
     {
         qtFreeze = true;
         rb.isKinematic = true;
     }
-
+    // Check if can Move and than move
     private void FixedUpdate()
     {
         if(canMove)
@@ -159,12 +161,14 @@ public class PosessionMovement : MonoBehaviour
 
 
     }
+    //Returns if Pitch is in the Defined clamp
     bool pitchInClap()
     {
         if (transform.rotation.eulerAngles.x < pitchClamp || transform.rotation.eulerAngles.x > 360 - pitchClamp)
             return true;
         return false;
     }
+    //Sets Stateds form Scriptable object
     private void SetStats()
     {
         maxSpeed = stats.maxSpeed;
@@ -182,6 +186,7 @@ public class PosessionMovement : MonoBehaviour
             rb.angularDrag = stats.AngularDrag;
         }
     }
+    //Saves Stats to Scribtable object
     private void SaveStats()
     {
         if (stats != null)
@@ -203,12 +208,12 @@ public class PosessionMovement : MonoBehaviour
         }
         else Debug.LogWarning("Stats could not be saved. Stats were Null", this);
     }
-
+    //Saves stats on Application Quit
     private void OnApplicationQuit()
     {
         if (saveStats) SaveStats();
     }
-
+    //Unfreezes if Posessed
     private void StartPosession(PosessionMovement posession)
     {
         if(this == posession)
@@ -217,12 +222,13 @@ public class PosessionMovement : MonoBehaviour
             rb.isKinematic = false;
         }
     }
+    //Freezes On Poesssion End
     private void StopPosession()
     {
         freeze = true;
         rb.isKinematic = true;
     }
-
+    //UnsubScribe
     private void OnDestroy()
     {
         GameMaster.current.onPosessionStart -= StartPosession;
