@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8740883790846860964}
   - component: {fileID: 7829033737244408969}
   - component: {fileID: 3052946934633587992}
-  - component: {fileID: 7064328116658764424}
+  - component: {fileID: 1635627332586685075}
   m_Layer: 6
   m_Name: door
   m_TagString: Untagged
@@ -82,22 +82,25 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!111 &7064328116658764424
-Animation:
+--- !u!95 &1635627332586685075
+Animator:
+  serializedVersion: 3
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 4120840184904976153}
   m_Enabled: 1
-  serializedVersion: 3
-  m_Animation: {fileID: 7400000, guid: 77baeb3fa93dfbb439c18fd15df94d95, type: 2}
-  m_Animations:
-  - {fileID: 7400000, guid: 77baeb3fa93dfbb439c18fd15df94d95, type: 2}
-  m_WrapMode: 0
-  m_PlayAutomatically: 0
-  m_AnimatePhysics: 0
-  m_CullingType: 0
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 682ec53dd9dc1f541ae70a1d37d36a61, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1 &5362162466027468141
 GameObject:
   m_ObjectHideFlags: 0
