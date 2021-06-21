@@ -44,7 +44,7 @@ public class VolumetricTool : MonoBehaviour
             UpdatePrefab();
             Gizmos.color = new Color(0, 1, 0,0.3f);
             Gizmos.DrawCube(area.position,new Vector3(area.scale.x ,0.1f, area.scale.y ));
-            Ray ray = HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
+            Ray ray = new Ray();// HandleUtility.GUIPointToWorldRay(Event.current.mousePosition);
             Vector3 hitpos = hitPlane(ray);
             if (preview) DrawPreview();
             if(hitpos != Vector3.zero)

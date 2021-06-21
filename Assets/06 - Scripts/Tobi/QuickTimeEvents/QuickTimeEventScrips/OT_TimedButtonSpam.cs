@@ -36,8 +36,7 @@ public class OT_TimedButtonSpam : QuickTimeEvent
         {
             _Init();
         }
-        UItext = _UItext;
-        UItexture = _UItexture;
+
         
         
     }
@@ -79,4 +78,9 @@ public class OT_TimedButtonSpam : QuickTimeEvent
         if (debug) Debug.Log($"QuicktimeEvent Got Started.\n Press :{ key} Time Left: { _time}");
     }
 
+    public override void SetTextAndTexture()
+    {
+        UItext = _UItext;
+        UItexture = _UItexture;
+    }
 }
