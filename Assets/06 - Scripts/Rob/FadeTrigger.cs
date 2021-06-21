@@ -8,20 +8,26 @@ public class FadeTrigger : MonoBehaviour
 {
 
 
-    RawImage rawImage;
-    [SerializeField]
-    Animation animation;
+   
+    
+    Animation FadeOutAnimation;
+    Animation FadeInAnimation;
+
+    public bool Fadeout;
+    public bool Fadein;
 
     private void Start()
     {
-        rawImage = GameObject.FindGameObjectWithTag("SceneFadeOut").GetComponent<RawImage>();
-        animation = GameObject.FindGameObjectWithTag("SceneFadeOut").GetComponent<Animation>();
+       
+        FadeOutAnimation = GameObject.FindGameObjectWithTag("SceneFadeOut").GetComponent<Animation>();
+        FadeInAnimation = GameObject.FindGameObjectWithTag("SceneFadeIn").GetComponent<Animation>();
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        animation.Play();
-        Debug.Log("animation played");
+         if(Fadeout)FadeOutAnimation.Play();
+         if(Fadein)FadeInAnimation.Play(); 
+       
     }
 
 }
