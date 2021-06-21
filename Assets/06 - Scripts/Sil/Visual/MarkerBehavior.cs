@@ -36,6 +36,8 @@ public class MarkerBehavior : MonoBehaviour
 		renderer = GetComponent<MeshRenderer>();
 		renderer.enabled = false;
 
+		//MarkerMaster.current.compass.SetMarkerPos(this);
+
 		//--------------- Rob ---------
 		material = GetComponent<Renderer>().sharedMaterial;
 		if(material == null)
@@ -49,6 +51,7 @@ public class MarkerBehavior : MonoBehaviour
 		GameMaster.current.onInspectionStart += DisableMarker;
 
 		NextMarker.SetActive(false);
+
 		//--------------------
 
 	}
