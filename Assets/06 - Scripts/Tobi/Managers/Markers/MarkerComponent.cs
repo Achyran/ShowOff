@@ -35,9 +35,9 @@ public class MarkerComponent : MonoBehaviour
         {
             StartMarker();
         }
-        if(MakerMaster.current != null)
+        if(MarkerMaster.current != null)
         {
-            MakerMaster.current.onActivate += Actikvate;
+            MarkerMaster.current.onActivate += Actikvate;
         }
 
     }
@@ -75,7 +75,7 @@ public class MarkerComponent : MonoBehaviour
     
     public void DestroyMarker()
     {
-        if(nextMarker != null) MakerMaster.current.Activate(nextMarker);
+        if(nextMarker != null) MarkerMaster.current.Activate(nextMarker);
         Destroy(this.gameObject);
     }
     private void Rotate()
@@ -91,9 +91,9 @@ public class MarkerComponent : MonoBehaviour
 
     void OnDestroy()
     {
-        if (MakerMaster.current != null)
+        if (MarkerMaster.current != null)
         {
-            MakerMaster.current.onActivate -= Actikvate;
+            MarkerMaster.current.onActivate -= Actikvate;
         }
     }
 

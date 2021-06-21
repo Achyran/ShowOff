@@ -14,7 +14,7 @@ public class DiscoverableMaster : Master
     public List<Species> progress { get; private set; } 
     public static DiscoverableMaster current;
 
-
+    //Intis DiscoreableMaster
     public override void Init()
     {
         if(current == null)
@@ -28,13 +28,13 @@ public class DiscoverableMaster : Master
 
         InitInfos();
         LoadeProgress();
-
+        //Subscribe
         GameMaster.current.onInspectionStart += AddToDescoverd;
-        GameMaster.current.onPosessionStart += AddToDescoverdPosession;
+        GameMaster.current.onPosessionStart += AddToDescoverdProgession;
 
     }
-
-    private void AddToDescoverdPosession(PosessionMovement obj)
+    //Adds Posessabel to Discoverable Progression if it is discoverable and was not discoverd yet
+    private void AddToDescoverdProgession(PosessionMovement obj)
     {
         DiscoverableComponent disCom = obj.GetComponent<DiscoverableComponent>();
         if (disCom != null && !progress.Contains(disCom.species))
@@ -50,8 +50,8 @@ public class DiscoverableMaster : Master
         }
         
     }
-    
 
+    //Adds Object to Discoverable Progression if it is discoverable and was not discoverd yet
     private void AddToDescoverd(GameObject obj)
     {
         DiscoverableComponent disCom = obj.GetComponent<DiscoverableComponent>();
@@ -68,6 +68,8 @@ public class DiscoverableMaster : Master
         }
     }
 
+
+    //Loads Species Info from data base (one per species)
     private void InitInfos()
     {
         string path;
@@ -91,20 +93,20 @@ public class DiscoverableMaster : Master
             }
         }
     }
+    //Saves progress on quit
     private void OnApplicationQuit()
     {
         SaveProgress();
     }
+    //Resets SaveFile
     public void ResetSave()
     {
         progress = new List<Species>();
         SaveProgress();
     }
-
+    //Load SaveFile
     private void LoadeProgress() 
     {
-        
-
         progress = new List<Species>();
         TextAsset jsonString =  Resources.Load<TextAsset>("Saves/Progress");
         if (jsonString != null)
@@ -115,13 +117,12 @@ public class DiscoverableMaster : Master
         else if(GameMaster.current.debug) Debug.Log("No discovery Saves Found");
 
     }
+    //Save Progress
     private void SaveProgress()
     {
         Progress prog = new Progress();
         prog.seenSpecies = progress;
         string jsonString = JsonUtility.ToJson(prog);
-        //Can not use savePath here it would be null in Editor
-        //File.WriteAllText($"{Application.dataPath}/Saves/Progress.json", jsonString);
 
         string path = null;
 
@@ -139,7 +140,7 @@ public class DiscoverableMaster : Master
 
     //Event fiers when ever something was disvoverd;
     public event Action<SpeciesInformation> OnDiscover;
-    
+    //Calls OnDiscover event, (Subscibe if needed in the future)
     private void Discover(SpeciesInformation info)
     {
         if (GameMaster.current.debug) Debug.Log($"Species Discoverd {info.species}");
@@ -148,7 +149,7 @@ public class DiscoverableMaster : Master
             OnDiscover(info);
         }
     }
-
+    //Saves progess at the start of the Scene
     public override void ScenneStart()
     {
         SaveProgress();

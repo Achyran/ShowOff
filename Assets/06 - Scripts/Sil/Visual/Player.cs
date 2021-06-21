@@ -221,7 +221,7 @@ public class Player : MonoBehaviour
 
 	public void ToggleNotebook()
 	{
-		if(notepad != null && (GameMaster.current.state == GameMaster.State._base || GameMaster.current.state == GameMaster.State._inspecting))
+		if(notepad != null && (GameMaster.current.state == GameMaster.State._base ))
 		if (notepad.activeInHierarchy)
 		{
 			notepad.SetActive(false);
