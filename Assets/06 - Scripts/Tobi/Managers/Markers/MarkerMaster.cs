@@ -7,6 +7,9 @@ using System;
 public class MarkerMaster : Master
 {
     public static MarkerMaster current;
+
+
+    public Compass compass;
     public override void Init()
     { 
         //Inicialising the static reference
@@ -19,10 +22,22 @@ public class MarkerMaster : Master
             if (GameMaster.current.debug) Debug.LogWarning("Multible GameMasters detected, Destroying this", this);
             Destroy(this);
         }
+        
+        /*
+        compass = FindObjectOfType<Compass>();
+        if(compass == null)
+            Debug.Log("No compass found");
+        */
     }
+
 
     public override void ScenneStart()
     {
+        /*
+        compass = FindObjectOfType<Compass>();
+        if (compass = null)
+            Debug.LogError("No compass found in scene");
+        */
     }
 
     public event Action<MarkerComponent> onActivate;
@@ -33,4 +48,5 @@ public class MarkerMaster : Master
             onActivate(markerComponent);
         }
     }
+
 }

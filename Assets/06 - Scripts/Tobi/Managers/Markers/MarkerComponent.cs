@@ -39,6 +39,7 @@ public class MarkerComponent : MonoBehaviour
         {
             MarkerMaster.current.onActivate += Actikvate;
         }
+        MarkerMaster.current.compass.SetMarkerPos(this);
 
     }
 
@@ -72,7 +73,7 @@ public class MarkerComponent : MonoBehaviour
             isActive = true;
         }
     }
-    
+
     public void DestroyMarker()
     {
         if(nextMarker != null) MarkerMaster.current.Activate(nextMarker);
