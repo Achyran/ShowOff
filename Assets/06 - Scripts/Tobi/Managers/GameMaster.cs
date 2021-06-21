@@ -203,16 +203,13 @@ public class GameMaster : Master
     //Inits all Masters
     public void InitAllMasters()
     {
-        Debug.Log(" .4 - init all _1");
+
         Master[] masters = GetComponents<Master>();
-        Debug.Log(" .4 - init all _2 " + masters.Length);
         foreach (Master m in masters)
         {
             if (m != this)
             {
-                Debug.Log(" .4 - init all _3" + m.name);
                 m.Init();
-                Debug.Log(" .4 - init all _4");
             }
         }
 
