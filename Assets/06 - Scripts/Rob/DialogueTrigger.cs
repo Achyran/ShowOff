@@ -20,6 +20,8 @@ public class DialogueTrigger : MonoBehaviour
 
     int random;
 
+    public bool DestroyAfterUse;
+
     private void Start()
     {
         audioSource = gameObject.GetComponent<AudioSource>();
@@ -46,6 +48,8 @@ public class DialogueTrigger : MonoBehaviour
             dialogueTMP.enabled = true;
             //Debug.Log("Playing?  = " + audioSource.isPlaying);
         }
+
+       
     }
 
     private void OnTriggerEnter(Collider other)
@@ -64,6 +68,7 @@ public class DialogueTrigger : MonoBehaviour
         {
             audioSource.PlayOneShot(chosenDialogue);
         }
+
        
 
        // Debug.Log(dialogueTMP.text);
@@ -71,9 +76,18 @@ public class DialogueTrigger : MonoBehaviour
       
 
     }
+    private void OnTriggerExit(Collider other)
+    {
+        if (DestroyAfterUse)
+        {
+            dialogueTMP.enabled = false;
+
+            Destroy(this);
+        }
+    }
 
 
-   
+
 
 
 }
