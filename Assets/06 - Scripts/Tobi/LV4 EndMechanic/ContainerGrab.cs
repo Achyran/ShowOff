@@ -2,38 +2,61 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[RequireComponent(typeof(Animator))]
+//[RequireComponent(typeof(Animator))]
 public class ContainerGrab : MonoBehaviour
 {
+    [SerializeField]
     private Animator animator;
     [SerializeField]
     float timeWindow;
     float time;
+    bool isEvaluating;
+    public enum State { ready,running,done}
+    public State state { get; private set; }
 
-    private void Start()
+    public void StartEvaluation()
     {
-        animator = GetComponent<Animator>();
-    }
-
-    public void StartChain()
-    {
-        time = 0;
+        time = timeWindow;
+        isEvaluating = true;
     }
     private void Update()
     {
-        time += Time.deltaTime;
-        if (time > 2f + timeWindow)
-        {
-            animator.SetBool("NotConnected",true);
-        }
        
+        if (isEvaluating)
+        {
+            if(time > 0)
+            {
+                time -= Time.deltaTime;
+            }
+            else
+            {
+                isEvaluating = false;
+                animator.SetTrigger("Disconnected");
+            }
+        }
     }
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E)&& 2f <time && time < 2f + timeWindow)
+        if (Input.GetKeyDown(KeyCode.E))
         {
-            animator.SetBool("Connected",true);
+            isEvaluating = false;
+            animator.SetTrigger("Connected");
         }
     }
+
+    public void GotReset()
+    {
+        state = State.ready;
+    }
+    public void Ended()
+    {
+        state = State.done;
+    }
+    public void StartAnimation()
+    {
+        state = State.running;
+        animator.SetTrigger("Start");
+    }
 }
+
