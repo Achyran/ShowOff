@@ -39,8 +39,7 @@ public class MarkerComponent : MonoBehaviour
         {
             MarkerMaster.current.onActivate += Actikvate;
         }
-        MarkerMaster.current.compass.SetMarkerPos(this);
-
+        
     }
 
     private void Actikvate(MarkerComponent obj)
@@ -63,6 +62,7 @@ public class MarkerComponent : MonoBehaviour
             else timer -= Time.deltaTime;
             Rotate();
         }
+        
     }
 
     public void StartMarker()
@@ -72,6 +72,7 @@ public class MarkerComponent : MonoBehaviour
             timer = delay;
             isActive = true;
         }
+        if (nextMarker != null) MarkerMaster.current.Activate(this);
     }
 
     public void DestroyMarker()

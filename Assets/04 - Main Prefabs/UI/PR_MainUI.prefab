@@ -625,7 +625,7 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 6132250263159021408}
+  - {fileID: 6181925799898872319}
   - {fileID: 5996543593873566677}
   - {fileID: 5996543594670122596}
   - {fileID: 5996543594777623109}
@@ -1028,7 +1028,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Padding: {x: 0, y: 0, z: 0, w: 0}
   m_Softness: {x: 300, y: 300}
---- !u!1 &6132250261816421069
+--- !u!1 &6181925799879125856
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1036,10 +1036,10 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6132250261816421068}
-  - component: {fileID: 6132250261816421073}
-  - component: {fileID: 6132250261816421070}
-  - component: {fileID: 6132250261816421071}
+  - component: {fileID: 6181925799879125859}
+  - component: {fileID: 6181925799879125861}
+  - component: {fileID: 6181925799879125858}
+  - component: {fileID: 6181925801380464284}
   m_Layer: 5
   m_Name: Compass
   m_TagString: Untagged
@@ -1047,41 +1047,41 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6132250261816421068
+--- !u!224 &6181925799879125859
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6132250261816421069}
+  m_GameObject: {fileID: 6181925799879125856}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
-  - {fileID: 6132250262469782633}
-  m_Father: {fileID: 6132250263159021408}
+  - {fileID: 6181925801939007178}
+  m_Father: {fileID: 6181925799898872319}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 1}
   m_AnchorMax: {x: 0.5, y: 1}
-  m_AnchoredPosition: {x: 0, y: 216.7}
+  m_AnchoredPosition: {x: 0, y: -34}
   m_SizeDelta: {x: 482, y: 18.6}
   m_Pivot: {x: 0.5, y: 1}
---- !u!222 &6132250261816421073
+--- !u!222 &6181925799879125861
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6132250261816421069}
+  m_GameObject: {fileID: 6181925799879125856}
   m_CullTransparentMesh: 1
---- !u!114 &6132250261816421070
+--- !u!114 &6181925799879125858
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6132250261816421069}
+  m_GameObject: {fileID: 6181925799879125856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 1344c3c82d62a2a41a3576d8abb8e3ea, type: 3}
@@ -1102,22 +1102,21 @@ MonoBehaviour:
     y: 0
     width: 1
     height: 1
---- !u!114 &6132250261816421071
+--- !u!114 &6181925801380464284
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6132250261816421069}
+  m_GameObject: {fileID: 6181925799879125856}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 4731a7004b6677d469fa718bd53d4fff, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  compassImage: {fileID: 6132250261816421070}
-  player: {fileID: 0}
-  objectiveMarker: {fileID: 6132250262469782632}
---- !u!1 &6132250262469782630
+  compassImage: {fileID: 6181925799879125858}
+  objectiveMarker: {fileID: 6181925801939007181}
+--- !u!1 &6181925801612641423
 GameObject:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -1125,9 +1124,45 @@ GameObject:
   m_PrefabAsset: {fileID: 0}
   serializedVersion: 6
   m_Component:
-  - component: {fileID: 6132250262469782633}
-  - component: {fileID: 6132250262469782635}
-  - component: {fileID: 6132250262469782632}
+  - component: {fileID: 6181925799898872319}
+  m_Layer: 5
+  m_Name: Compass
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &6181925799898872319
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6181925801612641423}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 6181925799879125859}
+  m_Father: {fileID: 5996543594636723802}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -0.00080872, y: 0.00015926}
+  m_SizeDelta: {x: 797.29, y: 602.04}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &6181925801939007179
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 6181925801939007178}
+  - component: {fileID: 6181925801939007180}
+  - component: {fileID: 6181925801939007181}
   m_Layer: 5
   m_Name: CompassMarker
   m_TagString: Untagged
@@ -1135,18 +1170,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!224 &6132250262469782633
+--- !u!224 &6181925801939007178
 RectTransform:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6132250262469782630}
+  m_GameObject: {fileID: 6181925801939007179}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 6132250261816421068}
+  m_Father: {fileID: 6181925799879125859}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
@@ -1154,21 +1189,21 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 182}
   m_SizeDelta: {x: 40, y: 40}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!222 &6132250262469782635
+--- !u!222 &6181925801939007180
 CanvasRenderer:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6132250262469782630}
+  m_GameObject: {fileID: 6181925801939007179}
   m_CullTransparentMesh: 1
---- !u!114 &6132250262469782632
+--- !u!114 &6181925801939007181
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6132250262469782630}
+  m_GameObject: {fileID: 6181925801939007179}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
@@ -1192,39 +1227,3 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
---- !u!1 &6132250263159021409
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 6132250263159021408}
-  m_Layer: 5
-  m_Name: Compass
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!224 &6132250263159021408
-RectTransform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 6132250263159021409}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children:
-  - {fileID: 6132250261816421068}
-  m_Father: {fileID: 5996543594636723802}
-  m_RootOrder: 0
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
-  m_AnchorMin: {x: 0.5, y: 0.5}
-  m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -0.000030518, y: 0}
-  m_SizeDelta: {x: 735, y: 555}
-  m_Pivot: {x: 0.5, y: 0.5}

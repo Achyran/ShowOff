@@ -8,8 +8,6 @@ public class MarkerMaster : Master
 {
     public static MarkerMaster current;
 
-
-    public Compass compass;
     public override void Init()
     { 
         //Inicialising the static reference
@@ -23,21 +21,12 @@ public class MarkerMaster : Master
             Destroy(this);
         }
         
-        /*
-        compass = FindObjectOfType<Compass>();
-        if(compass == null)
-            Debug.Log("No compass found");
-        */
     }
 
 
     public override void ScenneStart()
     {
-        /*
-        compass = FindObjectOfType<Compass>();
-        if (compass = null)
-            Debug.LogError("No compass found in scene");
-        */
+        
     }
 
     public event Action<MarkerComponent> onActivate;
