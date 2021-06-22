@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,21 +7,38 @@ using UnityEngine.UI;
 public class Compass : MonoBehaviour
 {
     public RawImage compassImage;
-    public Transform mainCam;
+    private Transform mainCam;
 
     public Image objectiveMarker;
     private Vector2 markerPos;
 
     float compassUnit;
 
+	private void Awake()
+	{
+        if (MarkerMaster.current != null)
+        {
+            MarkerMaster.current.onActivate += SetCompassPosition;
+        }
+        else Debug.LogWarning("GameMaster wasn't up yet when compass was setting the marker, check script priority");
+
+        
+    }
 
 	private void Start()
 	{
+        mainCam = FindObjectOfType<Camera>().transform;
+
         compassUnit = compassImage.rectTransform.rect.width / 360f;
 
         if (mainCam == null)
-            Debug.LogError("Please set the main camera in the compass inspector");
-	}
+            Debug.LogWarning("Please set the main camera in the compass inspector");
+    }
+
+	private void SetCompassPosition(MarkerComponent marker)
+	{
+        markerPos = new Vector2(marker.gameObject.transform.position.x, marker.gameObject.transform.position.z);
+    }
 
 	// Update is called once per frame
 	void Update()
@@ -40,10 +58,11 @@ public class Compass : MonoBehaviour
         return new Vector2(compassUnit * angle, 0f);
     }
 
-    public void SetMarkerPos(MarkerComponent marker)
-    {
-        markerPos = new Vector2(marker.gameObject.transform.position.x, marker.gameObject.transform.position.z);
-        Debug.Log("asdnaosjcnoa");
-
+	private void OnDestroy()
+	{
+        if (MarkerMaster.current != null)
+        {
+            MarkerMaster.current.onActivate -= SetCompassPosition;
+        }
     }
 }
