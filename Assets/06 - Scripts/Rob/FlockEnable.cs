@@ -18,7 +18,7 @@ public class FlockEnable : MonoBehaviour
 
         if (FlockMaster != null)
         {
-            FlockMaster.enabled = false;
+            FlockMaster.gameObject.SetActive(false);
         } else
         {
             Debug.Log("Flockmaster is null");
@@ -36,7 +36,7 @@ public class FlockEnable : MonoBehaviour
     {
         if (FlockMaster != null)
         {
-            FlockMaster.enabled = true;
+            FlockMaster.gameObject.SetActive(true);
 
 
         }
