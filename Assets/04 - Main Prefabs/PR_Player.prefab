@@ -8335,7 +8335,6 @@ GameObject:
   - component: {fileID: 4399733587316557725}
   - component: {fileID: 1940957769900493213}
   - component: {fileID: 3910583320465612068}
-  - component: {fileID: 3681372442544654582}
   m_Layer: 0
   m_Name: Mira
   m_TagString: Untagged
@@ -8372,7 +8371,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ffa980c6ed76a54fb766dcfe5cb7b60, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rotateSpeed: 3
+  rotateSpeed: 2
   player: {fileID: 8733427276647160063}
 --- !u!95 &3910583320465612068
 Animator:
@@ -8393,20 +8392,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!136 &3681372442544654582
-CapsuleCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3910583320465612071}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  m_Radius: 44.3
-  m_Height: 243
-  m_Direction: 2
-  m_Center: {x: -0.8, y: 92.9, z: -23.9}
 --- !u!1 &3957751966289926774
 GameObject:
   m_ObjectHideFlags: 0
@@ -15910,7 +15895,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6914704021867304677}
-  m_LocalRotation: {x: -0.03318695, y: 0.5265837, z: 0.020578388, w: 0.849226}
+  m_LocalRotation: {x: -0.03318696, y: 0.5265833, z: 0.020578377, w: 0.84922624}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -15988,8 +15973,8 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6914704022082770843}
-  m_LocalRotation: {x: -0.038161755, y: 0.76812434, z: 0.045980662, w: 0.6375064}
-  m_LocalPosition: {x: -4.7377834, y: 0.78139114, z: 0.5636258}
+  m_LocalRotation: {x: -0.03816177, y: 0.76812416, z: 0.045980655, w: 0.63750666}
+  m_LocalPosition: {x: -4.737782, y: 0.78139114, z: 0.56362534}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 6914704023138384825}
@@ -16150,7 +16135,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6914704022426750028}
-  m_LocalRotation: {x: -0.048628453, y: 0.5261222, z: 0.030153269, w: 0.84848183}
+  m_LocalRotation: {x: -0.04862846, y: 0.526122, z: 0.03015325, w: 0.8484821}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16461,7 +16446,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6914704022887845116}
-  m_LocalRotation: {x: -0.064013146, y: 0.5254886, z: 0.03969294, w: 0.84746003}
+  m_LocalRotation: {x: -0.06401316, y: 0.52548826, z: 0.039692905, w: 0.84746027}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
@@ -16698,7 +16683,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6914704023578931169}
   m_LocalRotation: {x: -0, y: 0.31741956, z: -0, w: 0.94828516}
-  m_LocalPosition: {x: -4.7377834, y: 0.78139114, z: 0.5636258}
+  m_LocalPosition: {x: -4.737782, y: 0.78139114, z: 0.56362534}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 6914704021867304679}
@@ -16988,7 +16973,7 @@ GameObject:
   - component: {fileID: 655644578773123555}
   m_Layer: 0
   m_Name: PR_Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -18471,6 +18456,7 @@ GameObject:
   - component: {fileID: 8733427276647160000}
   - component: {fileID: 8733427276647160001}
   - component: {fileID: 3284673891287067888}
+  - component: {fileID: 1289627776614394576}
   m_Layer: 0
   m_Name: PlayerController
   m_TagString: Player
@@ -18557,6 +18543,19 @@ MonoBehaviour:
     serializedVersion: 2
     m_Bits: 2097152
   key: 101
+--- !u!135 &1289627776614394576
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8733427276647160002}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.81
+  m_Center: {x: -0.03, y: 0.78, z: 0.05}
 --- !u!1 &8733427277505708243
 GameObject:
   m_ObjectHideFlags: 0

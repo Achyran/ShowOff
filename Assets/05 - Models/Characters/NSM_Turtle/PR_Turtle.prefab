@@ -39,6 +39,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4883531356877585347}
+  - component: {fileID: 4879685042116934395}
   m_Layer: 0
   m_Name: Turtle
   m_TagString: Untagged
@@ -54,8 +55,8 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2109481009795249401}
   m_LocalRotation: {x: 0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -0.014183, y: 0, z: 0.0052414}
+  m_LocalScale: {x: 1.3012, y: 0.45044, z: 1.2131}
   m_Children:
   - {fileID: 748285002330753437}
   - {fileID: 93071108526485568}
@@ -63,6 +64,19 @@ Transform:
   m_Father: {fileID: 2689171595627771900}
   m_RootOrder: 2
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &4879685042116934395
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2109481009795249401}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &2182680360130214446
 GameObject:
   m_ObjectHideFlags: 0
@@ -196,7 +210,7 @@ GameObject:
   - component: {fileID: 2689171595627771900}
   - component: {fileID: 2511709161981612675}
   m_Layer: 0
-  m_Name: Turtle
+  m_Name: PR_Turtle
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -211,7 +225,7 @@ Transform:
   m_GameObject: {fileID: 3321980856859815238}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 41.88, y: 46.374, z: 165.85}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 10, y: 10, z: 10}
   m_Children:
   - {fileID: 3353742547516591940}
   - {fileID: 4873062298321831622}
