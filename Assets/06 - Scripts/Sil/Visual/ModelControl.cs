@@ -7,11 +7,19 @@ public class ModelControl : MonoBehaviour
     [Tooltip("The speed at which the model will rotate into the direction the player is moving")]
     [SerializeField]
     private float rotateSpeed;
-    public Transform player;
 
+    [SerializeField]
+    private Transform player;
 
-    //Modify this to look in to the velocety direction of the player
-    public void ModelUpdate(Vector3 translation, Vector3 position)
+    
+
+	private void Start()
+	{
+        
+	}
+
+	//Modify this to look in to the velocety direction of the player
+	public void ModelUpdate(Vector3 translation, Vector3 position)
     {
         Vector3 newDirection = Vector3.RotateTowards(transform.forward, translation, rotateSpeed * Time.deltaTime, 0.0f);
 
@@ -19,4 +27,9 @@ public class ModelControl : MonoBehaviour
 
         transform.position = position;
     }
+
+	private void Update()
+	{
+        player.rotation = transform.rotation;
+	}
 }
