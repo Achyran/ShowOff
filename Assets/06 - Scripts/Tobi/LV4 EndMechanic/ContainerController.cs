@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class ContainerController : MonoBehaviour
 {
     private ContainerGrab[] containers;
     private List<int> notDone;
     private int currenIndex;
+    [SerializeField]
+    private UnityEvent Done;
 
     private void Start()
     {
@@ -46,7 +49,12 @@ public class ContainerController : MonoBehaviour
     private void StartNext()
     { 
         int index = RandomIndex();
-        if (index == -1) return;
+        if (index == -1)
+        {
+            Done.Invoke();
+            Destroy(this);
+            return;
+        }
         currenIndex = notDone[index];
         containers[currenIndex].StartAnimation();
     }
