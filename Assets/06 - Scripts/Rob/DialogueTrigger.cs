@@ -54,35 +54,35 @@ public class DialogueTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-
-        
-        random = Random.Range(0, dialogueClips.Count);
-        chosenDialogue = dialogueClips[random];
-
-        audioSource.clip = chosenDialogue;
-           
-                
-        dialogueTMP.SetText(dialogueTexts[random]);
-
-        if (!audioSource.isPlaying)
+        if (other.gameObject.tag == "Player")
         {
-            audioSource.PlayOneShot(chosenDialogue);
+            random = Random.Range(0, dialogueClips.Count);
+            chosenDialogue = dialogueClips[random];
+
+            audioSource.clip = chosenDialogue;
+
+
+            dialogueTMP.SetText(dialogueTexts[random]);
+
+            if (!audioSource.isPlaying)
+            {
+                audioSource.PlayOneShot(chosenDialogue);
+            }
         }
-
-       
-
        // Debug.Log(dialogueTMP.text);
 
-      
 
     }
     private void OnTriggerExit(Collider other)
     {
-        if (DestroyAfterUse)
+        if (other.gameObject.tag == "Player")
         {
-            dialogueTMP.enabled = false;
+            if (DestroyAfterUse)
+            {
+                dialogueTMP.enabled = false;
 
-            Destroy(this);
+                Destroy(this);
+            }
         }
     }
 
