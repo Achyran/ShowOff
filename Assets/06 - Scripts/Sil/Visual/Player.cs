@@ -147,10 +147,8 @@ public class Player : MonoBehaviour
 		Vector3 translation = Vector3.zero;
 
 		// Translation
-		translation = GetInputTranslationDirection() * Time.deltaTime;
-
+		translation = GetInputTranslationDirection().normalized * Time.deltaTime;
 			
-
 		translation *= speed;
 
 		rigidBody.AddForce(translation);
