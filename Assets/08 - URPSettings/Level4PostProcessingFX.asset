@@ -16,13 +16,13 @@ MonoBehaviour:
   m_AdvancedMode: 0
   lift:
     m_OverrideState: 1
-    m_Value: {x: 0.62119174, y: 0.7158936, z: 1, w: 0}
+    m_Value: {x: 0.69854784, y: 0.72723645, z: 1, w: 0}
   gamma:
     m_OverrideState: 1
-    m_Value: {x: 1, y: 0.8658118, z: 0.71953607, w: 0}
+    m_Value: {x: 1, y: 0.746807, z: 0.64155173, w: 0}
   gain:
     m_OverrideState: 1
-    m_Value: {x: 0.58825856, y: 0.7389077, z: 1, w: 0}
+    m_Value: {x: 0.31149644, y: 0.561519, z: 1, w: 0}
 --- !u!114 &-4850978556392044130
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -95,7 +95,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: d7fd9488000d3734a9e00ee676215985, type: 3}
-  m_Name: SampleSceneProfile
+  m_Name: Level4PostProcessingFX
   m_EditorClassIdentifier: 
   components:
   - {fileID: 3142723794449980446}
@@ -119,15 +119,15 @@ MonoBehaviour:
   m_AdvancedMode: 0
   postExposure:
     m_OverrideState: 1
-    m_Value: 0.51
+    m_Value: 0.71
   contrast:
     m_OverrideState: 1
-    m_Value: 47.75
+    m_Value: -9
     min: -100
     max: 100
   colorFilter:
     m_OverrideState: 1
-    m_Value: {r: 0.4470588, g: 0.46738496, b: 1, a: 1}
+    m_Value: {r: 0.18396229, g: 0.21510878, b: 1, a: 1}
     hdr: 1
     showAlpha: 0
     showEyeDropper: 1
@@ -138,7 +138,7 @@ MonoBehaviour:
     max: 180
   saturation:
     m_OverrideState: 1
-    m_Value: 22
+    m_Value: 17
     min: -100
     max: 100
 --- !u!114 &841195136152408831
@@ -157,7 +157,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   intensity:
     m_OverrideState: 1
-    m_Value: 0.103
+    m_Value: 0.147
     min: 0
     max: 1
 --- !u!114 &3142723794449980446
@@ -176,7 +176,7 @@ MonoBehaviour:
   m_AdvancedMode: 0
   color:
     m_OverrideState: 1
-    m_Value: {r: 0, g: 0.5163934, b: 1, a: 1}
+    m_Value: {r: 0, g: 0.03418421, b: 0.066037714, a: 1}
     hdr: 0
     showAlpha: 0
     showEyeDropper: 1
@@ -185,12 +185,12 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.464
+    m_Value: 0.27
     min: 0
     max: 1
   smoothness:
     m_OverrideState: 1
-    m_Value: 0.709
+    m_Value: 0.43
     min: 0.01
     max: 1
   rounded:
