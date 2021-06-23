@@ -22,18 +22,20 @@ public class MarkerTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        if(newMarker != null)
+        if (other.gameObject.tag == "Player")
         {
+            if (newMarker != null)
+            {
 
-            newMarker.SetActive(true);
-        }
-        
+                newMarker.SetActive(true);
+            }
 
-        if(oldMarker != null)
-        {
-            oldMarker.SetActive(false);
+
+            if (oldMarker != null)
+            {
+                oldMarker.SetActive(false);
+            }
         }
-        
     }
 
     private void Update()
