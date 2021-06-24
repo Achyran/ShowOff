@@ -35,8 +35,8 @@ public class SpeciesInfoTool : MonoBehaviour
         info.image = image;
         info.UIText = UIText;
         info.UIimage = UIimage;
-        File.WriteAllText($"{Application.dataPath}/10 - Other assets/SpeciesInfoJson/{OutputName}.json", JsonUtility.ToJson(info));
-        Debug.Log($"Saved at {Application.dataPath}/10 - Other assets/SpeciesInfoJson/{OutputName}.json ");
+        File.WriteAllText($"{Application.dataPath}/Resources/Saves/{OutputName}.json", JsonUtility.ToJson(info));
+        Debug.Log($"Saved at {Application.dataPath}/Resources/Saves/{OutputName}.json ");
     }
 
     public void LoadInfo()
