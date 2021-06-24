@@ -32,7 +32,7 @@ public class JurnalBodged : MonoBehaviour
     }
     public void DisplayEmpty()
     {
-        title.text = "No Enty Unlocked ";
+        title.text = "No Entry Unlocked ";
         entry.text = "";
     }
 
