@@ -18,4 +18,12 @@ public class AudioMaster : MonoBehaviour
         }
     }
 
+    public void DisableAudio()
+    {
+        foreach (GameObject trigger in audios)
+        {
+            trigger.gameObject.SetActive(false);
+        }
+    }
+
 }

@@ -1,11 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
 public class LoadLvAfterFade : MonoBehaviour
 {
     [SerializeField]
     private Loader._Scenes scene;
+    [SerializeField]
+    private UnityEvent endTrigg;
+
     private Animation fadeout;
     private bool loade = false;
     void Start()
@@ -21,6 +25,7 @@ public class LoadLvAfterFade : MonoBehaviour
             loade = true;
         }else if (loade)
         {
+            endTrigg.Invoke();
             Loader.LoadeScene(scene);
         }
     }
