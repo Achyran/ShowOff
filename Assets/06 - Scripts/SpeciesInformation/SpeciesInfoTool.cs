@@ -44,11 +44,11 @@ public class SpeciesInfoTool : MonoBehaviour
         if(name != null && name != "" && name != "Progress")
         {
             string jsonString = "";
-            foreach(string file in Directory.GetFiles( $"{ Application.dataPath}/10 - Other assets/SpeciesInfoJson/"))
+            foreach(string file in Directory.GetFiles( $"{ Application.dataPath}/Resources/Saves/"))
             {
                 if (file.EndsWith($"{name}.json"))
                 {
-                    jsonString = File.ReadAllText($"{ Application.dataPath}/10 - Other assets/SpeciesInfoJson/{name}.json");
+                    jsonString = File.ReadAllText($"{ Application.dataPath}/Resources/Saves/{name}.json");
                     break;
                 }
             }
