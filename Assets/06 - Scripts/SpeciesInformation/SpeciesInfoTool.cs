@@ -35,8 +35,8 @@ public class SpeciesInfoTool : MonoBehaviour
         info.image = image;
         info.UIText = UIText;
         info.UIimage = UIimage;
-        File.WriteAllText($"{Application.dataPath}/10 - Other assets/SpeciesInfoJson/{OutputName}.json", JsonUtility.ToJson(info));
-        Debug.Log($"Saved at {Application.dataPath}/10 - Other assets/SpeciesInfoJson/{OutputName}.json ");
+        File.WriteAllText($"{Application.dataPath}/Resources/Saves/{OutputName}.json", JsonUtility.ToJson(info));
+        Debug.Log($"Saved at {Application.dataPath}/Resources/Saves/{OutputName}.json ");
     }
 
     public void LoadInfo()
@@ -44,11 +44,11 @@ public class SpeciesInfoTool : MonoBehaviour
         if(name != null && name != "" && name != "Progress")
         {
             string jsonString = "";
-            foreach(string file in Directory.GetFiles( $"{ Application.dataPath}/10 - Other assets/SpeciesInfoJson/"))
+            foreach(string file in Directory.GetFiles( $"{ Application.dataPath}/Resources/Saves/"))
             {
                 if (file.EndsWith($"{name}.json"))
                 {
-                    jsonString = File.ReadAllText($"{ Application.dataPath}/10 - Other assets/SpeciesInfoJson/{name}.json");
+                    jsonString = File.ReadAllText($"{ Application.dataPath}/Resources/Saves/{name}.json");
                     break;
                 }
             }
