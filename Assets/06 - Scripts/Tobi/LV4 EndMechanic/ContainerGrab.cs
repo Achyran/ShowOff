@@ -6,6 +6,9 @@ using UnityEngine;
 public class ContainerGrab : MonoBehaviour
 {
     [SerializeField]
+    Canvas explanationUI;
+
+    [SerializeField]
     private Animator animator;
     [SerializeField]
     float timeWindow;
@@ -14,6 +17,15 @@ public class ContainerGrab : MonoBehaviour
     public enum State { ready,running,done}
     public State state { get; private set; }
 
+
+
+    private void Start()
+    {
+        if(explanationUI != null)
+        {
+            explanationUI.enabled = false;
+        }
+    }
     public void StartEvaluation()
     {
         time = timeWindow;
@@ -38,11 +50,30 @@ public class ContainerGrab : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
-        if (Input.GetKeyDown(KeyCode.E))
+        if (Input.GetKeyDown(KeyCode.E) && isEvaluating)
         {
             isEvaluating = false;
             animator.SetTrigger("Connected");
         }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+
+        if (isEvaluating)
+        {
+            explanationUI.enabled = false;
+        }
+        
+    }
+    private void OnTriggerEnter(Collider other)
+    {
+        if (isEvaluating)
+        {
+            explanationUI.enabled = true;
+        }   
+       
+   
     }
 
     public void GotReset()

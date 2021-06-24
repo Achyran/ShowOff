@@ -21,7 +21,7 @@ public class TextTrigger : MonoBehaviour
     {
        
         canvasgroup.alpha = 0;
-
+        target.GetComponent<Canvas>().enabled = true;
         GameMaster.current.onInspectionStart += DisableText;
 
        
@@ -37,12 +37,23 @@ public class TextTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        canvasgroup.alpha = 1;
+        target.GetComponent<Canvas>().enabled = true;
+        if (canvasgroup.alpha == 0)
+        {
+            canvasgroup.alpha = 1;
+        }
+        
     }
 
     private void OnTriggerExit(Collider other)
     {
-        canvasgroup.alpha = 0;
+        
+
+        if (canvasgroup.alpha == 1)
+        {
+            canvasgroup.alpha = 0;
+        }
+
         if (destroyafteruse)
         {
 
