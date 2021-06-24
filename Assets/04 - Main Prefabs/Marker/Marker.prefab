@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 301652529080551262}
   - component: {fileID: 301652529080551263}
   - component: {fileID: 5359018896391241791}
+  - component: {fileID: 411024606}
   m_Layer: 24
   m_Name: Marker
   m_TagString: Untagged
@@ -94,6 +95,19 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 154501daf002ef64b8d000f57d29dcf6, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  delay: 25
+  delay: 45
   nextMarker: {fileID: 0}
-  isActiveAtStart: 1
+  isActiveAtStart: 0
+--- !u!65 &411024606
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 301652529080551234}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 15.92, y: 10.73, z: 18.11}
+  m_Center: {x: 0.00048828125, y: -0.00012207031, z: -0.000061035156}
