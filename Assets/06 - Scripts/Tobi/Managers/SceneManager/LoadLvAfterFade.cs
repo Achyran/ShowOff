@@ -24,4 +24,9 @@ public class LoadLvAfterFade : MonoBehaviour
             Loader.LoadeScene(scene);
         }
     }
+
+    public void StartAimation()
+    {
+        fadeout.Play();
+    }
 }
