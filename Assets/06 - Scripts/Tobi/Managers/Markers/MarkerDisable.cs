@@ -8,11 +8,11 @@ public class MarkerDisable : MonoBehaviour
     [SerializeField]
     GameObject target;
 
-    Renderer renderer;
+    Renderer target_renderer;
     // Start is called before the first frame update
     void Start()
     {
-        renderer = gameObject.GetComponent<Renderer>();
+        target_renderer = gameObject.GetComponent<Renderer>();
        GameMaster.current.onInspectionStart += DisableMarker;
     }
     
@@ -20,7 +20,7 @@ public class MarkerDisable : MonoBehaviour
     {
         if(obj == target)
         {
-            renderer.enabled = false;
+            target_renderer.enabled = false;
             Debug.Log("marker is disabled");
         }
     }

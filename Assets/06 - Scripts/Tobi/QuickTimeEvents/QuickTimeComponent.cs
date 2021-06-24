@@ -63,6 +63,7 @@ public class QuickTimeComponent : MonoBehaviour
         if(obj == this && _event.outcome == QuickTimeEvent.Outcome.ready)
         {
             _event.Start();
+            start.Invoke();
         }
     }
 

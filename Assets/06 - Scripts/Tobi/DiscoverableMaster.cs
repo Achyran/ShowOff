@@ -37,6 +37,7 @@ public class DiscoverableMaster : Master
     private void AddToDescoverdProgession(PosessionMovement obj)
     {
         DiscoverableComponent disCom = obj.GetComponent<DiscoverableComponent>();
+        Debug.Log("Discoverd");
         if (disCom != null && !progress.Contains(disCom.species))
         {
             if (!speciesToInfo.ContainsKey(disCom.species))

@@ -12,6 +12,7 @@ public class MarkerMasterQTTrigger : MakerMasterTirgger
 
     public void Triggered()
     {
+        Debug.Log("Calling Triggerd");
             maker.DestroyMarker();
             Destroy(this);
     }
