@@ -16,6 +16,9 @@ public class FadeTrigger : MonoBehaviour
     public bool Fadeout;
     public bool Fadein;
 
+    [SerializeField]
+    private bool locked = false;
+
     private void Start()
     {
        
@@ -25,9 +28,15 @@ public class FadeTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-         if(Fadeout)FadeOutAnimation.Play();
-         if(Fadein)FadeInAnimation.Play(); 
-       
+        if (!locked)
+        {
+            if (Fadeout) FadeOutAnimation.Play();
+            if (Fadein) FadeInAnimation.Play();
+        }
+    }
+    public void Unlock()
+    {
+        locked = false;
     }
 
 }
