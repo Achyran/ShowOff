@@ -15,9 +15,9 @@ public class ContainerMechanicTrigger : MonoBehaviour
     }
     private void OnTriggerEnter(Collider other)
     {
-        if(other.tag == "Player")
-        {
-            controller.enabled = true;
-        }
+       
+            
+      controller.enabled = true;
+        
     }
 }

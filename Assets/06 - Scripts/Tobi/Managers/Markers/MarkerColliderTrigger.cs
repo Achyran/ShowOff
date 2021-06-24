@@ -11,6 +11,7 @@ public class MarkerColliderTrigger : MakerMasterTirgger
     {
         Init();
         coll = GetComponent<BoxCollider>();
+       
         coll.isTrigger = true;
         coll.enabled = false;
         if (coll == null) Debug.Log($"Coll was null", this);
