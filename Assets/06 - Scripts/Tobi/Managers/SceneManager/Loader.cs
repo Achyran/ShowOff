@@ -15,7 +15,7 @@ public static class Loader
     //To add a nother and the name here
     public enum _Scenes
     {
-        TestLV1,TestLV3,TestLV2,Level1,EndScenePrototype,VisualReferenceLevel, Cinematic1, Cinematic2, LoadingScene,Empty
+        TestLV1,TestLV2,TestLV3,Level1,Level2,Level3,Level4,EndScenePrototype,VisualReferenceLevel,Cinematic1,Cinematic2,Cinematic3,Cinematic5,Cinematic4,LoadingScene,Empty
     }
     //Call to Start loading a Scene
     public static void LoadeScene(_Scenes scene)
