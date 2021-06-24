@@ -72,7 +72,6 @@ public class MarkerComponent : MonoBehaviour
             timer = delay;
             isActive = true;
         }
-        if (nextMarker != null) MarkerMaster.current.Activate(this);
     }
 
     public void DestroyMarker()
