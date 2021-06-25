@@ -18,10 +18,15 @@ public class DiscoverableTrigger : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
-        Debug.Log("Calling Discover");
+        //Debug.Log("Calling Discover");
         if(other.gameObject == GameMaster.current.player.gameObject)
         {
             DiscoverableMaster.current.AddToDisvcovered(species);
         }
+    }
+
+    public void Discover()
+    {
+        DiscoverableMaster.current.AddToDisvcovered(species);
     }
 }

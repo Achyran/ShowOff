@@ -30,7 +30,7 @@ public class DiscoverUI_Text : MonoBehaviour
 
     private void ShowDiscover(DiscoverableMaster.SpeciesInformation obj)
     {
-        Debug.Log("Show On UI");
+        //Debug.Log("Show On UI");
         _time = displayTime;
         display.SetText(obj.UIText);
     }

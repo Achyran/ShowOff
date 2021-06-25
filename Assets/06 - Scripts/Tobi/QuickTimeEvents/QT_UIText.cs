@@ -9,7 +9,7 @@ public class QT_UIText : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        Debug.Log("Starting UI Text");
+        //Debug.Log("Starting UI Text");
         display = GetComponent<TextMeshProUGUI>();
         display.SetText("");
         if (QuickTimeMaster.current != null)

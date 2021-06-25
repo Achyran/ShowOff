@@ -23,7 +23,7 @@ public class PlayerPosessionTrigger : MonoBehaviour
     {
         if (Input.GetKeyDown(key))
         {
-            Debug.Log($"Start check",this);
+            //Debug.Log($"Start check",this);
             Collider[] hitColliders = Physics.OverlapSphere(transform.position, dist, whatIsPosessable | whatIsInteracatbe);
             Debug.Log($"{hitColliders.Length} colliders found");
             if (hitColliders.Length > 0)

@@ -47,6 +47,7 @@ public class DiscoverableMaster : Master
             progress.Add(disCom.species);
             Discover(speciesToInfo[disCom.species]);
             if (GameMaster.current.debug) Debug.Log($"Added Species {disCom.species}");
+            SaveProgress();
         }
         
     }
@@ -65,6 +66,7 @@ public class DiscoverableMaster : Master
             progress.Add(disCom.species);
             Discover(speciesToInfo[disCom.species]);
             if (GameMaster.current.debug) Debug.Log($"Added Species {disCom.species}");
+            SaveProgress();
         }
     }
     public void AddToDisvcovered(Species species)
@@ -79,6 +81,7 @@ public class DiscoverableMaster : Master
             progress.Add(species);
             Discover(speciesToInfo[species]);
             if (GameMaster.current.debug) Debug.Log($"Added Species {species}");
+            SaveProgress();
         }
     }
 
@@ -122,11 +125,20 @@ public class DiscoverableMaster : Master
     private void LoadeProgress() 
     {
         progress = new List<Species>();
-        TextAsset jsonString =  Resources.Load<TextAsset>("Saves/Progress");
+
+        string path = null;
+
+#if UNITY_EDITOR
+        path = "Assets/Resources/Saves/Progress.json";
+#elif UNITY_STANDALONE
+
+        path = "ShowOfff_Data/Resources/Saves/Progress.json";
+#endif
+        string jsonString = File.ReadAllText(path);
         if (jsonString != null)
         {
             //string jsonStrig = File.ReadAllText(savePath);
-            progress = JsonUtility.FromJson<Progress>(jsonString.text).seenSpecies;
+            progress = JsonUtility.FromJson<Progress>(jsonString).seenSpecies;
         }
         else if(GameMaster.current.debug) Debug.Log("No discovery Saves Found");
 
@@ -146,7 +158,21 @@ public class DiscoverableMaster : Master
 
         path = "ShowOfff_Data/Resources/Saves/Progress.json";
 #endif
-        File.WriteAllText(path, jsonString);
+
+        string str = jsonString;
+        using (FileStream fs = new FileStream(path, FileMode.Create))
+        {
+            using (StreamWriter writer = new StreamWriter(fs))
+            {
+                writer.Write(str);
+            }
+        }
+#if UNITY_EDITOR
+        UnityEditor.AssetDatabase.Refresh();
+#endif
+
+
+        Debug.Log($"Saved File to {path}", this);
     }
 
 
@@ -166,7 +192,7 @@ public class DiscoverableMaster : Master
     //Saves progess at the start of the Scene
     public override void ScenneStart()
     {
-        SaveProgress();
+        LoadeProgress();
     }
 
     #endregion
